@@ -34,7 +34,7 @@
             <div class="col-xl-3 col-sm-6 mb-3">
               <div class="card text-white bg-gray o-hidden h-100">
 				<div>
-					<h5 class="analyticTitle">Partnered Agants</h5>
+					<h5 class="analyticTitle">Partnered Agents</h5>
 					<p class="analyticCount">214</p>
 				</div>
               </div>
@@ -610,6 +610,7 @@
         });
         jQuery('.datetimeLabel').hide();
         jQuery('.limitBtn').click(function(){
+          jQuery('.datetimeLabel').text('Select from date');
           jQuery(".datepicker-from").val('');
           jQuery(".datepicker-to").val('');
           jQuery('.datetimeLabel').show();
