@@ -1,0 +1,54 @@
+ul#myClassicTab {
+    border-bottom: 1px solid #000;
+}
+
+#myClassicTab .nav-link {
+    color: #000;
+}
+
+#myClassicTab .nav-link.active {
+    background: #abadafb0;
+}
+div#myClassicTabContent {
+    border: none !important;
+}
+
+#agentReferralClassicTab .nav-link.active {
+    background: #abadafb0;
+}
+ul#agentReferralClassicTab {
+    border-bottom: 1.2px solid #abadafb0;
+}
+ul#agentReferralClassicTab .nav-item {
+    border-right: 1.2px solid #abadafb0;
+}
+ul#agentReferralClassicTab .nav-item:last-child {
+    border-right: none;
+}
+ul#agentReferralClassicTab .nav-item a{
+    color: #000 !important;
+}
+
+#affiliateAgentClassicTab .nav-link.active {
+    background: #abadafb0;
+}
+ul#affiliateAgentClassicTab {
+    border-bottom: 1.2px solid #abadafb0;
+}
+ul#affiliateAgentClassicTab .nav-item {
+    border-right: 1.2px solid #abadafb0;
+}
+ul#affiliateAgentClassicTab .nav-item:last-child {
+    border-right: none;
+}
+ul#affiliateAgentClassicTab .nav-item a{
+    color: #000 !important;
+}
+
+th, td {
+    text-align: center;
+}
+.comingSoonImg{
+    margin: 50px auto 0;
+    display: block;
+}
