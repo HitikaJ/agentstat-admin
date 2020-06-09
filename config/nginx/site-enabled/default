@@ -1,0 +1,43 @@
+# add_header X-Frame-Options 'allow-from HTTP://LOCALHOST:8000/';
+# add_header Content-Security-Policy 'frame-ancestors localhost:8000'; 
+
+server {
+        add_header X-Frame-Options "ALLOW-FROM http://localhost:8000/";
+        add_header Content-Security-Policy "frame-ancestors localhost:8000";
+
+        listen 8082 default_server;
+        listen [::]:8082 default_server;
+
+
+
+        resolver 8.8.8.8;
+
+        location / {
+
+
+           proxy_set_header Host $http_host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+
+           index index.html;
+           alias /var/www/;
+           # try_files $uri $uri/index.html;
+
+        }
+        location /profile {
+            try_files $uri $uri/ /page-three.html?screen_name=$uri;
+        }
+
+        location /agents {
+            try_files $uri $uri/ /page-two-test.html?uri;
+        }
+
+        location /profile-settings {
+            try_files $uri $uri/ /form.html;
+        }
+
+        location /past-sales {
+            try_files $uri $uri/ /transaction.html;
+        }
+}
