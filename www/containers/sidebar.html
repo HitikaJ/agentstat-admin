@@ -74,7 +74,7 @@
 
 
         jQuery(".nav-link").on("click", function(){
-          var page = "www/"+jQuery(this).attr('page')+".html";
+          var page = jQuery(this).attr('page')+".html";
           jQuery("#page-container").load(page); 
           jQuery(".sidebar").find(".active").removeClass("active");
           jQuery(this).parent().addClass("active");
