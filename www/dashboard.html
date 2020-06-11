@@ -630,9 +630,16 @@
         }
         function showSelectedDates(){
           jQuery('.datetimeLabel').removeClass('moveRight').hide();
-          var toDate = dateFormat(jQuery(".datepicker-from").val());
-          var fromDate = dateFormat(jQuery(".datepicker-to").val());
-          jQuery('.limitBtn').text(toDate+' - '+fromDate);
+          var fromDate = dateFormat(jQuery(".datepicker-from").val());
+          var toDate = dateFormat(jQuery(".datepicker-to").val());
+
+          if (fromDate>toDate){
+            let temp = fromDate;
+            fromDate = toDate;
+            toDate = temp;
+          }
+
+          jQuery('.limitBtn').text(fromDate+' - '+toDate);
         }
 
         function dateFormat(d){

@@ -14,5 +14,7 @@ server {
            alias /var/www/;
            # try_files $uri $uri/index.html;
 
+           error_page 404 /index.html;
+
         }
 }
