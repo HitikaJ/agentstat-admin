@@ -1,7 +1,7 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
-
+Chart.defaults.global.legend.position='right';
 
 
 window.mobilecheck = function() {
@@ -10,33 +10,6 @@ window.mobilecheck = function() {
   return check;
 }
 
-if(window.mobilecheck){
-    // Pie Chart Example
-  var ctx = document.getElementById("myPieChart");
-  var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ["Agent Broker", "Lender", "Home Improvement", "Photographer", "Home Builder", "Home Inspector", "Home Appraiser", "Homeowner", "Buyer", "Other"],
-      datasets: [{
-        data: [20,15,5,10,4,6,5,15,5,15],
-        backgroundColor: ['#f73378', "#9c27b0", "#ee99fc", "#3d5afe", "#00e5ff", "#357a38", "#76ff03", "#ffea00", "#ffc107", "#f44336"],
-      }]
-    },
-    options: {
-          legend: {
-              display: false,
-              labels: {
-                  fontColor: '#000',
-          //boxWidth:50,
-          fontSize:14
-          //fontSize:'26px'
-          //fontWeight:700
-              }
-          }
-      }
-  });
-}
-else{
     // Pie Chart Example
   var ctx = document.getElementById("myPieChart");
   var myPieChart = new Chart(ctx, {
@@ -61,5 +34,5 @@ else{
           }
       }
   });
-}
+
 
