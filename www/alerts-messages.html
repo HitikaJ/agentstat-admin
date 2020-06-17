@@ -12,6 +12,10 @@
         <a class="nav-link waves-light" id="keywordAlerts-tab-classic" data-toggle="tab" href="#keywordAlerts-classic" role="tab"
           aria-controls="keywordAlerts-classic" aria-selected="false">Keyword Alerts</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" id="transactionEdits-tab-classic" data-toggle="tab" href="#transactionEdits-classic" role="tab"
+          aria-controls="transactionEdits-classic" aria-selected="false">Transaction Edits</a>
+      </li>
     </ul>
     <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
       <div class="tab-pane fade active show" id="profileDispute-classic" role="tabpanel" aria-labelledby="profileDispute-tab-classic">
@@ -350,6 +354,500 @@
                 </div>
               </div>
           </div>
+
+          <div class="tab-pane fade" id="transactionEdits-classic" role="tabpanel" aria-labelledby="transactionEdits-tab-classic">
+            <div class="classic-tabs">
+                <ul class="nav tabs-cyan" id="transactionEditsClassicTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link  waves-light active show" id="transactionEditsOpen-tab-classic" data-toggle="tab" href="#transactionEditsOpen-classic"
+                      role="tab" aria-controls="transactionEditsOpen-classic" aria-selected="true">Open</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link waves-light" id="transactionEditsClosed-tab-classic" data-toggle="tab" href="#transactionEditsClosed-classic" role="tab"
+                      aria-controls="transactionEditsClosed-classic" aria-selected="false">Closed</a>
+                  </li>
+                  
+                </ul>
+                <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+                  <div class="tab-pane fade active show" id="transactionEditsOpen-classic" role="tabpanel" aria-labelledby="transactionEditsOpen-tab-classic">
+                    <!-- keywordAlertsOpendataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="transactionEditsOpendataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+
+
+                        <div class="row transactionEditsInfo">
+                            <img class="transactionEdits-backIcon" src="./assets/icons/double-left.png" />
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile"> <span class="float-right">February 5th, 2020</span></div>
+                                </div>
+      
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Type: </h6><span> Edit</span></div>
+                                </div>
+      
+                              </div>
+                            </div>
+                            
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  <h6 class="profileTitle">Current Transaction</h6>
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                </div>
+                
+                
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Street Address : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  123 Main st
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Unit # : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  City : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seattle
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  State : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  WA
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Zipcode : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  98109
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Property Type : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Single Family
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Represented : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seller
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  02/02/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  3/21/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Notes : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+      
+                              </div>
+                            </div>
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  <h6 class="profileTitle">Proposed Edits</h6>
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                </div>
+                
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Street Address : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  123 Main st
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Unit # : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  City : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seattle
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  State : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  WA
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Zipcode : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  98109
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Property Type : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Single Family
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Represented : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seller
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  02/02/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  3/20/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Notes : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  This is a note they added-edits are highlighted red
+                                </div>
+                
+                                
+                              </div>
+                            </div>
+      
+                            <div class="col-12 custom-col">
+                              <div class="col-6">
+                                <button type="button" class="btn btn-primary btn-lg accept-btn">Accept</button>
+                              </div>
+                              <div class="col-6">
+                                <button type="button" class="btn btn-secondary btn-lg decline-btn" data-toggle="modal" data-target="#myModal">Decline</button>
+
+
+                                <div id="myModal" class="modal fade" role="dialog">
+                                  <div class="modal-dialog">
+                                
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        
+                                        <h5 class="modal-title">Decline Transaction Edit</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>1. Reason for decline (This gets emailed to the agent)</p>
+                                        <div class="form-group">
+                                          <textarea class="form-control" rows="7"></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default  btn-lg decline-btn modal-decline-btn" data-dismiss="modal">Decline</button>
+                                      </div>
+                                    </div>
+                                
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+                              </div>
+                            </div>
+                            
+      
+                          </div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+                    
+
+
+
+
+                  </div>
+                  <div class="tab-pane fade" id="transactionEditsClosed-classic" role="tabpanel" aria-labelledby="transactionEditsClosed-tab-classic">
+                    <!-- keywordAlertsCloseddataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="transactionEditsCloseddataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+
+
+                        <div class="row closedtransactionEditsInfo">
+                            <img class="closedtransactionEditsInfo-backIcon" src="./assets/icons/double-left.png" />
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile"><span class="float-right">February 5th, 2020</span></div>
+                                </div>
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Type: </h6><span> Edit</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile float-right"><h6>Decided by: </h6><span> Anna</span></div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    <h6 class="profileTitle">Current Transaction</h6>
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  </div>
+                  
+                  
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Street Address : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    123 Main st
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Unit # : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    City : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seattle
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    State : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    WA
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Zipcode : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    98109
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Property Type : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Single Family
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Represented : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seller
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    02/02/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    3/21/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Notes : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    <h6 class="profileTitle">Proposed Edits</h6>
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  </div>
+                  
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Street Address : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    123 Main st
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Unit # : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    City : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seattle
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    State : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    WA
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Zipcode : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    98109
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Property Type : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Single Family
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Represented : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seller
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    02/02/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    3/20/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Notes : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    This is a note they added-edits are highlighted red
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6"></div>
+                                <div class="col-xl-6 col-sm-12 mb-6 favorOfSection">
+                                  <span class="profileTitle">
+                                    Decision : 
+                                  </span>
+                                  <span>Accepted</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+          </div>
+
 	  </div>
 	  
 
@@ -368,6 +866,9 @@
 
       jQuery('.profileDisputeInfo').hide();
       jQuery('.closedProfileDisputeInfo').hide();
+
+      jQuery('.transactionEditsInfo').hide();
+      jQuery('.closedtransactionEditsInfo').hide();
       
         var dataSet = [
             [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh"],
@@ -447,6 +948,46 @@
         });
 
 
+        var transactionEditsOpe = [
+            [ "01/20/2020","John Doe", "Edit", "26 Hours"],
+            [ "01/24/2020","Bob Jones", "Edit", "2 Hours"],
+            [ "01/28/2020","Terry Smith", "New", "30 Hours"],
+            [ "01/29/2020","Craig Walker", "New", "34 Hours"],
+        ];
+        jQuery('#transactionEditsOpendataTable').DataTable( {
+            data: transactionEditsOpe,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            columns: [
+                { title: "Date" },
+                { title: "Agent Profile" },
+                { title: "Type" },
+                { title: "Decision Deadline" },
+            ]
+        });
+
+        var transactionEditsCloseddataSet = [
+            [ "01/20/2020","John Doe", "Edit", "Accepted", "Anna"],
+            [ "01/24/2020","Bob Jones", "Edit", "Accepted", "Anna"],
+            [ "01/28/2020","Terry Smith", "New", "Declined", "Anna"],
+            [ "01/29/2020","Craig Walker", "New", "Accepted", "Anna"],
+        ];
+        jQuery('#transactionEditsCloseddataTable').DataTable({
+            data: transactionEditsCloseddataSet,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            columns: [
+                { title: "Date" },
+                { title: "Agent Profile" },
+                { title: "Type" },
+                { title: "Decision" },
+                { title: "Decided By" },
+            ]
+        });
+
+
 
       jQuery('#profileDisputeOpendataTable').on( 'click', 'tr', function () {
         /*if ( jQuery(this).hasClass('selected') ) {
@@ -478,5 +1019,51 @@
         jQuery('.closedProfileDisputeInfo').hide();
       });
 
+
+
+
+      jQuery('#transactionEditsOpendataTable').on( 'click', 'tr', function () {
+        jQuery('.transactionEditsInfo').show();
+        jQuery("#transactionEditsOpendataTable").parent().hide(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").hide();
+      });
+      jQuery('.transactionEdits-backIcon').on( 'click', function () {
+        jQuery("#transactionEditsOpendataTable").parent().show(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").show();
+        jQuery('.transactionEditsInfo').hide();
+      });
+
+      jQuery('#transactionEditsCloseddataTable').on( 'click', 'tr', function () {
+        jQuery('.closedtransactionEditsInfo').show();
+        jQuery("#transactionEditsCloseddataTable").parent().hide(); 
+        jQuery("#transactionEditsCloseddataTable_wrapper").hide();
+      });
+      jQuery('.closedtransactionEditsInfo-backIcon').on( 'click', function () {
+        jQuery("#transactionEditsCloseddataTable").parent().show(); 
+        jQuery("#transactionEditsCloseddataTable_wrapper").show();
+        jQuery('.closedtransactionEditsInfo').hide();
+      });
+
+
+      jQuery('.accept-btn').on('click', function(){
+        acceptDecline();
+      });
+
+
+      jQuery('.modal-decline-btn').on('click', function(){
+        acceptDecline();
+      });
+
+
+
+
     });
+
+    function acceptDecline(){
+        jQuery('#transactionEditsClosed-tab-classic').tab('show');
+        jQuery("#transactionEditsOpendataTable").parent().show(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").show();
+        jQuery('.transactionEditsInfo').hide();
+    }
+
 </script>
