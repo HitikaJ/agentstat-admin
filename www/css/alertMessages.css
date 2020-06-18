@@ -38,12 +38,11 @@ ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #
 
 .profileTitle {
     font-weight: 700;
-    font-size: 18px;
-    margin: 5px 0;
 }
 h6.profileTitle {
     text-decoration: underline;
     margin: 15px 0;
+    font-size: 18px;
 }
 
 .agentProfile > span {
@@ -118,4 +117,9 @@ h6.profileTitle {
 .modal-footer{
     display: block;
     text-align: center;
+}
+.closedProfileDisputeInfo .col-xl-6.col-sm-12.mb-6, .profileDisputeInfo .col-xl-6.col-sm-12.mb-6{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
