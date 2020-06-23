@@ -181,17 +181,17 @@
 <script>
     jQuery(document).ready(function() {
         var dataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422",  "$170,750","<i class='fas fa-file-pdf'></i>"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
-            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "5421", "Edinburgh", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "Edinburgh", "5421",  "$170,750","<i class='fas fa-file-pdf'></i>"],
+            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "Edinburgh", "5421",  "$86,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "Edinburgh", "5421",  "$433,060","<i class='fas fa-file-pdf'></i>"],
+            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "5407", "Edinburgh", "5421",  "$162,700","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "Edinburgh", "5421", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "Edinburgh", "5421", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "Edinburgh", "5421",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "Edinburgh", "5421", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "Edinburgh", "5421", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "Edinburgh", "5421",  "$327,900","<i class='fas fa-file-pdf'></i>"],
             
         ];
         jQuery('#agentReferreddataTable,#affiliateReferreddataTable').DataTable( {
@@ -204,24 +204,26 @@
                 { title: "Client Name" },
                 { title: "Agent Name" },
                 { title: "Type" },
-                { title: "City" },
-                { title: "State" },
+                { title: "From (City)" },
+                { title: "From (State)" },
+                { title: "To (City)" },
+                { title: "To (State)" },
                 { title: "Ref. Agr."}
             ]
         });
 
         var agentListeddataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
-            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "Edinburgh", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800", "Edinburgh", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
+            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "Edinburgh", "$320,800", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "Edinburgh", "$320,800", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
+            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "5407", "Edinburgh", "$320,800",  "$162,700","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "Edinburgh", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "Edinburgh", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "Edinburgh", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "Edinburgh", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "Edinburgh", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "Edinburgh", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
             
         ];
         jQuery('#agentListeddataTable, #affiliateListeddataTable').DataTable( {
@@ -235,24 +237,26 @@
                 { title: "Agent Name" },
                 { title: "Price" },
                 { title: "Street Address" },
-                { title: "city" },
-                { title: "State" },
-                { title: "Ref. Agr."}
+                { title: "From (City)" },
+                { title: "From (State)" },
+                { title: "To (City)" },
+                { title: "To (State)" },
+                { title: "Ref. Agr."},
             ]
         });
 
         var agentCloseddataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "$320,800", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800", "$320,800", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "$320,800", "$320,800", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "$320,800", "$320,800", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
-            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "$320,800", "$320,800", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
+            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
+            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "$320,800", "$320,800", "Edinburgh", "$320,800", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "$320,800", "Edinburgh", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "Edinburgh", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
             
         ];
         jQuery('#agentcloseddataTable,#affiliatecloseddataTable').DataTable( {
@@ -268,24 +272,26 @@
                 { title: "Sale Price" },
                 { title: "DOM" },
                 { title: "Street Address" },
-                { title: "city" },
-                { title: "State" },
+                { title: "From (City)" },
+                { title: "From (State)" },
+                { title: "To (City)" },
+                { title: "To (State)" },
                 { title: "Ref. Agr."}
             ]
         });
 
         var agentFaileddataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "$320,800", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "$320,800", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
-            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "$320,800", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
-            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
-            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "$320,800", "Edinburgh", "$320,800", "$320,800", "5421", "$320,800","<i class='fas fa-file-pdf'></i>"],
+            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "8422", "$320,800", "Edinburgh", "$320,800", "$320,800",  "$170,750","<i class='fas fa-file-pdf'></i>"],
+            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "$320,800", "Edinburgh", "$320,800", "$320,800", "1562",  "$86,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "$320,800", "Edinburgh", "$320,800", "$320,800", "6224",  "$433,060","<i class='fas fa-file-pdf'></i>"],
+            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo", "$320,800", "Edinburgh", "$320,800", "$320,800", "5407",  "$162,700","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "Edinburgh", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "Edinburgh", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "Edinburgh", "$320,800", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/12/02","Brielle Williamson", "Integration Specialist", "New York", "$320,800", "Edinburgh", "$320,800", "$320,800", "4804",  "$372,000","<i class='fas fa-file-pdf'></i>"],
+            [ "2012/08/06","Herrod Chandler", "Sales Assistant", "San Francisco", "$320,800", "Edinburgh", "$320,800", "$320,800", "9608", "$137,500","<i class='fas fa-file-pdf'></i>"],
+            [ "2010/10/14", "Rhona Davidson", "Integration Specialist", "Tokyo", "$320,800", "Edinburgh", "$320,800", "$320,800", "6200",  "$327,900","<i class='fas fa-file-pdf'></i>"],
             
         ];
         jQuery('#agentFaileddataTable, #affiliateFaileddataTable').DataTable({
@@ -300,8 +306,10 @@
                 { title: "List Price" },
                 { title: "DOM" },
                 { title: "Street Address" },
-                { title: "city" },
-                { title: "State" },
+                { title: "From (City)" },
+                { title: "From (State)" },
+                { title: "To (City)" },
+                { title: "To (State)" },
                 { title: "Ref. Agr."}
             ]
         });
