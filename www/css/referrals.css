@@ -52,3 +52,15 @@ th, td {
     margin: 50px auto 0;
     display: block;
 }
+table#agentReferreddataTable tr td,table#affiliateReferreddataTable tr td,table#affiliatecloseddataTable tr td,
+table#affiliateFaileddataTable tr td{
+    width: 10%;
+    height: 25px;
+}
+table#agentListeddataTable tr td ,table#agentFaileddataTable tr td
+{
+    width: 15%;
+}
+table#agentcloseddataTable tr td {
+    width: unset;
+}

@@ -1,5 +1,6 @@
-<div class="container-fluid">
-	<h4 class="pageTitle">Alerts/ Messages </h4>
+<div class="container-fluid no-padding">
+
+	<h4 class="pageTitle ">Alerts/ Messages </h4>
 
     <!-- Classic tabs -->
 <div class="classic-tabs">
@@ -96,15 +97,19 @@
 									Photo Id : 
 								</div>
 								<div class="col-xl-6 col-sm-12 mb-6">
-									<img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image" />
+									<a class="fancybox-button" rel="fancybox-button" href="./assets/images/drivers-license.jpg">
+<img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
 								</div>
+
 								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
 									RE License :
 								</div>
 								<div class="col-xl-6 col-sm-12 mb-6">
-									<img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image" />
+									<a class="fancybox-button" rel="fancybox-button" href="./assets/images/drivers-license.jpg">
+<img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
 								</div>
 							</div>
+
 						</div>
 						<div class="col-xl-6 col-sm-12 mb-6 border-solid">
 							<div class="row">
@@ -153,7 +158,18 @@
 								</div>
 							</div>
 						</div>
+
 						<div class="col-xl-12 col-sm-12 mb-12 border-solid">
+              <div class="row border-bottom">
+                <div class="col-xl-4 col-sm-12 mb-6 bottom-text">
+                    <p><b>Decided In Favor of: </b>Desputte</p>
+                </div>
+                <div class="col-xl-8 col-sm-12 mb-6 bottom-text">
+                      <p> <b> Reason:</b> This is the text that the support tech gave for assigning this account to the disputee</p>
+                </div>
+                
+              </div>
+
 							<div class="row">
 								<div class="col-xl-3 col-sm-6 mb-3"></div>
 								<div class="col-xl-3 col-sm-6">
@@ -871,10 +887,17 @@
       jQuery('.closedtransactionEditsInfo').hide();
       
         var dataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh"],
+            [ "1/20/2020","John Doe", "Disputee", "2 Hours", "26 hours"],
+            [ "1/24/2020","Bob Jones", "Disputee", "0 hours", "2 Hours"],
+            [ "1/28/2020","Terry Smith", "Both", "6 Hours", "30 Hours"],
+            [ "1/29/2020","Craig Walker", "Both", "10 Hours","34 Hours"],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+
         ];
         jQuery('#profileDisputeOpendataTable').DataTable( {
             data: dataSet,
@@ -883,9 +906,10 @@
             "bSort":false,
             columns: [
                 { title: "Dispute Date" },
-                { title: "Agent Profile" },
-                { title: "Decided By" },
-                { title: "Proof Provided By" }
+                { title: "Agent Profile" }, 
+                { title: "Proof Provided By" },
+                { title: "Proof Deadline" },
+                { title: "Decision Deadline" }
             ]
         });
 
@@ -895,25 +919,38 @@
             [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco"],
             [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh"],
             [ "2008/11/28","Airi Satou", "Accountant", "Tokyo"],
-
-        ];
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+];
         jQuery('#profileDisputeCloseddataTable').DataTable( {
             data: profileDisputeCloseddataSet,
             "bLengthChange": false,
             "bFilter": false,
             "bSort":false,
             columns: [
-				{ title: "Dispute Date" },
+                { title: "Dispute Date" },
                 { title: "Agent Profile" },
-                { title: "Decided By" },
+                { title: "Decided By"},
                 { title: "Decision Favors" }
             ]
         });
 
         var keywordAlertsOpe = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh", "<button class='markDoneBtn'>Mark Closed</button>"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo", "<button class='markDoneBtn'>Mark Closed</button>"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco", "<button class='markDoneBtn'>Mark Closed</button>"],
+            [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn'>Mark Closed</button>"],
+            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here", "<button class='markDoneBtn'>Mark Closed</button>"],
+            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "<button class='markDoneBtn'>Mark Closed</button>"],
+             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "<button class='markDoneBtn'>Mark Closed</button>"],
+            [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+
         ];
         jQuery('#keywordAlertsOpendataTable').DataTable( {
             data: keywordAlertsOpe,
@@ -953,6 +990,12 @@
             [ "01/24/2020","Bob Jones", "Edit", "2 Hours"],
             [ "01/28/2020","Terry Smith", "New", "30 Hours"],
             [ "01/29/2020","Craig Walker", "New", "34 Hours"],
+             [ " "," ", " ", " "],
+              [ " "," ", " ", " "],
+               [ " "," ", " ", " "],
+                [ " "," ", " ", " "],
+                 [ " "," ", " ", " "],
+                  [ " "," ", " ", " "],
         ];
         jQuery('#transactionEditsOpendataTable').DataTable( {
             data: transactionEditsOpe,
@@ -972,6 +1015,12 @@
             [ "01/24/2020","Bob Jones", "Edit", "Accepted", "Anna"],
             [ "01/28/2020","Terry Smith", "New", "Declined", "Anna"],
             [ "01/29/2020","Craig Walker", "New", "Accepted", "Anna"],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
         ];
         jQuery('#transactionEditsCloseddataTable').DataTable({
             data: transactionEditsCloseddataSet,
@@ -1066,4 +1115,15 @@
         jQuery('.transactionEditsInfo').hide();
     }
 
+jQuery(document).ready(function() {
+  jQuery(".fancybox-button").fancybox({
+    prevEffect    : 'none',
+    nextEffect    : 'none',
+    closeBtn    : false,
+    helpers   : {
+      title : { type : 'inside' },
+      buttons : {}
+    }
+  });
+});
 </script>

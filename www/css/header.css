@@ -60,6 +60,7 @@ a#userDropdown > .fa-user-circle {
 .sidebar {
     background-color: #4a4d51b0;
     min-height: calc(100vh - 70px);
+    height: 100%;
 }
 .sidebar li.nav-item:first-child {
     border-top: none;
@@ -104,7 +105,16 @@ a#userDropdown > .fa-user-circle {
 #wrapper #content-wrapper{
     padding-bottom: 0 !important;
 }
-
+#myClassicTab .nav-link {
+    padding: 0.5rem 3rem;
+    font-weight: 500;
+}
+.nav-link {
+   padding: .5rem 3rem;
+}
+div#header {
+    width: 100%;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     /*.sidebar .nav-link span {display: none !important;}*/

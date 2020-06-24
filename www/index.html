@@ -85,10 +85,10 @@
 	  jQuery("#header").load("containers/header.html");
     jQuery("#sidebar").load("containers/sidebar.html");
 
-    if (typeof (history.pushState) != "undefined") {
+    /*if (typeof (history.pushState) != "undefined") {
         var obj = { Page: "dashboard", Url: "dashboard.html" };
         history.pushState(obj, obj.Page, obj.Page);
-    }
+    }*/
 
 	  jQuery("#page-container").load("dashboard.html");
 	  //jQuery("#footer").load("containers/footer.html");

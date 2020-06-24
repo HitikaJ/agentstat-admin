@@ -13,6 +13,7 @@ ul#profileDisputeClassicTab .nav-item:last-child, #keywordAlertsClassicTab .nav-
 ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #transactionEditsClassicTab .nav-item a
 {
     color: #000 !important;
+    font-weight: 500;
 }
 
 .markDoneBtn{
@@ -122,4 +123,24 @@ h6.profileTitle {
     font-size: 18px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    width: 20%;
+    height: 25px;
+    
+}
+.no-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.bottom-text p {
+    padding: 30px 16px;
+    margin-bottom: 0px;
+}
+.border-bottom {
+    border-bottom: 2px solid black !important;
+}
+table#profileDisputeOpendataTable tr td ,table#transactionEditsOpendataTable tr td,
+table#transactionEditsCloseddataTable tr td{
+    cursor: pointer;
 }
