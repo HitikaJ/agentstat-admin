@@ -198,16 +198,17 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort":false,
-            columns: [
-                { title: "Referral Date" },
-                { title: "Client Name" },
-                { title: "Agent Name" },
-                { title: "Type" },
-                { title: "From (City)" },
-                { title: "From (State)" },
-                { title: "To (City)" },
-                { title: "To (State)" },
-                { title: "Ref. Agr."}
+            bAutoWidth: false, 
+            aoColumns : [
+              { title: "Referral Date", sWidth: '15%' },
+              { title: "Client Name", sWidth: '20%' },
+              { title: "Agent Name", sWidth: '20%' },
+              { title: "Type", sWidth: '10%' },
+              { title: "From (City)", sWidth: '10%' },
+              { title: "From (State)", sWidth: '5%' },
+              { title: "To (City)", sWidth: "10%" },
+              { title: "To (State)", sWidth: "5%" },
+              { title: "Ref. Agr.", sWidth: "5%"}
             ]
         });
 
@@ -231,15 +232,16 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort":false,
-            columns: [
-                { title: "Listed Date" },
-                { title: "Client Name" },
-                { title: "Agent Name" },
-                { title: "Price" },
-                { title: "Street Address" },
-                { title: "From (City)" },
-                { title: "From (State)" },
-                { title: "Ref. Agr."},
+            bAutoWidth: false, 
+            aoColumns: [
+                { title: "Listed Date", sWidth: '10%' },
+                { title: "Client Name", sWidth: '20%' },
+                { title: "Agent Name", sWidth: '20%' },
+                { title: "Price", sWidth: '5%' },
+                { title: "Street Address", sWidth: '25%' },
+                { title: "City", sWidth: '10%' },
+                { title: "State", sWidth: '5%' },
+                { title: "Ref. Agr.", sWidth: '5%' },
             ]
         });
 
@@ -262,18 +264,19 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort":false,
-            columns: [
-                { title: "Listed Date" },
-                { title: "Client Name" },
-                { title: "Agent Name" },
-                { title: "List Price" },
-                { title: "Sale Price" },
-                { title: "DOM" },
-                { title: "Street Address" },
-                { title: "From (City)" },
-                { title: "From (State)" },
-                { title: "Ref. Agr."}
-            ]
+            bAutoWidth: false, 
+            aoColumns: [
+                { title: "Listed Date", sWidth: '10%' },
+                { title: "Client Name", sWidth: '15%' },
+                { title: "Agent Name", sWidth: '15%' },
+                { title: "List Price", sWidth: '10%' },
+                { title: "Sale Price", sWidth: '10%' },
+                { title: "DOM", sWidth: '5%' },
+                { title: "Street Address", sWidth: '20%' },
+                { title: "City", sWidth: '5%' },
+                { title: "State", sWidth: '5%' },
+                { title: "Ref. Agr.", sWidth: '5%' }
+        ]
         });
 
         var agentFaileddataSet = [
@@ -294,16 +297,17 @@
             "bLengthChange": false,
             "bFilter": false,
             "bSort":false,
+            bAutoWidth: false, 
             columns: [
-                { title: "Listed Date" },
-                { title: "Client Name" },
-                { title: "Agent Name" },
-                { title: "List Price" },
-                { title: "DOM" },
-                { title: "Street Address" },
-                { title: "From (City)" },
-                { title: "From (State)" },
-                { title: "Ref. Agr."}
+                { title: "Listed Date", sWidth: '10%'},
+                { title: "Client Name", sWidth: '15%'},
+                { title: "Agent Name", sWidth: '15%'},
+                { title: "List Price", sWidth: '15%'},
+                { title: "DOM", sWidth: '5%'},
+                { title: "Street Address", sWidth: '20%'},
+                { title: "City", sWidth: '10%'},
+                { title: "State", sWidth: '5%'},
+                { title: "Ref. Agr.", sWidth: '5%'}
             ]
         });
     });

@@ -23,6 +23,7 @@ ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #
     font-size: 16px;
     font-weight: 700;
     box-shadow: none;
+    cursor: pointer;
 }
 .border-solid {
     border: 1px solid;
@@ -34,7 +35,7 @@ ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #
     font-size: 18px;
 }
 .agentProfile {
-    padding: 10px 0;
+    padding: 10px 0 0;
 }
 
 .profileTitle {
@@ -65,6 +66,7 @@ h6.profileTitle {
     padding: 12px;
     font-size: 18px;
     font-weight: 600;
+    cursor: pointer;
 }
 .favorDBtn{
     background: cornflowerblue;
@@ -76,6 +78,7 @@ h6.profileTitle {
     box-sizing: border-box;
     width: 185px;
     margin-top: 5px;
+    cursor: pointer;
 }
 .backIcon,.closedProfileDisputeInfo-backIcon, .transactionEdits-backIcon,.closedtransactionEditsInfo-backIcon{
     margin: 15px;
@@ -83,6 +86,7 @@ h6.profileTitle {
     border: 1px solid;
     border-radius: 50%;
     padding: 1px;
+    cursor: pointer;
 }
 .favorOfSection {
     padding: 15px;
@@ -124,17 +128,17 @@ h6.profileTitle {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+/*table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
     width: 20%;
     height: 25px;
     
-}
+}*/
 .no-padding {
     padding-left: 0px;
     padding-right: 0px;
 }
 .bottom-text p {
-    padding: 30px 16px;
+    padding: 5px 16px 5px;
     margin-bottom: 0px;
 }
 .border-bottom {
@@ -144,3 +148,27 @@ table#profileDisputeOpendataTable tr td ,table#transactionEditsOpendataTable tr 
 table#transactionEditsCloseddataTable tr td{
     cursor: pointer;
 }
+a.fancybox-button {
+    position: relative;
+    width: 185px;
+    height: auto;
+    padding: 0;
+    background: transparent;
+}
+
+.float-right-am {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin: 5px;
+    line-height: 28px;
+}
+.float-right-am h6{
+    display: inline-block;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/*.profileDisputeInfo,.closedProfileDisputeInfo,.transactionEditsInfo,.closedtransactionEditsInfo{
+    display: none;
+}*/

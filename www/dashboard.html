@@ -600,26 +600,31 @@
 
     <script>
       jQuery(document).ready(function(){
-        
+       
+        jQuery('.limitBtn').click(function(){
+          jQuery('.datetimeLabel').text('Select from date');
+          jQuery(".datepicker-from").val(null);
+          jQuery(".datepicker-to").val(null);
+          jQuery('.datetimeLabel').show();
+          jQuery(".datepicker-from").datepicker('show');
+          //alert(jQuery(".datepicker-from").val());
+          jQuery('.datepicker-to').reset();
+        });
+
         jQuery('.datepicker-from').datepicker({
             format: 'mm/dd/yyyy',
             onSelect:openAnotherDatePicker,
         });
         jQuery('.datetimeLabel').hide();
-        jQuery('.limitBtn').click(function(){
-          jQuery('.datetimeLabel').text('Select from date');
-          jQuery(".datepicker-from").val('');
-          jQuery(".datepicker-to").val('');
-          jQuery('.datetimeLabel').show();
-          jQuery(".datepicker-from").datepicker('show');
-        });
-
+  
         function openAnotherDatePicker(){
+          var min = jQuery(".datepicker-from").val();
+          //alert(min);
           setTimeout(()=>{
             jQuery('.datetimeLabel').text('Select to date').addClass('moveRight');
             jQuery('.datepicker-to').datepicker({
               format: 'mm/dd/yyyy',
-              minDate:jQuery(".datepicker-from").val(),
+              minDate: min,
               onSelect:showSelectedDates
             });
             jQuery(".datepicker-to").datepicker('show');

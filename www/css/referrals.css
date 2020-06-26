@@ -19,10 +19,12 @@ div#myClassicTabContent {
 ul#agentReferralClassicTab {
     border-bottom: 1.2px solid #abadafb0;
 }
-ul#agentReferralClassicTab .nav-item {
+/*ul#agentReferralClassicTab .nav-item {*/
+.classic-tabs .nav-item{
     border-right: 1.2px solid #abadafb0;
 }
-ul#agentReferralClassicTab .nav-item:last-child {
+/* ul#agentReferralClassicTab .nav-item:last-child { */
+.classic-tabs  .nav-item:last-child {
     border-right: none;
 }
 ul#agentReferralClassicTab .nav-item a{
@@ -54,13 +56,18 @@ th, td {
 }
 table#agentReferreddataTable tr td,table#affiliateReferreddataTable tr td,table#affiliatecloseddataTable tr td,
 table#affiliateFaileddataTable tr td{
-    width: 10%;
-    height: 25px;
+    /*width: 10%;
+    height: 25px;*/
 }
 table#agentListeddataTable tr td ,table#agentFaileddataTable tr td
 {
-    width: 15%;
+    /*width: 15%;*/
 }
 table#agentcloseddataTable tr td {
-    width: unset;
+    /*width: unset;*/
+  
+}
+.fa-file-pdf{
+    cursor: pointer;
+    font-size:18px;
 }

@@ -76,10 +76,10 @@
 
           if(jQuery(this).attr('page') != undefined){
 
-           /* if (typeof (history.pushState) != "undefined") {
+           if (typeof (history.pushState) != "undefined") {
                 var obj = { Page: jQuery(this).attr('page'), Url: jQuery(this).attr('page')+".html" };
                 history.pushState(obj, obj.Page, obj.Page);
-            }*/
+            }
 
             var page = jQuery(this).attr('page')+".html";
             jQuery("#page-container").load(page);

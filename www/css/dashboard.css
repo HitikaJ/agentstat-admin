@@ -46,6 +46,7 @@ button.refreshDtn {
     font-size: 12px;
     padding: 5px 15px;
     letter-spacing: 0.5px;
+    cursor: pointer;
 }
 button.limitBtn {
     background: rgb(49, 190, 212);
@@ -55,7 +56,8 @@ button.limitBtn {
     font-size: 12px;
     padding: 5px 15px;
     letter-spacing: 0.5px;
-	font-weight:600;
+    font-weight:600;
+    cursor: pointer;
 }
 .top-Btns {
     text-align: right;
