@@ -9,6 +9,7 @@
 .analyticCount{
     font-size: 36px;
     font-weight: 700;
+    margin-bottom: 0;
 }
 .analyticTitle{
 	font-weight: 700;
@@ -58,6 +59,7 @@ button.limitBtn {
     letter-spacing: 0.5px;
     font-weight:600;
     cursor: pointer;
+    margin-right: 15px;
 }
 .top-Btns {
     text-align: right;
@@ -84,4 +86,20 @@ label.datetimeLabel {
 }
 .moveRight{
     margin-left: 41% !important;
+}
+
+.card-body {
+    padding: 1rem !important;
+}
+
+.card-body-icon {
+    z-index: 0;
+    opacity: 0.4;
+    font-size: 5rem;
+    transform: none;
+    font-size: 50px;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    transition: all .3s linear;
 }

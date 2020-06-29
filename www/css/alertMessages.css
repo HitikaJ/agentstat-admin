@@ -144,7 +144,7 @@ h6.profileTitle {
 .border-bottom {
     border-bottom: 2px solid black !important;
 }
-table#profileDisputeOpendataTable tr td ,table#transactionEditsOpendataTable tr td,
+table#profileDisputeOpendataTable tr td ,table#profileDisputeCloseddataTable tr td ,table#transactionEditsOpendataTable tr td,
 table#transactionEditsCloseddataTable tr td{
     cursor: pointer;
 }
