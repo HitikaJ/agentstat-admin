@@ -166,17 +166,16 @@
 								<div class="col-xl-3 col-sm-6 mb-3"></div>
 								<div class="col-xl-3 col-sm-6">
 									<div>
-										<button class="favorCOBtn">In favor of Current Owner</button>
+										<button class="favorCOBtn" data-toggle="modal" data-target="#favorCOBtnModal">In favor of Current Owner</button>
 									</div>
 								</div>
 								<div class="col-xl-3 col-sm-6">
-									<button class="favorDBtn">In favor of Disputee</button>
+									<button class="favorDBtn" data-toggle="modal" data-target="#favorDBtnModal">In favor of Disputee</button>
 								</div>
 								<div class="col-xl-3 col-sm-6 mb-3"></div>
 							</div>
 						</div>
 					</div>
-
 
                     </div>
                 </div>
@@ -313,10 +312,10 @@
                       <div class="col-xl-12 col-sm-12 mb-12 favorOfSection">
                         <div class="row">
                           <div class="col-xl-4 col-sm-12 mb-6 bottom-text text-left">
-                              <p><b>Decided In Favor of: </b>Desputte</p>
+                              <p><b>Decided In Favor of: </b>Desputee</p>
                           </div>
                           <div class="col-xl-8 col-sm-12 mb-6 bottom-text text-right">
-                                <p> <b> Reason:</b> This is the text that the support tech gave for assigning this account to the disputee</p>
+                                <p> <b> Reason:</b> <span class="closedReason">This is the text that the support tech gave for assigning this account to the disputee</span></p>
                           </div>
                           
                         </div>
@@ -591,54 +590,15 @@
                               </div>
                               <div class="col-6">
                                 <button type="button" class="btn btn-secondary btn-lg decline-btn" data-toggle="modal" data-target="#myModal">Decline</button>
-
-
-                                <div id="myModal" class="modal fade" role="dialog">
-                                  <div class="modal-dialog">
                                 
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        
-                                        <h5 class="modal-title">Decline Transaction Edit</h5>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <p>1. Reason for decline (This gets emailed to the agent)</p>
-                                        <div class="form-group">
-                                          <textarea class="form-control" rows="7"></textarea>
-                                        </div>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default  btn-lg decline-btn modal-decline-btn" data-dismiss="modal">Decline</button>
-                                      </div>
-                                    </div>
-                                
-                                  </div>
-                                </div>
-
-
-
-
-
-
-
                               </div>
                             </div>
                             
       
                           </div>
 
-
-
-
                         </div>
                     </div>
-
-
-                    
-
-
 
 
                   </div>
@@ -849,34 +809,124 @@
                               </div>
                             </div>
                           </div>
-
-
-
-
-
-
-
                         </div>
                     </div>
-
-
-
                   </div>
                 </div>
               </div>
           </div>
-
 	  </div>
-	  
-
-
-      
     </div>
   </div>
   <!-- Classic tabs -->
 </div>
 <!-- /.container-fluid -->
 
+
+<!-- The Modal -->
+<div class="modal" id="favorCOBtnModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">In favor of Current Owner</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Reason for choosing to give this profile to the current owner</p>
+        <textarea class="getReasoncurOwn getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info completegetReasoncurOwn" data-dismiss="modal">Complete</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="favorDBtnModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">In favor of Disputee</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Reason for choosing to give this profile to the disputee</p>
+        <textarea class="getReasondisputee getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info completgetReasondisputee" data-dismiss="modal">Complete</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="markCloseModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Close Keyword Alert</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Quick description of your solution (IE: "Accepted keyword, it was in the correct context", or "Declined, seller was cussing out the seller for being unreasonable")</p>
+        <textarea class="markCloseDescription getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info markCloseBtn" data-dismiss="modal">Close Alert</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Decline Transaction Edit</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>1. Reason for decline (This gets emailed to the agent)</p>
+        <div class="form-group">
+          <textarea class="form-control getReason" rows="7"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default  btn-lg decline-btn modal-decline-btn" data-dismiss="modal">Decline</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script src="./js/jquery.fancybox.js"></script>
 <script>
@@ -943,10 +993,10 @@
         });
 
         var keywordAlertsOpe = [
-            [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn'>Mark Closed</button>"],
-            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here", "<button class='markDoneBtn'>Mark Closed</button>"],
-            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "<button class='markDoneBtn'>Mark Closed</button>"],
-             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "<button class='markDoneBtn'>Mark Closed</button>"],
+            [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
             [ " "," ", " ", " ", " "],
              [ " "," ", " ", " ", " "],
              [ " "," ", " ", " ", " "],
@@ -1122,7 +1172,15 @@
       });
 
 
+      jQuery('.completegetReasoncurOwn').on('click',function(){
+        jQuery('.closedReason').html(jQuery('.getReasoncurOwn').val());
+      });
 
+      jQuery('.completgetReasondisputee').on('click',function(){
+        jQuery('.closedReason').html(jQuery('.getReasondisputee').val());
+      });
+
+      
 
     });
 

@@ -31,7 +31,12 @@ window.mobilecheck = function() {
           //fontSize:'26px'
           //fontWeight:700
               }
-          }
+          },
+          elements: {
+            arc: {
+                borderWidth: 0
+            }
+        }
       }
   });
 
