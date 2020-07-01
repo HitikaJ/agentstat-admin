@@ -6,7 +6,9 @@
 			</div>
 			<div class="col-xl-4 col-sm-6 mb-4 top-Btns">
 				<button class="refreshDtn"><span><i class="fas fa-sync"></i></span> REFRESH</button>
-        <button class="limitBtn">April 17, 2020 - April 24, 2020</button>
+        <!--<button class="limitBtn">April 17, 2020 - April 24, 2020</button>-->
+        <input type="text" class="limitBtn" name="daterange" value="April 17, 2020 - April 24, 2020" />
+
         <div class="row">
           <div class="col-xl-12 col-sm-12 mb-12 ">
             <label class="datetimeLabel" >Select from date : </label>
@@ -643,61 +645,18 @@
     <script src="./js/jQuery-ui.js"></script>
     <script src="./js/date.min.js"></script>
 
+  
     <script>
       jQuery(document).ready(function(){
-       
-        jQuery('.limitBtn').click(function(){
-          jQuery('.datetimeLabel').text('Select from date');
-          jQuery(".datepicker-from").val(null);
-          jQuery(".datepicker-to").val(null);
-          jQuery('.datetimeLabel').show();
-          jQuery(".datepicker-from").datepicker('show');
-          //alert(jQuery(".datepicker-from").val());
-          jQuery('.datepicker-to').reset();
+        $(function() {
+          $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'MMMM DD, YYYY'
+            }
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          });
         });
-
-        jQuery('.datepicker-from').datepicker({
-            format: 'mm/dd/yyyy',
-            onSelect:openAnotherDatePicker,
-        });
-        jQuery('.datetimeLabel').hide();
-  
-        function openAnotherDatePicker(){
-          var min = jQuery(".datepicker-from").val();
-          //alert(min);
-          setTimeout(()=>{
-            jQuery('.datetimeLabel').text('Select to date').addClass('moveRight');
-            jQuery('.datepicker-to').datepicker({
-              format: 'mm/dd/yyyy',
-              minDate: min,
-              onSelect:showSelectedDates
-            });
-            jQuery(".datepicker-to").datepicker('show');
-          },500);
-        }
-        function showSelectedDates(){
-          jQuery('.datetimeLabel').removeClass('moveRight').hide();
-          var fromDate = dateFormat(jQuery(".datepicker-from").val());
-          var toDate = dateFormat(jQuery(".datepicker-to").val());
-
-          if (fromDate>toDate){
-            let temp = fromDate;
-            fromDate = toDate;
-            toDate = temp;
-          }
-
-          jQuery('.limitBtn').text(fromDate+' - '+toDate);
-        }
-
-        function dateFormat(d){
-          var monthNames = ["January", "February", "March", "April", "May", "Jun",
-            "July", "August", "September", "Octomber", "November", "December"
-          ];
-
-          var date = new Date(d)
-          date.setDate(date.getDate())
-          date = monthNames[date.getMonth()]+" "+date.getDate()+","+date.getFullYear();
-          return date;
-        }
       }); 
     </script>

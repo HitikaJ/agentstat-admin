@@ -49,7 +49,7 @@ button.refreshDtn {
     letter-spacing: 0.5px;
     cursor: pointer;
 }
-button.limitBtn {
+.limitBtn {
     background: rgb(49, 190, 212);
     border-color: rgb(49, 190, 212);
     color: #fff;
@@ -60,6 +60,8 @@ button.limitBtn {
     font-weight:600;
     cursor: pointer;
     margin-right: 15px;
+    width: 250px;
+    text-align: center;
 }
 .top-Btns {
     text-align: right;
