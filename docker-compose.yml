@@ -1,17 +1,26 @@
 version: '3'
 
 services:
-    web:
+#   web:
+#       build: .
+#       volumes:
+#           - ./www:/www
+#
+#   web-server:
+#       image: nginx
+#       volumes:
+#           - ./config/nginx/site-enabled/default:/etc/nginx/conf.d/default.conf
+#           - ./www:/var/www
+#       depends_on:
+#           - web
+#       ports:
+#           - 9001:8082
+#
+    admin:
         build: .
         volumes:
-            - ./www:/www
-
-    web-server:
-        image: nginx
-        volumes:
-            - ./config/nginx/site-enabled/default:/etc/nginx/conf.d/default.conf
-            - ./www:/var/www
-        depends_on:
-            - web
+            - ./codes:/home/web/codes
         ports:
-            - 9001:8082
+            - 9001:8000
+        command: bash -c "/usr/local/bin/gunicorn --bind :8000 --timeout 999 --workers 8 --env DJANGO_SETTINGS_MODULE=admin.settings  admin.wsgi:application"
+

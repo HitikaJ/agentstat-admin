@@ -1,0 +1,77 @@
+<div class="container-fluid no-padding">
+	<h4 class="pageTitle">Administration</h4>
+
+    <!-- Classic tabs -->
+<div class="classic-tabs">
+    <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link  waves-light active show" id="keywordAlerts-tab-classic" data-toggle="tab" href="#keywordAlerts-classic"
+          role="tab" aria-controls="keywordAlerts-classic" aria-selected="true">Keyword Alerts</a>
+      </li>
+    </ul>
+    <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+      <div class="tab-pane fade active show" id="keywordAlerts-classic" role="tabpanel" aria-labelledby="keywordAlerts-tab-classic">
+		<div class="col-xl-6 col-sm-12 mb-6">
+			<form id="addkeyword-form">
+				<div class="form-group">
+					<input type="text" id="keyword" class="form-control" placeholder='Enter keyword or phrase to flag, and click "Enter" to submit.'  required="required">
+				</div>
+				<a class="btn btn-primary btn-block" href="index.html" hidden>Login</a>
+			</form>
+			
+			<div class="card card-keyWordAlerts mx-auto mt-5">
+				<div class="card-body keywords">
+					
+				</div>
+			</div>
+		</div>
+	  </div>    
+    </div>
+  </div>
+  <!-- Classic tabs -->   
+
+</div>
+<!-- /.container-fluid -->
+
+<script>
+	jQuery(document).ready(function(){
+		var keywords = [];
+		jQuery("#addkeyword-form").submit(function(e){
+			e.preventDefault();
+			if(jQuery("#keyword").val() == '')
+			{
+				alert('Please enter keyword and then submit.');
+			}
+			else{
+				//alert(jQuery("#keyword").val());
+				keywords.push(jQuery("#keyword").val());
+			}
+			
+			addkeywordBtns();
+		});
+
+		function addkeywordBtns()
+		{
+			var html = '<div class="row">';
+			
+			keywords.forEach(element => {
+				//jQuery('<button>'+element+'</button>').appendTo("#keywords");
+				html += '<div class="col-xl-6 col-sm-12 mb-6">';
+				html += '<button class="keywordBtn">'+element+'<span class="removeKeyword"><i class="fas fa-times "></i></span></button>';
+				html += '</div>';
+			});
+			html += '</div>';
+			jQuery(".keywords").html(html);
+			var btn = 
+			jQuery(".removeKeyword").on('click',function(){
+				var keyword = jQuery(this).parent().text();
+				keywords = jQuery.grep(keywords, function(value) {
+					return value != keyword;
+				});
+				//jQuery(this).hide();
+				addkeywordBtns();
+			});
+			jQuery("#keyword").val('');
+		}
+	});
+</script>
