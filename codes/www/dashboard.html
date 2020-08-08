@@ -6,11 +6,21 @@
 			<div class="col-xl-8 col-sm-6 mb-8">
 				<h4 class="pageTitle">Dashboard</h4>
 			</div>
-			<div class="col-xl-4 col-sm-6 mb-4 top-Btns">
+			<div class="col-xl-2 col-sm-3 mb-2 top-Btns">
 				<button class="refreshDtn"><span><i class="fas fa-sync"></i></span> REFRESH</button>
         <!--<button class="limitBtn">April 17, 2020 - April 24, 2020</button>-->
-        <input type="text" class="limitBtn" name="daterange" value="April 17, 2020 - April 24, 2020" />
+        <!-- <input type="text" class="limitBtn" name="daterange" value="April 17, 2020 - April 24, 2020" /> -->
 			</div>
+      <div class="col-xl-2 col-sm-3 mb-2 top-Btns" style="padding-right: 20px;">
+        <select id="date-filter" class="form-control">
+          <option value="" {% if date_filter == '' %} selected {%endif%}>----</option>
+          <option value="last-7-days" {% if date_filter == 'last-7-days' %} selected {%endif%} >Last 7 days</option>
+          <option value="last-30-days" {% if date_filter == 'last-30-days' %} selected {%endif%} >Last 30 days</option>
+          <option value="this-month" {% if date_filter == 'this-month' %} selected {%endif%} >This Month</option>
+          <option value="last-month" {% if date_filter == 'last-month' %} selected {%endif%} >Last Month</option>
+          <option value="year-to-date" {% if date_filter == 'year-to-date' %} selected {%endif%}  >Year to Date</option>
+        </select>
+      </div>
     </div>
 </div>
 <div class="container">
@@ -178,6 +188,12 @@
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
           });
         });
+
+        $('#date-filter').on('change', function() {
+          var date_filter = $(this).val();
+          window.location = '/?date-filter=' + date_filter
+        });
+
       }); 
     </script>
 {% endblock %}
