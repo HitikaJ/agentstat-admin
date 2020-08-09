@@ -1,0 +1,1205 @@
+<div class="container-fluid no-padding">
+
+	<h4 class="pageTitle ">Alerts/ Messages </h4>
+
+    <!-- Classic tabs -->
+<div class="classic-tabs">
+    <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link  waves-light active show" id="profileDispute-tab-classic" data-toggle="tab" href="#profileDispute-classic"
+          role="tab" aria-controls="profileDispute-classic" aria-selected="true">Profile Disputes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" id="keywordAlerts-tab-classic" data-toggle="tab" href="#keywordAlerts-classic" role="tab"
+          aria-controls="keywordAlerts-classic" aria-selected="false">Keyword Alerts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" id="transactionEdits-tab-classic" data-toggle="tab" href="#transactionEdits-classic" role="tab"
+          aria-controls="transactionEdits-classic" aria-selected="false">Transaction Edits</a>
+      </li>
+    </ul>
+    <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+      <div class="tab-pane fade active show" id="profileDispute-classic" role="tabpanel" aria-labelledby="profileDispute-tab-classic">
+       
+        
+        <div class="classic-tabs">
+            <ul class="nav tabs-cyan" id="profileDisputeClassicTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link  waves-light active show" id="profileDisputeOpen-tab-classic" data-toggle="tab" href="#profileDisputeOpen-classic"
+                  role="tab" aria-controls="profileDisputeOpen-classic" aria-selected="true">Open</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-light" id="profileDisputeClosed-tab-classic" data-toggle="tab" href="#profileDisputeClosed-classic" role="tab"
+                  aria-controls="profileDisputeClosed-classic" aria-selected="false">Closed</a>
+              </li>
+            </ul>
+            <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+              <div class="tab-pane fade active show" id="profileDisputeOpen-classic" role="tabpanel" aria-labelledby="profileDisputeOpen-tab-classic">
+                
+
+                <!-- profileDisputeOpendataTable DataTables -->
+                <div class="mb-3 profileDisputeInfoTable">
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="profileDisputeOpendataTable" width="100%" cellspacing="0">
+                            
+                        </table>
+					      </div>
+					
+					
+					<div class="row profileDisputeInfo" style="display: none;">
+            <img class="backIcon" src="./assets/icons/double-left.png" />
+						<div class="col-xl-12 col-sm-12 mb-12 border-solid">
+							<div class="row">
+								<div class="col-xl-8 col-sm-12 mb-8">
+									<div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+								</div>
+								<div class="col-xl-4">
+									<div class="agentProfile"> <span class="float-right-am">February 5th, 2020</span></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-xl-6 col-sm-12 mb-6 border-solid">
+							<div class="row">
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<h6 class="profileTitle">Current Owner</h6>
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+								</div>
+
+
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Username : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									Sample USername
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Password : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									User12345!#
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Email : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									agent@realestate.com
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Phone Number : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									53434-3434234
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Photo Id : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                    <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+								</div>
+
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									RE License :
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                    <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-xl-6 col-sm-12 mb-6 border-solid">
+							<div class="row">
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<h6 class="profileTitle">Disputee</h6>
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+								</div>
+
+
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Username : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									Sample USername
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Password : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									User12345!#
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Email : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									agent@realestate.com
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Phone Number : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									53434-3434234
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									Photo Id : 
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                    <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+									RE License :
+								</div>
+								<div class="col-xl-6 col-sm-12 mb-6">
+									<a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                    <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-12 col-sm-12 mb-12 border-solid">
+							<div class="row">
+								<div class="col-xl-3 col-sm-6 mb-3"></div>
+								<div class="col-xl-3 col-sm-6">
+									<div>
+										<button class="favorCOBtn" data-toggle="modal" data-target="#favorCOBtnModal">In favor of Current Owner</button>
+									</div>
+								</div>
+								<div class="col-xl-3 col-sm-6">
+									<button class="favorDBtn" data-toggle="modal" data-target="#favorDBtnModal">In favor of Disputee</button>
+								</div>
+								<div class="col-xl-3 col-sm-6 mb-3"></div>
+							</div>
+						</div>
+					</div>
+
+                    </div>
+                </div>
+
+
+              </div>
+              <div class="tab-pane fade" id="profileDisputeClosed-classic" role="tabpanel" aria-labelledby="profileDisputeClosed-tab-classic">
+                <!-- profileDisputeCloseddataTable DataTables -->
+                <div class="mb-3">
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="profileDisputeCloseddataTable" width="100%" cellspacing="0">
+                            
+                        </table>
+                    </div>
+                    
+
+
+                <div class="row closedProfileDisputeInfo" style="display: none;">
+                  <img class="closedProfileDisputeInfo-backIcon" src="./assets/icons/double-left.png" />
+                  <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                    <div class="row">
+                      <div class="col-xl-8 col-sm-12 mb-8">
+                        <div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+                      </div>
+                      <div class="col-xl-4">
+                        <div class="agentProfile"> <span class="float-right-am">February 5th, 2020</span>
+                        </div>
+                        <div class="agentProfile"><span class="float-right-am"><h6>Decided By: </h6><span> Anna</span></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                    <div class="row">
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <h6 class="profileTitle">Current Owner</h6>
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                      </div>
+      
+      
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Username : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        Sample USername
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Password : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        User12345!#
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Email : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        agent@realestate.com
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Phone Number : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        53434-3434234
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Photo Id : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                          <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        RE License :
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                          <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                    <div class="row">
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <h6 class="profileTitle">Disputee</h6>
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                      </div>
+      
+      
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Username : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        Sample USername
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Password : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        User12345!#
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Email : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        agent@realestate.com
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Phone Number : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        53434-3434234
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        Photo Id : 
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                          <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                        RE License :
+                      </div>
+                      <div class="col-xl-6 col-sm-12 mb-6">
+                        <a class="fancybox-button" href="./assets/images/drivers-license.jpg">
+                          <img class="licenseImg" src="./assets/images/drivers-license.jpg" alt="sample image"></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                    <div class="row">
+                      <div class="col-xl-12 col-sm-12 mb-12 favorOfSection">
+                        <div class="row">
+                          <div class="col-xl-4 col-sm-12 mb-6 bottom-text text-left">
+                              <p><b>Decided In Favor of: </b>Desputee</p>
+                          </div>
+                          <div class="col-xl-8 col-sm-12 mb-6 bottom-text text-right">
+                                <p> <b> Reason:</b> <span class="closedReason">This is the text that the support tech gave for assigning this account to the disputee</span></p>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="keywordAlerts-classic" role="tabpanel" aria-labelledby="keywordAlerts-tab-classic">
+            <div class="classic-tabs">
+                <ul class="nav tabs-cyan" id="keywordAlertsClassicTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link  waves-light active show" id="keywordAlertsOpen-tab-classic" data-toggle="tab" href="#keywordAlertsOpen-classic"
+                      role="tab" aria-controls="keywordAlertsOpen-classic" aria-selected="true">Open</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link waves-light" id="keywordAlertsClosed-tab-classic" data-toggle="tab" href="#keywordAlertsClosed-classic" role="tab"
+                      aria-controls="keywordAlertsClosed-classic" aria-selected="false">Closed</a>
+                  </li>
+                  
+                </ul>
+                <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+                  <div class="tab-pane fade active show" id="keywordAlertsOpen-classic" role="tabpanel" aria-labelledby="keywordAlertsOpen-tab-classic">
+                    <!-- keywordAlertsOpendataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="keywordAlertsOpendataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="keywordAlertsClosed-classic" role="tabpanel" aria-labelledby="keywordAlertsClosed-tab-classic">
+                    <!-- keywordAlertsCloseddataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="keywordAlertsCloseddataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="tab-pane fade" id="transactionEdits-classic" role="tabpanel" aria-labelledby="transactionEdits-tab-classic">
+            <div class="classic-tabs">
+                <ul class="nav tabs-cyan" id="transactionEditsClassicTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link  waves-light active show" id="transactionEditsOpen-tab-classic" data-toggle="tab" href="#transactionEditsOpen-classic"
+                      role="tab" aria-controls="transactionEditsOpen-classic" aria-selected="true">Open</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link waves-light" id="transactionEditsClosed-tab-classic" data-toggle="tab" href="#transactionEditsClosed-classic" role="tab"
+                      aria-controls="transactionEditsClosed-classic" aria-selected="false">Closed</a>
+                  </li>
+                  
+                </ul>
+                <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+                  <div class="tab-pane fade active show" id="transactionEditsOpen-classic" role="tabpanel" aria-labelledby="transactionEditsOpen-tab-classic">
+                    <!-- keywordAlertsOpendataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="transactionEditsOpendataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+
+
+                        <div class="row transactionEditsInfo" style="display: none;">
+                            <img class="transactionEdits-backIcon" src="./assets/icons/double-left.png" />
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile"> <span class="float-right-am">February 5th, 2020</span></div>
+                                </div>
+      
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Type: </h6><span> Edit</span></div>
+                                </div>
+      
+                              </div>
+                            </div>
+                            
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  <h6 class="profileTitle">Current Transaction</h6>
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                </div>
+                
+                
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Street Address : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  123 Main st
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Unit # : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  City : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seattle
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  State : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  WA
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Zipcode : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  98109
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Property Type : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Single Family
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Represented : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seller
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  02/02/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  3/21/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Notes : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+      
+                              </div>
+                            </div>
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  <h6 class="profileTitle">Proposed Edits</h6>
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                </div>
+                
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Street Address : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  123 Main st
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Unit # : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  -
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  City : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seattle
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  State : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  WA
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Zipcode : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  98109
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Property Type : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Single Family
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Represented : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  Seller
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  02/02/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Date : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  3/20/2020
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  List Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Sold Price : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  $420,000
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  Notes : 
+                                </div>
+                                <div class="col-xl-6 col-sm-12 mb-6">
+                                  This is a note they added-edits are highlighted red
+                                </div>
+                
+                                
+                              </div>
+                            </div>
+      
+                            <div class="col-12 custom-col">
+                              <div class="col-6">
+                                <button type="button" class="btn btn-primary btn-lg accept-btn">Accept</button>
+                              </div>
+                              <div class="col-6">
+                                <button type="button" class="btn btn-secondary btn-lg decline-btn" data-toggle="modal" data-target="#myModal">Decline</button>
+                                
+                              </div>
+                            </div>
+                            
+      
+                          </div>
+
+                        </div>
+                    </div>
+
+
+                  </div>
+                  <div class="tab-pane fade" id="transactionEditsClosed-classic" role="tabpanel" aria-labelledby="transactionEditsClosed-tab-classic">
+                    <!-- keywordAlertsCloseddataTable DataTables -->
+                    <div class="mb-3">
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="transactionEditsCloseddataTable" width="100%" cellspacing="0">
+                                
+                            </table>
+                        </div>
+
+
+                        <div class="row closedtransactionEditsInfo" style="display: none;">
+                            <img class="closedtransactionEditsInfo-backIcon" src="./assets/icons/double-left.png" />
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Agent Profile: </h6><span> John Doe</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile"><span class="float-right-am">February 5th, 2020</span></div>
+                                </div>
+                                <div class="col-xl-8 col-sm-12 mb-8">
+                                  <div class="agentProfile"><h6>Type: </h6><span> Edit</span></div>
+                                </div>
+                                <div class="col-xl-4">
+                                  <div class="agentProfile"><span class="float-right-am"><h6>Decided By: </h6><span> Anna</span></span></div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    <h6 class="profileTitle">Current Transaction</h6>
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  </div>
+                  
+                  
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Street Address : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    123 Main st
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Unit # : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    City : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seattle
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    State : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    WA
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Zipcode : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    98109
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Property Type : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Single Family
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Represented : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seller
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    02/02/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    3/21/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Notes : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-6 col-sm-12 mb-6 border-solid">
+                              <div class="row">
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    <h6 class="profileTitle">Proposed Edits</h6>
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                  </div>
+                  
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Street Address : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    123 Main st
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Unit # : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    -
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    City : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seattle
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    State : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    WA
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Zipcode : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    98109
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Property Type : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Single Family
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Represented : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    Seller
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    02/02/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Date : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    3/20/2020
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    List Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Sold Price : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    $420,000
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                                    Notes : 
+                                  </div>
+                                  <div class="col-xl-6 col-sm-12 mb-6">
+                                    This is a note they added-edits are highlighted red
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-xl-12 col-sm-12 mb-12 border-solid">
+                              <div class="row">
+                                <div class="col-xl-6 col-sm-12 mb-6"></div>
+                                <div class="col-xl-6 col-sm-12 mb-6 favorOfSection">
+                                  <span class="profileTitle">
+                                    Decision : 
+                                  </span>
+                                  <span>Accepted</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+	  </div>
+    </div>
+  </div>
+  <!-- Classic tabs -->
+</div>
+<!-- /.container-fluid -->
+
+
+<!-- The Modal -->
+<div class="modal" id="favorCOBtnModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">In favor of Current Owner</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Reason for choosing to give this profile to the current owner</p>
+        <textarea class="getReasoncurOwn getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info completegetReasoncurOwn" data-dismiss="modal">Complete</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="favorDBtnModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">In favor of Disputee</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Reason for choosing to give this profile to the disputee</p>
+        <textarea class="getReasondisputee getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info completgetReasondisputee" data-dismiss="modal">Complete</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="markCloseModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Close Keyword Alert</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>1. Quick description of your solution (IE: "Accepted keyword, it was in the correct context", or "Declined, seller was cussing out the seller for being unreasonable")</p>
+        <textarea class="markCloseDescription getReason"></textarea>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info markCloseBtn" data-dismiss="modal">Close Alert</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Decline Transaction Edit</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>1. Reason for decline (This gets emailed to the agent)</p>
+        <div class="form-group">
+          <textarea class="form-control getReason" rows="7"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default  btn-lg decline-btn modal-decline-btn" data-dismiss="modal">Decline</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="./js/jquery.fancybox.js"></script>
+<script>
+    jQuery(document).ready(function() {
+
+      /*jQuery('.profileDisputeInfo').hide();
+      jQuery('.closedProfileDisputeInfo').hide();
+
+      jQuery('.transactionEditsInfo').hide();
+      jQuery('.closedtransactionEditsInfo').hide();*/
+      
+        var dataSet = [
+            [ "1/20/2020","John Doe", "Disputee", "2 Hours", "26 hours"],
+            [ "1/24/2020","Bob Jones", "Disputee", "0 hours", "2 Hours"],
+            [ "1/28/2020","Terry Smith", "Both", "6 Hours", "30 Hours"],
+            [ "1/29/2020","Craig Walker", "Both", "10 Hours","34 Hours"],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+
+        ];
+        jQuery('#profileDisputeOpendataTable').DataTable( {
+            data: dataSet,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Dispute Date", sWidth: '20%' },
+                { title: "Agent Profile", sWidth: '30%' }, 
+                { title: "Proof Provided By", sWidth: '20%' },
+                { title: "Proof Deadline", sWidth: '15%' },
+                { title: "Decision Deadline", sWidth: '15%' }
+            ], 
+        });
+
+        var profileDisputeCloseddataSet = [
+            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh"],
+            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo"],
+            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco"],
+            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh"],
+            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo"],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+             [ " "," ", " ", " "],
+];
+        jQuery('#profileDisputeCloseddataTable').DataTable( {
+            data: profileDisputeCloseddataSet,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Dispute Date", sWidth: '20%' },
+                { title: "Agent Profile", sWidth: '30%' },
+                { title: "Decided By", sWidth: '30%'},
+                { title: "Decision Favors", sWidth: '20%' }
+            ]
+        });
+
+        var keywordAlertsOpe = [
+            [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
+            [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+             [ " "," ", " ", " ", " "],
+
+        ];
+        jQuery('#keywordAlertsOpendataTable').DataTable( {
+            data: keywordAlertsOpe,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Date", sWidth: '10%' },
+                { title: "Agent Name", sWidth: '20%' },
+                { title: "Keyword Location", sWidth: '25%' },
+                { title: "Keywords", sWidth: '30%' },
+                { title: "", sWidth: '15%' },
+            ]
+        });
+
+        var keywordAlertsCloseddataSet = [
+        [ "1/20/2020","John Doe", "About me section", "sample word","Anna","Allowed Sample Word"],
+            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here","Doug", "Allowed Word Declined Sample word"],
+            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "Anna", "Declined - Agent was swearing and disrespectful about seller"],
+             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "Aron","Allowed All"],
+            [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+             [ " "," ", " ", " ", " ", " ", " "],
+        ];
+        jQuery('#keywordAlertsCloseddataTable').DataTable({
+            data: keywordAlertsCloseddataSet,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Date", sWidth: '5%'},
+                { title: "Agent Name", sWidth: '15%'},
+                { title: "Keyword Location", sWidth: '20%'},
+                { title: "Keywords", sWidth: '22%'},
+                { title: "Closed By", sWidth: '10%'},
+                { title: "Notes", sWidth: '27%'},
+            ]
+        });
+
+
+        var transactionEditsOpe = [
+            [ "01/20/2020","John Doe", "Edit", "26 Hours"],
+            [ "01/24/2020","Bob Jones", "Edit", "2 Hours"],
+            [ "01/28/2020","Terry Smith", "New", "30 Hours"],
+            [ "01/29/2020","Craig Walker", "New", "34 Hours"],
+             [ " "," ", " ", " "],
+              [ " "," ", " ", " "],
+               [ " "," ", " ", " "],
+                [ " "," ", " ", " "],
+                 [ " "," ", " ", " "],
+                  [ " "," ", " ", " "],
+        ];
+        jQuery('#transactionEditsOpendataTable').DataTable( {
+            data: transactionEditsOpe,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Date", sWidth: '20%'},
+                { title: "Agent Profile", sWidth: '40%'},
+                { title: "Type", sWidth: '20%'},
+                { title: "Decision Deadline", sWidth: '20%'},
+            ]
+        });
+
+        var transactionEditsCloseddataSet = [
+            [ "01/20/2020","John Doe", "Edit", "Accepted", "Anna"],
+            [ "01/24/2020","Bob Jones", "Edit", "Accepted", "Anna"],
+            [ "01/28/2020","Terry Smith", "New", "Declined", "Anna"],
+            [ "01/29/2020","Craig Walker", "New", "Accepted", "Anna"],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+            [ " "," ", " ", " ", " "],
+        ];
+        jQuery('#transactionEditsCloseddataTable').DataTable({
+            data: transactionEditsCloseddataSet,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort":false,
+            bAutoWidth: false, 
+            columns: [
+                { title: "Date", sWidth: '20%'},
+                { title: "Agent Profile", sWidth: '30%' },
+                { title: "Type", sWidth: '20%'},
+                { title: "Decision", sWidth: '15%'},
+                { title: "Decided By", sWidth: '15%'},
+            ]
+        });
+
+
+
+      jQuery('#profileDisputeOpendataTable').on( 'click', 'tr', function () {
+        /*if ( jQuery(this).hasClass('selected') ) {
+          jQuery(this).removeClass('selected');
+        }
+        else {
+            jQuery('#profileDisputeOpendataTable tr.selected').removeClass('selected');
+            jQuery(this).addClass('selected');
+        }*/
+        //
+        jQuery('.profileDisputeInfo').show();
+        jQuery("#profileDisputeOpendataTable").parent().hide(); 
+        jQuery("#profileDisputeOpendataTable_wrapper").hide();
+      });
+      jQuery('.backIcon').on( 'click', function () {
+        jQuery("#profileDisputeOpendataTable").parent().show(); 
+        jQuery("#profileDisputeOpendataTable_wrapper").show();
+        jQuery('.profileDisputeInfo').hide();
+      });
+
+      jQuery('#profileDisputeCloseddataTable').on( 'click', 'tr', function () {
+        jQuery('.closedProfileDisputeInfo').show();
+        jQuery("#profileDisputeCloseddataTable").parent().hide(); 
+        jQuery("#profileDisputeCloseddataTable_wrapper").hide();
+      });
+      jQuery('.closedProfileDisputeInfo-backIcon').on( 'click', function () {
+        jQuery("#profileDisputeCloseddataTable").parent().show(); 
+        jQuery("#profileDisputeCloseddataTable_wrapper").show();
+        jQuery('.closedProfileDisputeInfo').hide();
+      });
+
+
+
+
+      jQuery('#transactionEditsOpendataTable').on( 'click', 'tr', function () {
+        jQuery('.transactionEditsInfo').show();
+        jQuery("#transactionEditsOpendataTable").parent().hide(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").hide();
+      });
+      jQuery('.transactionEdits-backIcon').on( 'click', function () {
+        jQuery("#transactionEditsOpendataTable").parent().show(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").show();
+        jQuery('.transactionEditsInfo').hide();
+      });
+
+      jQuery('#transactionEditsCloseddataTable').on( 'click', 'tr', function () {
+        jQuery('.closedtransactionEditsInfo').show();
+        jQuery("#transactionEditsCloseddataTable").parent().hide(); 
+        jQuery("#transactionEditsCloseddataTable_wrapper").hide();
+      });
+      jQuery('.closedtransactionEditsInfo-backIcon').on( 'click', function () {
+        jQuery("#transactionEditsCloseddataTable").parent().show(); 
+        jQuery("#transactionEditsCloseddataTable_wrapper").show();
+        jQuery('.closedtransactionEditsInfo').hide();
+      });
+
+
+      jQuery('.accept-btn').on('click', function(){
+        acceptDecline();
+      });
+
+
+      jQuery('.modal-decline-btn').on('click', function(){
+        acceptDecline();
+      });
+
+
+      jQuery('.completegetReasoncurOwn').on('click',function(){
+        jQuery('.closedReason').html(jQuery('.getReasoncurOwn').val());
+      });
+
+      jQuery('.completgetReasondisputee').on('click',function(){
+        jQuery('.closedReason').html(jQuery('.getReasondisputee').val());
+      });
+
+      
+
+    });
+
+    function acceptDecline(){
+        jQuery('#transactionEditsClosed-tab-classic').tab('show');
+        jQuery("#transactionEditsOpendataTable").parent().show(); 
+        jQuery("#transactionEditsOpendataTable_wrapper").show();
+        jQuery('.transactionEditsInfo').hide();
+    }
+
+jQuery(document).ready(function() {
+  jQuery(".fancybox-button").fancybox({
+    prevEffect    : 'none',
+    nextEffect    : 'none',
+    closeBtn    : true,
+    helpers   : {
+      title : { type : 'inside' },
+      buttons : {}
+    }
+  });
+});
+</script>
