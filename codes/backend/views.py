@@ -50,7 +50,7 @@ def _make_date_filter(date_filter):
 
 
 def dashboard(request):
-    date_filter = request.GET.get('date-filter')
+    date_filter = request.GET.get('date-filter', 'last-7-days')
     start_date = None
     end_date = None
 
