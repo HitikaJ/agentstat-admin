@@ -5,9 +5,7 @@ from datetime import datetime
 import dateutil.relativedelta
 
 
-def _make_date_filter(date_filter):
-    start_date = None
-    end_date = None
+def _make_date_filter(date_filter, start_date, end_date):
     now = datetime.strptime(
         datetime.strftime(datetime.now(), '%Y-%m-%d'), "%Y-%m-%d"
     )
@@ -39,6 +37,13 @@ def _make_date_filter(date_filter):
         )
         start_date = datetime.strftime(start_date, '%Y-%m-%d')
 
+    elif date_filter == 'custom':
+        start_date = datetime.strptime(start_date, '%Y-%m-%d')
+        end_date = datetime.strptime(end_date, '%Y-%m-%d')
+
+        start_date = datetime.strftime(start_date, '%Y-%m-%d')
+        end_date = datetime.strftime(end_date, '%Y-%m-%d')
+
     if not start_date:
         start_date = now - dateutil.relativedelta.relativedelta(days=days)
         start_date = datetime.strftime(start_date, '%Y-%m-%d')
@@ -51,11 +56,12 @@ def _make_date_filter(date_filter):
 
 def dashboard(request):
     date_filter = request.GET.get('date-filter', 'last-7-days')
-    start_date = None
-    end_date = None
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
 
     if date_filter:
-        start_date, end_date = _make_date_filter(date_filter)
+        start_date, end_date = _make_date_filter(
+            date_filter, start_date, end_date)
 
     params = {}
     if start_date and end_date:

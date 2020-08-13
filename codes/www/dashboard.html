@@ -8,8 +8,6 @@
 			</div>
 			<div class="col-xl-2 col-sm-3 mb-2 top-Btns">
 				<button class="refreshDtn"><span><i class="fas fa-sync"></i></span> REFRESH</button>
-        <!--<button class="limitBtn">April 17, 2020 - April 24, 2020</button>-->
-        <!-- <input type="text" class="limitBtn" name="daterange" value="April 17, 2020 - April 24, 2020" /> -->
 			</div>
       <div class="col-xl-2 col-sm-3 mb-2 top-Btns" style="padding-right: 20px;">
         <select id="date-filter" class="form-control">
@@ -19,8 +17,16 @@
           <option value="this-month" {% if date_filter == 'this-month' %} selected {%endif%} >This Month</option>
           <option value="last-month" {% if date_filter == 'last-month' %} selected {%endif%} >Last Month</option>
           <option value="year-to-date" {% if date_filter == 'year-to-date' %} selected {%endif%}  >Year to Date</option>
+          <option value="custom">Custom</option>
         </select>
       </div>
+    </div>
+    <div class="row">
+
+      <div class="col-xl-12 col-sm-12 mb-2 top-Btns" id="custom-date-range" style="padding-right: 10px; display: none">
+        <input type="text" class="limitBtn" name="daterange" value="April 17, 2020 - April 24, 2020" />
+      </div>
+
     </div>
 </div>
 <div class="container">
@@ -181,18 +187,34 @@
         $(function() {
           $('input[name="daterange"]').daterangepicker({
             opens: 'left',
+            autoApply: true,
             locale: {
                 format: 'MMMM DD, YYYY'
             }
           }, function(start, end, label) {
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+
+            window.location = '/?date-filter=custom&start_date=' + start.format('YYYY-MM-DD') + '&end_date=' + end.format('YYYY-MM-DD')
           });
         });
 
         $('#date-filter').on('change', function() {
+
           var date_filter = $(this).val();
-          window.location = '/?date-filter=' + date_filter
+          if (date_filter == 'custom') {
+
+            $('#custom-date-range').css('display', 'block');
+
+          } else {
+            window.location = '/?date-filter=' + date_filter
+          }
+
         });
+
+        $("input[name='daterange']").val(
+          $.datepicker.formatDate('MM dd, yy', new Date()) + ' - ' +
+          $.datepicker.formatDate('MM dd, yy', new Date())
+        );
 
       }); 
     </script>
