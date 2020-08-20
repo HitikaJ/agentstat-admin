@@ -104,8 +104,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-API_URL = 'https://app.agentstat.com/api'
-# API_URL = 'http://localhost:8000/api'
+# API_URL = 'https://app.agentstat.com/api'
+API_URL = 'http://localhost:8000/api'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

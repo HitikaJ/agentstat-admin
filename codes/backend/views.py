@@ -68,7 +68,7 @@ def dashboard(request):
         params['start_date'] = start_date
         params['end_date'] = end_date
 
-    val = api_client('/dashboard-report/', params)
+    val = api_client('/dashboard-report/', method='POST', params=params)
 
     context = {
         'date_filter': date_filter,
@@ -80,3 +80,8 @@ def dashboard(request):
     }
 
     return render(request, 'dashboard.html', context)
+
+
+def search_log(request):
+    data = api_client('/search-log/')
+    return render(request, 'search_log.html', data)
