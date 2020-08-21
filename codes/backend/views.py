@@ -85,3 +85,19 @@ def dashboard(request):
 def search_log(request):
     data = api_client('/search-log/')
     return render(request, 'search_log.html', data)
+
+
+def referrals(request):
+    return render(request, 'referrals.html')
+
+
+def agent_profile(request):
+    return render(request, 'agent_profile.html')
+
+
+def messages(request):
+    return render(request, 'messages.html')
+
+
+def admin(request):
+    return render(request, 'administration.html')
