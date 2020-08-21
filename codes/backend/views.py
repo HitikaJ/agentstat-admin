@@ -82,6 +82,11 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)
 
 
+def profile(request):
+    data = api_client('/profiles/')
+    return render(request, 'profiles.html', data)
+
+
 def search_log(request):
     data = api_client('/search-log/')
     return render(request, 'search_log.html', data)
@@ -89,10 +94,6 @@ def search_log(request):
 
 def referrals(request):
     return render(request, 'referrals.html')
-
-
-def agent_profile(request):
-    return render(request, 'agent_profile.html')
 
 
 def messages(request):
