@@ -78,8 +78,17 @@ $(document).ready(function(){
         settings['headers'] = {};
         $.ajax(settings).done(function (response) {
             var response = JSON.parse(response);
-            console.log(response.id_picture);
+            $('.dis-username').text(response.full_name);
+            $('.dis-email').text(response.email);
+            $('.dis-phone').text('111-222-3333');
+            $('.dis-date').text(niceDate(response.created_at));
+            
             $('.dis-photoid').attr('src', response.id_picture);
+            $('.fancy-dis-photoid').attr('href', response.id_picture);
+
+            $('.dis-licenseid').attr('src', response.real_estate_license);
+            $('.fancy-dis-licenseid').attr('href', response.real_estate_license);
+            
         }).fail(function(err) {
             console.log(err.responseText);
         });
