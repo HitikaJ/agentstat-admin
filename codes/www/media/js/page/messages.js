@@ -47,15 +47,29 @@ $(document).ready(function(){
                     return niceDate(data);
                 }
             },
-            {   data: "full_name", title: "Agent Profile", sWidth: '20%' },
-            {   defaultContent: 'Both', title: "Proof Provided By", sWidth: '20%'},
+            {   
+                data: null, title: "Agent Profile", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    if (row.agent_profile_connector !== null) {
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.id;
+                        return "<a href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
+                    } else {
+                        return 'Not Found';
+                    }
+                    
+                }
+            },
+            {   
+                defaultContent: 'Both', title: "Proof Provided By", sWidth: '20%'
+            },
             { 
                 data: null, title: "Proof Deadline", sWidth: '20%',
                 render: function(data, type, row, meta){
                     return proofDeadline(row.created_at)+' Hours';
                 }
             },
-            {   data: "email", title: "Decision Deadline", sWidth: '20%',
+            {   
+                data: "email", title: "Decision Deadline", sWidth: '20%',
                 render: function(data, type, row, meta){
                     return decisionDeadline(row.created_at)+' Hours';
                 }
@@ -82,6 +96,8 @@ $(document).ready(function(){
             $('.dis-email').text(response.email);
             $('.dis-phone').text('111-222-3333');
             $('.dis-date').text(niceDate(response.created_at));
+
+            $('.agent-name').text(row.connector.agent_name);
             
             $('.dis-photoid').attr('src', response.id_picture);
             $('.fancy-dis-photoid').attr('href', response.id_picture);
