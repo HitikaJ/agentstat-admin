@@ -52,7 +52,7 @@ $(document).ready(function(){
                 render: function(data, type, row, meta){
                     if (row.agent_profile_connector !== null) {
                         var url = WEBSITE_URL+'page-three.html?agent_id='+row.connector.id;
-                        return "<a href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
+                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
                     } else {
                         return 'Not Found';
                     }
@@ -81,7 +81,13 @@ $(document).ready(function(){
     });
 
 
-    jQuery('#profileDisputeOpendataTable').on( 'click', 'tr', function () {
+    jQuery('#profileDisputeOpendataTable').on( 'click', 'tr', function (e) {
+        if ($(e.target).attr('class') == 'agent-profile-link') {
+            var url = $(e.target).attr('href');
+            window.open(url);
+            return false;
+        }
+
         jQuery('.profileDisputeInfo').show();
         jQuery("#profileDisputeOpendataTable").parent().hide(); 
         jQuery("#profileDisputeOpendataTable_wrapper").hide();
@@ -92,12 +98,15 @@ $(document).ready(function(){
         settings['headers'] = {};
         $.ajax(settings).done(function (response) {
             var response = JSON.parse(response);
+            
+            if (response.agent_profile_connector !== null) {
+                $('.agent-name').text(response.connector.agent_name);
+            }
+
             $('.dis-username').text(response.full_name);
             $('.dis-email').text(response.email);
             $('.dis-phone').text('111-222-3333');
             $('.dis-date').text(niceDate(response.created_at));
-
-            $('.agent-name').text(row.connector.agent_name);
             
             $('.dis-photoid').attr('src', response.id_picture);
             $('.fancy-dis-photoid').attr('href', response.id_picture);
@@ -109,4 +118,9 @@ $(document).ready(function(){
             console.log(err.responseText);
         });
     });
+
+    // $(document).on('click', '.xxx', function (event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    // });
 });
