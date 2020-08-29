@@ -51,7 +51,7 @@ $(document).ready(function(){
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
                     if (row.agent_profile_connector !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.id;
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.connector.id;
                         return "<a href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
                     } else {
                         return 'Not Found';
