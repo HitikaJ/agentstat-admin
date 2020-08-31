@@ -95,7 +95,7 @@ function initDisputePending() {
                 }
             },
             {   
-                defaultContent: 'Both', title: "Proof Provided By", sWidth: '20%'
+                data: "provide", title: "Proof Provided By", sWidth: '20%'
             },
             { 
                 data: null, title: "Proof Deadline", sWidth: '20%',
@@ -181,16 +181,24 @@ function disputeDetail() {
             $('.agent-name').text(response.connector.agent_name);
         }
 
-        $('.dis-username').text(response.full_name);
+        $('.dis-fullname').text(response.full_name);
         $('.dis-email').text(response.email);
         $('.dis-phone').text(response.phone);
+        $('.dis-brokerage-name').text(response.brokerage_name);
         $('.dis-date').text(niceDate(response.created_at));
-        
         $('.dis-photoid').attr('src', response.id_picture);
         $('.fancy-dis-photoid').attr('href', response.id_picture);
-
         $('.dis-licenseid').attr('src', response.real_estate_license);
         $('.fancy-dis-licenseid').attr('href', response.real_estate_license);
+
+        $('.cur-fullname').text(response.current_full_name);
+        $('.cur-email').text(response.current_email);
+        $('.cur-phone').text(response.current_phone);
+        $('.cur-brokerage-name').text(response.current_brokerage_name);
+        $('.cur-photoid').attr('src', response.current_id_picture);
+        $('.fancy-cur-photoid').attr('href', response.current_id_picture);
+        $('.cur-licenseid').attr('src', response.current_real_estate_license);
+        $('.fancy-cur-licenseid').attr('href', response.current_real_estate_license);
 
         $('.closedReason').text(response.reason);
         $('.decision-infavour').text(decisionInfavour(response.status));
