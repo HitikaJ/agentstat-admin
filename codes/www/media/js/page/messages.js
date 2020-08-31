@@ -273,6 +273,7 @@ $(document).ready(function(){
             'status': 'decline',
         }
         disputeUpdate(data);
+        reloadAgentDisputeData();
     });
 
     $('.completgetReasondisputee').on('click',function(){
@@ -284,6 +285,7 @@ $(document).ready(function(){
             'status': 'accept',
         }
         disputeUpdate(data);
+        reloadAgentDisputeData();
     });
 
     $('#profileDisputeOpen-tab-classic').on('click', function(){
