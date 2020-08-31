@@ -68,6 +68,7 @@ function initDisputePending() {
             $.get(API_URL+'reclaim-dispute/', {
                 page: offsetToPageno(data.start),
             }, function(res) {
+                notificationBadge('profileDispute-tab-classic', 'Profile', res.total);
                 callback({
                     recordsTotal: res.total,
                     recordsFiltered: res.total,
@@ -265,6 +266,10 @@ $(document).ready(function(){
             'status': 'decline',
         }
         disputeUpdate(data);
+        
+        setTimeout(function() { 
+            $('#profileDisputeOpendataTable').DataTable().ajax.reload();
+        }, 1000);
     });
 
     $('.completgetReasondisputee').on('click',function(){
@@ -276,6 +281,10 @@ $(document).ready(function(){
             'status': 'accept',
         }
         disputeUpdate(data);
+        
+        setTimeout(function() { 
+            $('#profileDisputeCloseddataTable').DataTable().ajax.reload();
+        }, 1000);
     });
 
     $('#profileDisputeOpen-tab-classic').on('click', function(){

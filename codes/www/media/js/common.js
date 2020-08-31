@@ -61,3 +61,11 @@ function niceDateTime(timedate) {
 	var datetime = `${niceDate(timedate)} at ${formatAMPM(timedate)}`;
 	return datetime; 
 }
+
+function notificationBadge(id, text, count) {
+	if (count > 0) {
+		$('#'+id).html(text+' <span class="badge">'+count+'</span>');
+	} else {
+		$('#'+id).html(text);
+	}
+}
