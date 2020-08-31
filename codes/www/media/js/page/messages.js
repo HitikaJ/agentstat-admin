@@ -223,6 +223,13 @@ function disputeUpdate(data) {
     });
 }
 
+function reloadAgentDisputeData() {
+    setTimeout(function() { 
+        $('#profileDisputeOpendataTable').DataTable().ajax.reload();
+        $('#profileDisputeCloseddataTable').DataTable().ajax.reload();
+    }, 1000);
+}
+
 $(document).ready(function(){
     initDisputePending();
     initDisputeDecision();
@@ -266,10 +273,6 @@ $(document).ready(function(){
             'status': 'decline',
         }
         disputeUpdate(data);
-        
-        setTimeout(function() { 
-            $('#profileDisputeOpendataTable').DataTable().ajax.reload();
-        }, 1000);
     });
 
     $('.completgetReasondisputee').on('click',function(){
@@ -281,10 +284,6 @@ $(document).ready(function(){
             'status': 'accept',
         }
         disputeUpdate(data);
-        
-        setTimeout(function() { 
-            $('#profileDisputeCloseddataTable').DataTable().ajax.reload();
-        }, 1000);
     });
 
     $('#profileDisputeOpen-tab-classic').on('click', function(){
