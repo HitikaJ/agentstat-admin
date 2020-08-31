@@ -57,138 +57,13 @@
 					      </div>
 					
 					
-					<div class="row profileDisputeInfo" style="display: none;">
-            <img class="backIcon" src="/media/assets/icons/double-left.png" />
-						<div class="col-xl-12 col-sm-12 mb-12 border-solid">
-							<div class="row">
-								<div class="col-xl-8 col-sm-12 mb-8">
-									<div class="agentProfile"><h6>Agent Profile: </h6><span class="agent-name"> John Doe</span></div>
-								</div>
-								<div class="col-xl-4">
-									<div class="agentProfile"> <span class="float-right-am dis-date">February 5th, 2020</span></div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-xl-6 col-sm-12 mb-6 border-solid">
-							<div class="row">
-								<div class="col-xl-6 col-sm-12 mb-6">
-									<h6 class="profileTitle">Current Owner</h6>
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-								</div>
-
-
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									Username : 
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									Sample USername
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									Password : 
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									User12345!#
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									Email : 
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									agent@realestate.com
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									Phone Number : 
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									53434-3434234
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									Photo Id : 
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									<a class="fancybox-button" href="/media/assets/images/drivers-license.jpg">
-                    <img class="licenseImg" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-								</div>
-
-								<div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-									RE License :
-								</div>
-								<div class="col-xl-6 col-sm-12 mb-6">
-									<a class="fancybox-button" href="/media/assets/images/drivers-license.jpg">
-                    <img class="licenseImg" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-								</div>
-							</div>
-
-						</div>
-						<div class="col-xl-6 col-sm-12 mb-6 border-solid">
-							<div class="row">
-                <div class="col-xl-6 col-sm-12 mb-6">
-                  <h6 class="profileTitle">Disputee</h6>
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
+                <div class="row profileDisputeInfo" style="display: none;">
+                  <img class="backIcon" src="/media/assets/icons/double-left.png" />
+                  {% include "partials/_dispute_detail.html" %}
                 </div>
 
-
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  Username : 
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 dis-username">
-                  Sample USername
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  Password : 
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6">
-                  User12345!#
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  Email : 
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 dis-email">
-                  agent@realestate.com
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  Phone Number : 
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 dis-phone">
-                  53434-3434234
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  Photo Id : 
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6">
-                  <a class="fancybox-button fancy-dis-photoid" href="/media/assets/images/drivers-license.jpg">
-                    <img class="licenseImg dis-photoid" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                  RE License :
-                </div>
-                <div class="col-xl-6 col-sm-12 mb-6">
-                  <a class="fancybox-button fancy-dis-licenseid" href="/media/assets/images/drivers-license.jpg">
-                    <img class="licenseImg dis-licenseid" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                </div>
               </div>
-						</div>
-
-						<div class="col-xl-12 col-sm-12 mb-12 border-solid">
-							<div class="row">
-								<div class="col-xl-2 col-sm-6 mb-3"></div>
-								<div class="col-xl-4 col-sm-6">
-									<div>
-										<button class="favorCOBtn" data-toggle="modal" data-target="#favorCOBtnModal">In favor of Current Owner</button>
-									</div>
-								</div>
-								<div class="col-xl-3 col-sm-6">
-									<button class="favorDBtn" data-toggle="modal" data-target="#favorDBtnModal">In favor of Disputee</button>
-								</div>
-								<div class="col-xl-3 col-sm-6 mb-3"></div>
-							</div>
-						</div>
-					</div>
-
-                    </div>
-                </div>
+              </div>
 
 
               </div>
@@ -204,138 +79,13 @@
                     
 
 
-                <div class="row closedProfileDisputeInfo" style="display: none;">
-                  <img class="closedProfileDisputeInfo-backIcon" src="/media/assets/icons/double-left.png" />
-                  <div class="col-xl-12 col-sm-12 mb-12 border-solid">
-                    <div class="row">
-                      <div class="col-xl-8 col-sm-12 mb-8">
-                        <div class="agentProfile"><h6>Agent Profile: </h6><span class="agent-name"> John Doe</span></div>
-                      </div>
-                      <div class="col-xl-4">
-                        <div class="agentProfile"> <span class="float-right-am dis-date">February 5th, 2020</span>
-                        </div>
-                        <div class="agentProfile"><span class="float-right-am"><h6>Decided By: </h6><span> Anna</span></span></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col-xl-6 col-sm-12 mb-6 border-solid">
-                    <div class="row">
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <h6 class="profileTitle">Current Owner</h6>
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                      </div>
-      
-      
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Username : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        Sample USername
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Password : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        User12345!#
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Email : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        agent@realestate.com
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Phone Number : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        53434-3434234
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Photo Id : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <a class="fancybox-button" href="/media/assets/images/drivers-license.jpg">
-                          <img class="licenseImg" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        RE License :
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <a class="fancybox-button" href="/media/assets/images/drivers-license.jpg">
-                          <img class="licenseImg" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-6 col-sm-12 mb-6 border-solid">
-                    <div class="row">
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <h6 class="profileTitle">Disputee</h6>
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                      </div>
-      
-      
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Username : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 dis-username">
-                        Sample USername
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Password : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        User12345!#
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Email : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 dis-email">
-                        agent@realestate.com
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Phone Number : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 dis-phone">
-                        53434-3434234
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        Photo Id : 
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <a class="fancybox-button fancy-dis-photoid" href="/media/assets/images/drivers-license.jpg">
-                          <img class="licenseImg dis-photoid" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6 profileTitle">
-                        RE License :
-                      </div>
-                      <div class="col-xl-6 col-sm-12 mb-6">
-                        <a class="fancybox-button fancy-dis-licenseid" href="/media/assets/images/drivers-license.jpg">
-                          <img class="licenseImg dis-licenseid" src="/media/assets/images/drivers-license.jpg" alt="sample image"></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-12 col-sm-12 mb-12 border-solid">
-                    <div class="row">
-                      <div class="col-xl-12 col-sm-12 mb-12 favorOfSection">
-                        <div class="row">
-                          <div class="col-xl-4 col-sm-12 mb-6 bottom-text text-left">
-                              <p><b>Decided In Favor of: </b>Desputee</p>
-                          </div>
-                          <div class="col-xl-8 col-sm-12 mb-6 bottom-text text-right">
-                                <p> <b> Reason:</b> <span class="closedReason">This is the text that the support tech gave for assigning this account to the disputee</span></p>
-                          </div>
-                          
-                        </div>
-                      </div>
+                    <div class="row closedProfileDisputeInfo" style="display: none;">
+                      <img class="closedProfileDisputeInfo-backIcon" src="/media/assets/icons/double-left.png" />
+                      {% include "partials/_dispute_detail.html" %}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
               </div>
             </div>
           </div>
@@ -982,31 +732,31 @@
 
         ];
 
-        var profileDisputeCloseddataSet = [
-            [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh"],
-            [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo"],
-            [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco"],
-            [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh"],
-            [ "2008/11/28","Airi Satou", "Accountant", "Tokyo"],
-             [ " "," ", " ", " "],
-             [ " "," ", " ", " "],
-             [ " "," ", " ", " "],
-             [ " "," ", " ", " "],
-             [ " "," ", " ", " "],
-];
-        jQuery('#profileDisputeCloseddataTable').DataTable( {
-            data: profileDisputeCloseddataSet,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bSort":false,
-            bAutoWidth: false, 
-            columns: [
-                { title: "Dispute Date", sWidth: '20%' },
-                { title: "Agent Profile", sWidth: '30%' },
-                { title: "Decided By", sWidth: '30%'},
-                { title: "Decision Favors", sWidth: '20%' }
-            ]
-        });
+        // var profileDisputeCloseddataSet = [
+        //     [ "2011/04/25","Tiger Nixon", "System Architect", "Edinburgh"],
+        //     [ "2011/07/25","Garrett Winters", "Accountant", "Tokyo"],
+        //     [ "2009/01/12","Ashton Cox", "Junior Technical Author", "San Francisco"],
+        //     [ "2012/03/29","Cedric Kelly", "Senior Javascript Developer", "Edinburgh"],
+        //     [ "2008/11/28","Airi Satou", "Accountant", "Tokyo"],
+        //      [ " "," ", " ", " "],
+        //      [ " "," ", " ", " "],
+        //      [ " "," ", " ", " "],
+        //      [ " "," ", " ", " "],
+        //      [ " "," ", " ", " "],
+// ];
+        // jQuery('#profileDisputeCloseddataTable').DataTable( {
+        //     data: profileDisputeCloseddataSet,
+        //     "bLengthChange": false,
+        //     "bFilter": false,
+        //     "bSort":false,
+        //     bAutoWidth: false, 
+        //     columns: [
+        //         { title: "Dispute Date", sWidth: '20%' },
+        //         { title: "Agent Profile", sWidth: '30%' },
+        //         { title: "Decided By", sWidth: '30%'},
+        //         { title: "Decision Favors", sWidth: '20%' }
+        //     ]
+        // });
 
         var keywordAlertsOpe = [
             [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
@@ -1149,27 +899,7 @@
                 { title: "Decided By", sWidth: '15%'},
             ]
         });
-
-      jQuery('.backIcon').on( 'click', function () {
-        jQuery("#profileDisputeOpendataTable").parent().show(); 
-        jQuery("#profileDisputeOpendataTable_wrapper").show();
-        jQuery('.profileDisputeInfo').hide();
-      });
-
-      jQuery('#profileDisputeCloseddataTable').on( 'click', 'tr', function () {
-        jQuery('.closedProfileDisputeInfo').show();
-        jQuery("#profileDisputeCloseddataTable").parent().hide(); 
-        jQuery("#profileDisputeCloseddataTable_wrapper").hide();
-      });
-      jQuery('.closedProfileDisputeInfo-backIcon').on( 'click', function () {
-        jQuery("#profileDisputeCloseddataTable").parent().show(); 
-        jQuery("#profileDisputeCloseddataTable_wrapper").show();
-        jQuery('.closedProfileDisputeInfo').hide();
-      });
-
-
-
-
+  
       jQuery('#transactionEditsOpendataTable').on( 'click', 'tr', function () {
         jQuery('.transactionEditsInfo').show();
         jQuery("#transactionEditsOpendataTable").parent().hide(); 
