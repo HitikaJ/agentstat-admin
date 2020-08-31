@@ -116,20 +116,6 @@ function initDisputePending() {
     });
 }
 
-// jQuery('#profileDisputeCloseddataTable').DataTable( {
-//     data: profileDisputeCloseddataSet,
-//     "bLengthChange": false,
-//     "bFilter": false,
-//     "bSort":false,
-//     bAutoWidth: false, 
-//     columns: [
-//         { title: "Dispute Date", sWidth: '20%' },
-//         { title: "Agent Profile", sWidth: '30%' },
-//         { title: "Decided By", sWidth: '30%'},
-//         { title: "Decision Favors", sWidth: '20%' }
-//     ]
-// });
-
 function initDisputeDecision() {
     $('#profileDisputeCloseddataTable').DataTable( {
         "processing": true,
@@ -247,7 +233,13 @@ $(document).ready(function(){
         disputeDetail();
     });
 
-    $('#profileDisputeCloseddataTable').on( 'click', 'tr', function () {
+    $('#profileDisputeCloseddataTable').on( 'click', 'tr', function (e) {
+        if ($(e.target).attr('class') == 'agent-profile-link') {
+            var url = $(e.target).attr('href');
+            window.open(url);
+            return false;
+        }
+
         $('.closedProfileDisputeInfo').show();
         $("#profileDisputeCloseddataTable").parent().hide(); 
         $("#profileDisputeCloseddataTable_wrapper").hide();
@@ -262,7 +254,7 @@ $(document).ready(function(){
 
         var data = {
             'reason': $('.getReasoncurOwn').val(),
-            'status': 'accept',
+            'status': 'decline',
         }
         disputeUpdate(data);
     });
@@ -273,7 +265,7 @@ $(document).ready(function(){
 
         var data = {
             'reason': $('.getReasondisputee').val(),
-            'status': 'decline',
+            'status': 'accept',
         }
         disputeUpdate(data);
     });
