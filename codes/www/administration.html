@@ -22,8 +22,8 @@
 			</form>
 			
 			<div class="card card-keyWordAlerts mx-auto mt-5">
-				<div class="card-body keywords">
-					
+				<div class="card-body">
+					<div class="row keywords"></div>
 				</div>
 			</div>
 		</div>
@@ -34,47 +34,8 @@
 
 </div>
 <!-- /.container-fluid -->
-
-<script>
-	jQuery(document).ready(function(){
-		var keywords = [];
-		jQuery("#addkeyword-form").submit(function(e){
-			e.preventDefault();
-			if(jQuery("#keyword").val() == '')
-			{
-				alert('Please enter keyword and then submit.');
-			}
-			else{
-				//alert(jQuery("#keyword").val());
-				keywords.push(jQuery("#keyword").val());
-			}
-			
-			addkeywordBtns();
-		});
-
-		function addkeywordBtns()
-		{
-			var html = '<div class="row">';
-			
-			keywords.forEach(element => {
-				//jQuery('<button>'+element+'</button>').appendTo("#keywords");
-				html += '<div class="col-xl-6 col-sm-12 mb-6">';
-				html += '<button class="keywordBtn">'+element+'<span class="removeKeyword"><i class="fas fa-times "></i></span></button>';
-				html += '</div>';
-			});
-			html += '</div>';
-			jQuery(".keywords").html(html);
-			var btn = 
-			jQuery(".removeKeyword").on('click',function(){
-				var keyword = jQuery(this).parent().text();
-				keywords = jQuery.grep(keywords, function(value) {
-					return value != keyword;
-				});
-				//jQuery(this).hide();
-				addkeywordBtns();
-			});
-			jQuery("#keyword").val('');
-		}
-	});
-</script>
+<script src="/media/vendor/bootbox/bootbox.min.js"></script>
+<!-- <script src="/media/vendor/bootbox/bootbox.locales.min.js"></script> -->
+	
+<script src="/media/js/page/administration.js"></script>
 {% endblock %}
