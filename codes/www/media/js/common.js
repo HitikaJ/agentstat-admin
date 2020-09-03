@@ -1,5 +1,5 @@
-// API_URL = 'https://app.agentstat.com/api/';
-API_URL = 'http://localhost:8000/api/';
+API_URL = 'https://app.agentstat.com/api/';
+// API_URL = 'http://localhost:8000/api/';
 WEBSITE_URL = 'https://agentstat.com/';
 
 function get_settings(url, method, data=null) {
