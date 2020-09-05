@@ -12,19 +12,19 @@
           role="tab" aria-controls="profileDispute-classic" aria-selected="true">Profile Disputes </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" id="keywordAlerts-tab-classic" data-toggle="tab" href="#keywordAlerts-classic" role="tab"
+        <a class="nav-link waves-light notification-badge" id="keywordAlerts-tab-classic" data-toggle="tab" href="#keywordAlerts-classic" role="tab"
           aria-controls="keywordAlerts-classic" aria-selected="false">Keyword Alerts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" id="transactionEdits-tab-classic" data-toggle="tab" href="#transactionEdits-classic" role="tab"
+        <a class="nav-link waves-light notification-badge" id="transactionEdits-tab-classic" data-toggle="tab" href="#transactionEdits-classic" role="tab"
           aria-controls="transactionEdits-classic" aria-selected="false">Transaction Edits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" id="newAgent-tab-classic" data-toggle="tab" href="#newAgent-classic" role="tab"
+        <a class="nav-link waves-light notification-badge" id="newAgent-tab-classic" data-toggle="tab" href="#newAgent-classic" role="tab"
           aria-controls="newAgent-classic" aria-selected="false">New Agent</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" id="first-tab-classic" data-toggle="tab" href="#first-classic" role="tab"
+        <a class="nav-link waves-light notification-badge" id="first-tab-classic" data-toggle="tab" href="#first-classic" role="tab"
           aria-controls="first-classic" aria-selected="false">Firsts!</a>
       </li>
     </ul>
@@ -710,57 +710,7 @@
 
 <script src="/media/js/page/messages.js"></script>
 <script>
-    jQuery(document).ready(function() {
-
-      /*jQuery('.profileDisputeInfo').hide();
-      jQuery('.closedProfileDisputeInfo').hide();
-
-      jQuery('.transactionEditsInfo').hide();
-      jQuery('.closedtransactionEditsInfo').hide();*/
-      
-        var dataSet = [
-            [ "1/20/2020","John Doe", "Disputee", "2 Hours", "26 hours"],
-            [ "1/24/2020","Bob Jones", "Disputee", "0 hours", "2 Hours"],
-            [ "1/28/2020","Terry Smith", "Both", "6 Hours", "30 Hours"],
-            [ "1/29/2020","Craig Walker", "Both", "10 Hours","34 Hours"],
-            [ " "," ", " ", " ", " "],
-            [ " "," ", " ", " ", " "],
-            [ " "," ", " ", " ", " "],
-            [ " "," ", " ", " ", " "],
-            [ " "," ", " ", " ", " "],
-            [ " "," ", " ", " ", " "],
-
-        ];
-
-        var keywordAlertsOpe = [
-            [ "1/20/2020","John Doe", "About me section", "sample word", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
-            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
-            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
-             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "<button class='markDoneBtn' data-toggle='modal' data-target='#markCloseModal'>Mark Closed</button>"],
-            [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-             [ " "," ", " ", " ", " "],
-
-        ];
-        jQuery('#keywordAlertsOpendataTable').DataTable( {
-            data: keywordAlertsOpe,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bSort":false,
-            bAutoWidth: false, 
-            columns: [
-                { title: "Date", sWidth: '10%' },
-                { title: "Agent Name", sWidth: '20%' },
-                { title: "Keyword Location", sWidth: '25%' },
-                { title: "Keywords", sWidth: '30%' },
-                { title: "", sWidth: '15%' },
-            ]
-        });
-        
+    jQuery(document).ready(function() {        
         var agentProfile = [
             [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
             [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
@@ -790,36 +740,6 @@
                 { title: "", sWidth: '20%' },
             ]
         });
-
-        var keywordAlertsCloseddataSet = [
-        [ "1/20/2020","John Doe", "About me section", "sample word","Anna","Allowed Sample Word"],
-            [ "1/24/2020","Bob Jones", "Transaction Notes", "word,Word 2,phrase here","Doug", "Allowed Word Declined Sample word"],
-            [ "1/28/2020","Terry Smith ", "Review", "Sample phrase here,phrase to take upto line", "Anna", "Declined - Agent was swearing and disrespectful about seller"],
-             [ "1/29/2020","Craig Walker ", "Transaction Notes", "Sample,words,here", "Aron","Allowed All"],
-            [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-             [ " "," ", " ", " ", " ", " ", " "],
-        ];
-        jQuery('#keywordAlertsCloseddataTable').DataTable({
-            data: keywordAlertsCloseddataSet,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bSort":false,
-            bAutoWidth: false, 
-            columns: [
-                { title: "Date", sWidth: '5%'},
-                { title: "Agent Name", sWidth: '15%'},
-                { title: "Keyword Location", sWidth: '20%'},
-                { title: "Keywords", sWidth: '22%'},
-                { title: "Closed By", sWidth: '10%'},
-                { title: "Notes", sWidth: '27%'},
-            ]
-        });
-
 
         var transactionEditsOpe = [
             [ "01/20/2020","John Doe", "Edit", "26 Hours"],

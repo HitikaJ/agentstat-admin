@@ -1,4 +1,5 @@
 var reclaimId = '';
+var keywordAlertId = '';
 
 function diffOfHours(createdAt) {
     var pastDate = new Date(createdAt);
@@ -172,6 +173,113 @@ function initDisputeDecision() {
     });
 }
 
+function initKeywordAlertUnmarked() {
+    $('#keywordAlertsOpendataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'keyword-alert-found/', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                notificationBadge('keywordAlerts-tab-classic', 'Keyword Alert', res.total);
+                callback({
+                    recordsTotal: res.total,
+                    recordsFiltered: res.total,
+                    data: res.data
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: null, title: "Agent Profile", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    var url = WEBSITE_URL+'page-three.html?agent_id='+row.zillow_agent_id;
+                    return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";   
+                }
+            },
+            {   
+                data: "keyword_location", title: "Keyword Location", sWidth: '20%'
+            },
+            {   
+                data: "keyword", title: "Keyword", sWidth: '20%'
+            },
+            {   
+                data: null, sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return '<button class="btn btn-success keywork-marked" data-toggle="modal" data-target="#markCloseModal" data-id="'+row.id+'">Mark Closed</button>';
+                }
+            }
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
+function initKeywordAlertmarked() {
+    $('#keywordAlertsCloseddataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'keyword-alert-found/marked/', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                callback({
+                    recordsTotal: res.total,
+                    recordsFiltered: res.total,
+                    data: res.data
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: null, title: "Agent Profile", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    var url = WEBSITE_URL+'page-three.html?agent_id='+row.zillow_agent_id;
+                    return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";   
+                }
+            },
+            {   
+                data: "keyword_location", title: "Keyword Location", sWidth: '20%'
+            },
+            {   
+                data: "keyword", title: "Keyword", sWidth: '20%'
+            },
+            {   
+                data: "closed_by", title: "Closed By", sWidth: '20%'
+            },
+            {   
+                data: "notes", title: "Notes", sWidth: '20%'
+            },
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
 function disputeDetail() {
     settings = get_settings('reclaim/'+reclaimId, 'GET');
     settings['headers'] = {};
@@ -223,6 +331,14 @@ function disputeUpdate(data) {
     });
 }
 
+function keywordUpdate(data, keyword_id) {
+    settings = get_settings('keyword-alert-match/'+keyword_id+'/', 'PUT', JSON.stringify(data));
+    settings['headers'] = null;
+    $.ajax(settings).done(function (response) {
+        reloadKeywordAlertData();
+    });
+}
+
 function reloadAgentDisputeData() {
     setTimeout(function() { 
         $('#profileDisputeOpendataTable').DataTable().ajax.reload();
@@ -230,9 +346,19 @@ function reloadAgentDisputeData() {
     }, 1000);
 }
 
+function reloadKeywordAlertData() {
+    setTimeout(function() { 
+        $('#keywordAlertsOpendataTable').DataTable().ajax.reload();
+        $('#keywordAlertsCloseddataTable').DataTable().ajax.reload();
+    }, 100);
+}
+
 $(document).ready(function(){
     initDisputePending();
     initDisputeDecision();
+
+    initKeywordAlertUnmarked();
+    initKeywordAlertmarked();
 
     $('#profileDisputeOpendataTable').on( 'click', 'tr', function (e) {
         if ($(e.target).attr('class') == 'agent-profile-link') {
@@ -271,7 +397,7 @@ $(document).ready(function(){
         var data = {
             'reason': $('.getReasoncurOwn').val(),
             'status': 'decline',
-        }
+        };
         disputeUpdate(data);
         reloadAgentDisputeData();
     });
@@ -283,9 +409,22 @@ $(document).ready(function(){
         var data = {
             'reason': $('.getReasondisputee').val(),
             'status': 'accept',
-        }
+        };
         disputeUpdate(data);
         reloadAgentDisputeData();
+    });
+
+    $('.markCloseBtn').on('click', function() {
+        var data = {
+            'closed_by': 'Anna',
+            'notes': $('.markCloseDescription').val()
+        };
+        keywordUpdate(data, keywordAlertId);
+        $('.markCloseDescription').val('');
+    });
+
+    $(document).on('click', '.keywork-marked',function(){
+        keywordAlertId = $(this).data('id');
     });
 
     $('#profileDisputeOpen-tab-classic').on('click', function(){
@@ -303,4 +442,5 @@ $(document).ready(function(){
     $('.closedProfileDisputeInfo-backIcon').on( 'click', function () {
         backCloseProfile();
     });
+    
 });
