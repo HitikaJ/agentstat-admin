@@ -249,7 +249,7 @@ function initKeywordAlertmarked() {
         },
         "columns": [
             { 
-                data: "created_at", title: "Date", sWidth: '15%',
+                data: "created_at", title: "Date", sWidth: '20%',
                 render: function(data, type, row, meta){
                     return niceDate(data);
                 }
@@ -262,16 +262,16 @@ function initKeywordAlertmarked() {
                 }
             },
             {   
-                data: "keyword_location", title: "Keyword Location", sWidth: '15%'
+                data: "keyword_location", title: "Keyword Location", sWidth: '20%'
             },
             {   
-                data: "keyword", title: "Keyword", sWidth: '15%'
+                data: "keyword", title: "Keyword", sWidth: '13%'
             },
             {   
-                data: "closed_by", title: "Closed By", sWidth: '10%'
+                data: "closed_by", title: "Closed By", sWidth: '12%'
             },
             {   
-                data: "notes", title: "Notes", sWidth: '20%'
+                data: "notes", title: "Notes", sWidth: '25%'
             },
         ],
         "createdRow": function (row, data, dataIndex) {
