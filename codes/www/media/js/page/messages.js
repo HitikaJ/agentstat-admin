@@ -255,20 +255,20 @@ function initKeywordAlertmarked() {
                 }
             },
             {   
-                data: null, title: "Agent Profile", sWidth: '20%' ,
+                data: null, title: "Agent Profile", sWidth: '15%' ,
                 render: function(data, type, row, meta){
                     var url = WEBSITE_URL+'page-three.html?agent_id='+row.zillow_agent_id;
                     return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";   
                 }
             },
             {   
-                data: "keyword_location", title: "Keyword Location", sWidth: '20%'
+                data: "keyword_location", title: "Keyword Location", sWidth: '15%'
             },
             {   
-                data: "keyword", title: "Keyword", sWidth: '20%'
+                data: "keyword", title: "Keyword", sWidth: '10%'
             },
             {   
-                data: "closed_by", title: "Closed By", sWidth: '20%'
+                data: "closed_by", title: "Closed By", sWidth: '10%'
             },
             {   
                 data: "notes", title: "Notes", sWidth: '20%'
