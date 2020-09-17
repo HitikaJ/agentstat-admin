@@ -1,5 +1,6 @@
 var reclaimId = '';
 var keywordAlertId = '';
+var transactionId = '';
 
 function diffOfHours(createdAt) {
     var pastDate = new Date(createdAt);
@@ -33,6 +34,16 @@ function disputePendingShow(open=true) {
     }
 }
 
+function transactionPendingShow(open=true) {
+    if (open) {
+        $('.transaction-pending-section').show();
+        $('.transaction-decided-section').hide();
+    } else {
+        $('.transaction-pending-section').hide();
+        $('.transaction-decided-section').show();
+    }
+}
+
 function backOpenProfile() {
     $("#profileDisputeOpendataTable").parent().show(); 
     $("#profileDisputeOpendataTable_wrapper").show();
@@ -45,6 +56,18 @@ function backCloseProfile() {
     $('.closedProfileDisputeInfo').hide();
 }
 
+function backOpenTransaction() {
+    $('.transactionEditsInfo').hide();
+    $("#transactionEditsOpendataTable").parent().show(); 
+    $("#transactionEditsOpendataTable_wrapper").show();
+}
+
+function backCloseTransaction() {
+    $("#transactionEditsOpendataTable").parent().show(); 
+    $("#transactionEditsOpendataTable_wrapper").show();
+    $('.transactionEditsInfo').hide();
+}
+
 function decisionInfavour(status) {
     if (status=='pending') {
         var text = 'Pending';
@@ -52,6 +75,17 @@ function decisionInfavour(status) {
         var text = 'Disputee';
     } else {
         var text = 'Current Owner';
+    }
+    return text;
+}
+
+function transactionDecision(status) {
+    if (status=='pending') {
+        var text = 'Pending';
+    } else if (status=='accept') {
+        var text = 'Accept';
+    } else {
+        var text = 'Decline';
     }
     return text;
 }
@@ -280,8 +314,125 @@ function initKeywordAlertmarked() {
     });
 }
 
+function initTransactionEditPending() {
+    $('#transactionEditsOpendataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'agent-list/6557/?record_type=agentstat&record_status=pending', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
+                callback({
+                    recordsTotal: res.count,
+                    recordsFiltered: res.count,
+                    data: res.results
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Dispute Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: null, title: "Agent Profile", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    if (row.agent !== null) {
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent;
+                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";
+                    } else {
+                        return 'Not Found';
+                    }
+                    
+                }
+            },
+            {   
+                data: null, title: "Proof Provided By", sWidth: '20%',
+                render: function() {
+                    return 'New';
+                }
+            },
+            {   
+                data: "email", title: "Decision Deadline", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return decisionDeadline(row.created_at)+' Hours';
+                }
+            }
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
+function initTransactionEditDecided() {
+    $('#transactionEditsCloseddataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'agent-list/6557/?record_type=agentstat&record_status_not_eq=pending', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                callback({
+                    recordsTotal: res.count,
+                    recordsFiltered: res.count,
+                    data: res.results
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Dispute Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: null, title: "Agent Profile", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    if (row.agent !== null) {
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent;
+                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";
+                    } else {
+                        return 'Not Found';
+                    }
+                    
+                }
+            },
+            {   
+                data: null, title: "Proof Provided By", sWidth: '20%',
+                render: function() {
+                    return 'New';
+                }
+            },
+            {   
+                data: "email", title: "Decision Deadline", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return decisionDeadline(row.created_at)+' Hours';
+                }
+            }
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
 function disputeDetail() {
-    settings = get_settings('reclaim/'+reclaimId, 'GET');
+    settings = get_settings('reclaim/'+reclaimId+'/', 'GET');
     settings['headers'] = {};
     $.ajax(settings).done(function (response) {
         var response = JSON.parse(response);
@@ -323,6 +474,39 @@ function disputeDetail() {
     });
 }
 
+function transactionDetail() {
+    settings = get_settings('agent-list-update/'+transactionId+'/', 'GET');
+    settings['headers'] = {};
+    $.ajax(settings).done(function (response) {
+        var res = JSON.parse(response);
+        
+        $('.agent-name').text(res.agent_name);
+        $('.dis-date').text(niceDate(res.created_at));
+
+        $('.trans-address').text(res.address_text);
+        $('.trans-city').text(res.city);
+        $('.trans-state').text(res.state);
+        $('.trans-zipcode').text(res.zipcode);
+        $('.trans-type').text(res.home_type);
+        $('.trans-represented').text(res.represented);
+        $('.trans-list-date').text(niceDate(res.list_date));
+        $('.trans-sold-date').text(niceDate(res.sold_date));
+        $('.trans-list-price').text(currencyFormat(res.list_price_int));
+        $('.trans-sold-price').text(currencyFormat(res.sold_price_int));
+        
+        $('.transaction-decision').text(transactionDecision(res.record_status));
+
+        if (res.record_status == 'pending') {
+            transactionPendingShow();
+        } else {
+            transactionPendingShow(false);
+        }
+        
+    }).fail(function(err) {
+        console.log(err.responseText);
+    });
+}
+
 function disputeUpdate(data) {
     settings = get_settings('reclaim/'+reclaimId+'/', 'PUT', JSON.stringify(data));
     settings['headers'] = null;
@@ -336,6 +520,14 @@ function keywordUpdate(data, keyword_id) {
     settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         reloadKeywordAlertData();
+    });
+}
+
+function transactionUpdate(data) {
+    settings = get_settings('agent-list-update/'+transactionId+'/', 'PUT', JSON.stringify(data));
+    settings['headers'] = null;
+    $.ajax(settings).done(function (response) {
+        transactionPendingShow(false);
     });
 }
 
@@ -353,12 +545,17 @@ function reloadKeywordAlertData() {
     }, 100);
 }
 
+function reloadAgentTransactionData() {
+    setTimeout(function() { 
+        $('#transactionEditsOpendataTable').DataTable().ajax.reload();
+        $('#transactionEditsCloseddataTable').DataTable().ajax.reload();
+    }, 1000);
+}
+
 $(document).ready(function(){
+    // START: PROFILE DISPUTE
     initDisputePending();
     initDisputeDecision();
-
-    initKeywordAlertUnmarked();
-    initKeywordAlertmarked();
 
     $('#profileDisputeOpendataTable').on( 'click', 'tr', function (e) {
         if ($(e.target).attr('class') == 'agent-profile-link') {
@@ -414,19 +611,6 @@ $(document).ready(function(){
         reloadAgentDisputeData();
     });
 
-    $('.markCloseBtn').on('click', function() {
-        var data = {
-            'closed_by': 'Anna',
-            'notes': $('.markCloseDescription').val()
-        };
-        keywordUpdate(data, keywordAlertId);
-        $('.markCloseDescription').val('');
-    });
-
-    $(document).on('click', '.keywork-marked',function(){
-        keywordAlertId = $(this).data('id');
-    });
-
     $('#profileDisputeOpen-tab-classic').on('click', function(){
         backOpenProfile();
     });
@@ -442,5 +626,103 @@ $(document).ready(function(){
     $('.closedProfileDisputeInfo-backIcon').on( 'click', function () {
         backCloseProfile();
     });
+    // END: PROFILE DISPUTE
+
+    // START: KEYWORD ALERT
+    initKeywordAlertUnmarked();
+    initKeywordAlertmarked();
+
+    $('.markCloseBtn').on('click', function() {
+        var data = {
+            'closed_by': 'Anna',
+            'notes': $('.markCloseDescription').val()
+        };
+        keywordUpdate(data, keywordAlertId);
+        $('.markCloseDescription').val('');
+    });
+
+    $(document).on('click', '.keywork-marked',function(){
+        keywordAlertId = $(this).data('id');
+    });
+    // END: KEYWORD ALERT
+
+    // START: TRANSACTION EDIT
+    initTransactionEditPending();
+    initTransactionEditDecided();
+
+    $('#transactionEditsOpendataTable').on( 'click', 'tr', function (e) {
+        if ($(e.target).attr('class') == 'agent-profile-link') {
+            var url = $(e.target).attr('href');
+            window.open(url);
+            return false;
+        }
+
+        $('.transactionEditsInfo').show();
+        $("#transactionEditsOpendataTable").parent().hide(); 
+        $("#transactionEditsOpendataTable_wrapper").hide();
+
+        transactionId = $(this).data('id');
+        transactionDetail(transactionId);
+    });
+
+    $('#transactionEditsCloseddataTable').on( 'click', 'tr', function (e) {
+        if ($(e.target).attr('class') == 'agent-profile-link') {
+            var url = $(e.target).attr('href');
+            window.open(url);
+            return false;
+        }
+
+        $('.closedtransactionEditsInfo').show();
+        $("#transactionEditsCloseddataTable").parent().hide(); 
+        $("#transactionEditsCloseddataTable_wrapper").hide();
+
+        transactionId = $(this).data('id');
+        transactionDetail(transactionId);
+    });
+
+    $('.transactionEdits-backIcon').on( 'click', function (e) {
+        $("#transactionEditsOpendataTable").parent().show(); 
+        $("#transactionEditsOpendataTable_wrapper").show();
+        $('.transactionEditsInfo').hide();
+    });
+    
+    $('.closedtransactionEditsInfo-backIcon').on( 'click', function () {
+        $("#transactionEditsCloseddataTable").parent().show(); 
+        $("#transactionEditsCloseddataTable_wrapper").show();
+        $('.closedtransactionEditsInfo').hide();
+    }); 
+    
+    $('.accept-submit-btn').on('click', function(){
+        $('.transaction-decision-reason').html($('.getAcceptReason').val());
+        $('.transaction-decision').text('Accept');
+
+        var data = {
+            'record_reason': $('.getAcceptReason').val(),
+            'record_status': 'accept',
+        };
+        transactionUpdate(data);
+
+        reloadAgentTransactionData();
+
+        $('.getAcceptReason').val('');
+    });
+
+
+    $('.decline-submit-btn').on('click', function(){
+        $('.transaction-decision-reason').html($('.getDeclineReason').val());
+        $('.transaction-decision').text('Decline');
+
+        var data = {
+            'record_reason': $('.getDeclineReason').val(),
+            'record_status': 'decline',
+        };
+        transactionUpdate(data);
+
+        reloadAgentTransactionData();
+
+        $('.getDeclineReason').val('');
+    });
+    // END: TRANSACTION EDIT
+    
     
 });
