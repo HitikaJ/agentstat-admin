@@ -1,16 +1,16 @@
-#profileDisputeClassicTab .nav-link.active, #keywordAlertsClassicTab .nav-link.active, #transactionEditsClassicTab .nav-link.active {
+#profileDisputeClassicTab .nav-link.active, #keywordAlertsClassicTab .nav-link.active, #transactionEditsClassicTab .nav-link.active, #newAgentClassicTab .nav-link.active {
     background: #abadafb0;
 }
-ul#profileDisputeClassicTab, #keywordAlertsClassicTab, #transactionEditsClassicTab {
+ul#profileDisputeClassicTab, #keywordAlertsClassicTab, #transactionEditsClassicTab, #newAgentClassicTab {
     border-bottom: 1.2px solid #a6b1bbb0;
 }
-ul#profileDisputeClassicTab .nav-item, #keywordAlertsClassicTab .nav-item, #transactionEditsClassicTab .nav-item{
+ul#profileDisputeClassicTab .nav-item, #keywordAlertsClassicTab .nav-item, #transactionEditsClassicTab .nav-item, #newAgentClassicTab .nav-item{
     border-right: 1.2px solid #abadafb0;
 }
-ul#profileDisputeClassicTab .nav-item:last-child, #keywordAlertsClassicTab .nav-item:last-child, #transactionEditsClassicTab .nav-item:last-child{
+ul#profileDisputeClassicTab .nav-item:last-child, #keywordAlertsClassicTab .nav-item:last-child, #transactionEditsClassicTab .nav-item:last-child, #newAgentClassicTab .nav-item:last-child{
     border-right: none;
 }
-ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #transactionEditsClassicTab .nav-item a
+ul#profileDisputeClassicTab .nav-item a, #keywordAlertsClassicTab .nav-item a, #transactionEditsClassicTab .nav-item a, #newAgentClassicTab .nav-item a
 {
     color: #000 !important;
     font-weight: 500;
@@ -146,11 +146,11 @@ h6.profileTitle {
     border-bottom: 2px solid black !important;
 }
 table#profileDisputeOpendataTable tr td ,table#profileDisputeCloseddataTable tr td ,table#transactionEditsOpendataTable tr td,
-table#transactionEditsCloseddataTable tr td{
+table#transactionEditsCloseddataTable tr td, table#newAgentCloseddataTable tr td{
     cursor: pointer;
 }
 
-div#profileDisputeOpen-classic, div#profileDisputeClosed-classic, #keywordAlertsOpen-classic, #keywordAlertsClosed-classic, #transactionEditsOpen-classic, #transactionEditsClosed-classic {
+div#profileDisputeOpen-classic, div#profileDisputeClosed-classic, #keywordAlertsOpen-classic, #keywordAlertsClosed-classic, #transactionEditsOpen-classic, #transactionEditsClosed-classic, #tnewAgentOpen-classic, #newAgentClosed-classic {
     margin: 0 40px;
 }
 a.fancybox-button {

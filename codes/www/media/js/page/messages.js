@@ -431,6 +431,123 @@ function initTransactionEditDecided() {
     });
 }
 
+function initNewAgentUnmarked() {
+    $('#newAgentOpendataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'web-agent/?has_seen=no', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                notificationBadge('newAgent-tab-classic', 'New Agent', res.count);
+                callback({
+                    recordsTotal: res.count,
+                    recordsFiltered: res.count,
+                    data: res.results
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Created Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: "full_name", title: "Agent Name", sWidth: '20%',
+            },
+            {   
+                data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    if (row.agent_profile_connector !== null) {
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent_profile_connector;
+                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.zillow_agent_name+"</a>";
+                    } else {
+                        return 'Not Attached';
+                    }
+                    
+                }
+            },
+            {   
+                data: "social_provider", title: "Source", sWidth: '20%',
+            },
+            {   
+                data: null, sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return '<button class="btn btn-success new-agent-marked" data-id="'+row.id+'">Mark as Read</button>';
+                }
+            }
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
+function initNewAgentmarked() {
+    $('#newAgentCloseddataTable').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort":false,
+        "bAutoWidth": false, 
+        "ajax": function(data, callback, settings) {
+            $.get(API_URL+'web-agent/?has_seen=yes', {
+                page: offsetToPageno(data.start),
+            }, function(res) {
+                callback({
+                    recordsTotal: res.count,
+                    recordsFiltered: res.count,
+                    data: res.results
+                });
+            });
+        },
+        "columns": [
+            { 
+                data: "created_at", title: "Created Date", sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return niceDate(data);
+                }
+            },
+            {   
+                data: "full_name", title: "Agent Name", sWidth: '20%',
+            },
+            {   
+                data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
+                render: function(data, type, row, meta){
+                    if (row.agent_profile_connector !== null) {
+                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent_profile_connector;
+                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.zillow_agent_name+"</a>";
+                    } else {
+                        return 'Not Attached';
+                    }
+                    
+                }
+            },
+            {   
+                data: "social_provider", title: "Source", sWidth: '20%',
+            },
+            {   
+                data: null, title:"Marked By",sWidth: '20%',
+                render: function(data, type, row, meta){
+                    return 'Anna';
+                }
+            }
+        ],
+        "createdRow": function (row, data, dataIndex) {
+            $(row).attr('data-id', data.id);
+        }
+    });
+}
+
 function disputeDetail() {
     settings = get_settings('reclaim/'+reclaimId+'/', 'GET');
     settings['headers'] = {};
@@ -531,6 +648,14 @@ function transactionUpdate(data) {
     });
 }
 
+function newAgentUpdate(data, id) {
+    settings = get_settings('web-agent/'+id+'/', 'PUT', JSON.stringify(data));
+    settings['headers'] = null;
+    $.ajax(settings).done(function (response) {
+        reloadNewAgentData();
+    });
+}
+
 function reloadAgentDisputeData() {
     setTimeout(function() { 
         $('#profileDisputeOpendataTable').DataTable().ajax.reload();
@@ -550,6 +675,13 @@ function reloadAgentTransactionData() {
         $('#transactionEditsOpendataTable').DataTable().ajax.reload();
         $('#transactionEditsCloseddataTable').DataTable().ajax.reload();
     }, 1000);
+}
+
+function reloadNewAgentData() {
+    setTimeout(function() { 
+        $('#newAgentOpendataTable').DataTable().ajax.reload();
+        $('#newAgentCloseddataTable').DataTable().ajax.reload();
+    }, 100);
 }
 
 $(document).ready(function(){
@@ -724,5 +856,16 @@ $(document).ready(function(){
     });
     // END: TRANSACTION EDIT
     
+    // START: KEYWORD ALERT
+    initNewAgentUnmarked();
+    initNewAgentmarked();
+
+    $(document).on('click', '.new-agent-marked',function(){
+        var data = {
+            'has_seen': 'yes',
+        };
+        newAgentUpdate(data, $(this).data('id'));
+    });
+    // END: KEYWORD ALERT
     
 });

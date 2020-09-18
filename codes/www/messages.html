@@ -184,17 +184,44 @@
               </div>
           </div>
 
-          <div class="tab-pane fade" id="newAgent-classic" role="tabpanel" aria-labelledby="keywordAlerts-tab-classic">
+          <div class="tab-pane fade" id="newAgent-classic" role="tabpanel" aria-labelledby="newAgent-tab-classic">
             <div class="classic-tabs">
-              <div class="mb-3">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="newAgentTable" width="100%" cellspacing="0">
+              <ul class="nav tabs-cyan" id="newAgentClassicTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link  waves-light active show" id="newAgentOpen-tab-classic" data-toggle="tab" href="#newAgentOpen-classic"
+                    role="tab" aria-controls="newAgentOpen-classic" aria-selected="true">Open</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link waves-light" id="newAgentClosed-tab-classic" data-toggle="tab" href="#newAgentClosed-classic" role="tab"
+                    aria-controls="newAgentClosed-classic" aria-selected="false">Closed</a>
+                </li>
+              </ul>
+              <div class="tab-content border-right border-bottom border-left rounded-bottom" id="myClassicTabContent">
+                  <div class="tab-pane fade active show" id="newAgentOpen-classic" role="tabpanel" aria-labelledby="newAgentOpen-tab-classic">
+                    <div class="mb-3">
+                        <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-bordered" id="newAgentOpendataTable" width="100%" cellspacing="0">
                         
-                    </table>
+                              </table>
+                          </div>
+                        </div>
+                    </div>
+
+
+                  </div>
+                  <div class="tab-pane fade" id="newAgentClosed-classic" role="tabpanel" aria-labelledby="newAgentClosed-tab-classic">
+                    <div class="mb-3">
+                        <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-bordered" id="newAgentCloseddataTable" width="100%" cellspacing="0">
+                                  
+                              </table>
+                          </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
-              </div>  
             </div>
           </div>
 
@@ -343,35 +370,35 @@
 <script src="/media/js/page/messages.js"></script>
 <script>
     jQuery(document).ready(function() {        
-        var agentProfile = [
-            [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-            [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
-        ];
+        // var agentProfile = [
+        //     [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/20/2020","John Doe", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/24/2020","Bob Jones", "<a href='#' target='_blank'>Profile Link</a>", "Facebook", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/28/2020","Terry Smith ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        //     [ "1/29/2020","Craig Walker ", "<a href='#' target='_blank'>Profile Link</a>", "Google", "<button class='btn btn-success'>Mark as Read</button>"],
+        // ];
 
-        jQuery('#newAgentTable').DataTable( {
-            data: agentProfile,
-            "bLengthChange": false,
-            "bFilter": false,
-            "bSort":false,
-            bAutoWidth: false, 
-            columns: [
-                { title: "Date", sWidth: '20%' },
-                { title: "Agent Name", sWidth: '20%' },
-                { title: "Profile Link", sWidth: '20%' },
-                { title: "Source", sWidth: '20%' },
-                { title: "", sWidth: '20%' },
-            ]
-        });
+        // jQuery('#newAgentOpendataTable').DataTable( {
+        //     data: agentProfile,
+        //     "bLengthChange": false,
+        //     "bFilter": false,
+        //     "bSort":false,
+        //     bAutoWidth: false, 
+        //     columns: [
+        //         { title: "Date", sWidth: '20%' },
+        //         { title: "Agent Name", sWidth: '20%' },
+        //         { title: "Profile Link", sWidth: '20%' },
+        //         { title: "Source", sWidth: '20%' },
+        //         { title: "", sWidth: '20%' },
+        //     ]
+        // });
         
       jQuery('.completegetReasoncurOwn').on('click',function(){
         jQuery('.closedReason').html(jQuery('.getReasoncurOwn').val());
