@@ -324,7 +324,7 @@ function initTransactionEditPending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/6557/?record_type=agentstat&record_status=pending', {
+            $.get(API_URL+'agent-list/?record_type=agentstat&record_status=pending', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
@@ -383,7 +383,7 @@ function initTransactionEditDecided() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/6557/?record_type=agentstat&record_status_not_eq=pending', {
+            $.get(API_URL+'agent-list/?record_type=agentstat&record_status_not_eq=pending', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 callback({
