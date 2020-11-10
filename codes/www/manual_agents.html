@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block container %}
+<div class="container-fluid no-padding">
+	<div class='agents-manual'></div>
+</div>
+
+
+<script>
+
+$.get("https://app.agentstat.com/api/list-manual-agents", function(res) {
+	$(".agents-manual").empty()
+	console.log(res)
+	for(var agent of res.agents) {
+		$(".agents-manual").append(
+			"<div>" +
+				"<span>Name: " + agent.full_name + "</span><br>" +
+				"<span>Phone: " + agent.cell_phone + "</span><br>" +
+				"<span>email: " + agent.email + "</span><br>" +
+				"<span>Profile: <a href='https://agentstat.com/profile/" + agent.id + "'> Profile</a></span><br>" +
+			"</div><hr>")
+	}
+});
+
+
+</script>
+
+<!-- /.container-fluid -->
+{% endblock %}

@@ -9,6 +9,7 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.dashboard),
     path('search-log/', views.search_log),
+    path('manual-agents/', views.manual_agents),
     path('referrals/', views.referrals),
     path('agent-profiles/', views.profile),
     path('messages/', views.messages),
