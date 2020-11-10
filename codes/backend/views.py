@@ -84,6 +84,7 @@ def dashboard(request):
 
 def profile(request):
     data = api_client('/profiles/')
+    print(data)
     return render(request, 'profiles.html', data)
 
 

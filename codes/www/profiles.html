@@ -1,7 +1,6 @@
 {% extends 'index.html' %}
 {% block container %}
 <div class="container-fluid no-padding">
-		  
 </div>
 <div class="container">
       <div class="row">
@@ -11,13 +10,15 @@
             <tr>
               <th scope="col">Agent Name</th>
               <th scope="col">Email</th>
+              <th scope="col">Unclaim</th>
             </tr>
           </thead>
           <tbody>
             {% for item in results %}
             <tr>
-              <td><a href='https://agentstat.com/profile/wa/{{ item.screen_name }}'>{{ item.connector.agent_name }}</a></td>
+              <td><a href='https://agentstat.com/profile/{{ item.connector.screen_name }}'>{{ item.connector.agent_name }}</a></td>
               <td>{{ item.email }}</td>
+              <td><a id='{{item.connector.id}}' href='#' class='unclaim'>Unclaim</a></td>
             </tr>
             {% endfor %}
           </tbody>
@@ -26,4 +27,16 @@
         </div>
       </div>
 </div>
+
+<script>
+	$("body").delegate(".unclaim", "click", function(e) {
+		$.get("https://app.agentstat.com/api/unclaim/?agent_id=" + $(this).attr('id'),
+			function(res) {
+			console.log(res)
+			alert('removed')
+			location.reload();
+		});
+	})
+</script>
+
 {% endblock %}

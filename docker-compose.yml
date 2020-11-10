@@ -17,6 +17,7 @@ services:
 #           - 9001:8082
 #
     admin:
+        restart: always
         build: .
         volumes:
             - ./codes:/home/web/codes
