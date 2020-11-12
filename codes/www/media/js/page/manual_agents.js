@@ -10,7 +10,6 @@ function manualPendingShow(open=true) {
     }
 }
 
-
 function backOpenProfile() {
     $("#profileManualOpendataTable").parent().show(); 
     $("#profileManualOpendataTable_wrapper").show();
@@ -23,15 +22,15 @@ function backCloseProfile() {
     $('.closedProfileManualInfo').hide();
 }
 
-
-
 function decisionInfavour(status) {
     if (status=='pending') {
         var text = 'Pending';
     } else if (status=='accept') {
         var text = 'Accepted';
-    } else {
+    } else if (status=='decline') {
         var text = 'Declined';
+    } else {
+        var text = 'Deleted';
     }
     return text;
 }
@@ -134,21 +133,6 @@ function initManualDecision() {
                     return data;
                 }
             },
-            // {   
-            //     data: null, title: "Agent Profile", sWidth: '25%' ,
-            //     render: function(data, type, row, meta){
-            //         if (row.agent_profile_connector !== null) {
-            //             var url = WEBSITE_URL+'page-three.html?agent_id='+row.connector.id;
-            //             return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
-            //         } else {
-            //             return 'Not Found';
-            //         }
-                    
-            //     }
-            // },
-            // {   
-            //     defaultContent: 'Anna', title: "Decided By", sWidth: '25%'
-            // },
             {   
                 data: "status", title: "Status", sWidth: '25%',
                 render: function(data, type, row, meta){
@@ -163,14 +147,27 @@ function initManualDecision() {
 }
 
 function manualDetail() {
+    $('.acceptRequestBtn').attr('disabled', false);
+    $('.rejectRequestBtn').attr('disabled', false);
+
     settings = get_settings('agent-request/'+agentRequestId+'/', 'GET');
     settings['headers'] = {};
     $.ajax(settings).done(function (response) {
         var response = JSON.parse(response);
+
+        if (response.status == 'accept') {
+            $('.delete-agent').show();
+        } else {
+            $('.delete-agent').hide();
+        }
         
-        // if (response.agent_profile_connector !== null) {
-        //     $('.agent-name').text(response.connector.agent_name);
-        // }
+        if (response.agent !== null) {
+            var link = '<a target="_blank" href="https://agentstat.com/profile/'+response.agent+'/">'+response.connector.agent_name+'</a>';
+            $('.agent-name').html(link);
+        } else {
+            $('.agent-name').text('');
+        }
+        $('.created-date').html(niceDate(response.created_at));
 
         $('.fullname').text(response.name);
         $('.email').text(response.email);
@@ -181,7 +178,6 @@ function manualDetail() {
         $('.city').text(response.city);
         $('.state').text(response.state);
         $('.zipcode').text(response.zip_code);
-  
 
         // $('.closedReason').text(response.reason);
         $('.decision-infavour').text(decisionInfavour(response.status));
@@ -211,7 +207,6 @@ function reloadAgentManualData() {
         $('#profileManualCloseddataTable').DataTable().ajax.reload();
     }, 1000);
 }
-
 
 $(document).ready(function(){
     // START: PROFILE MANUAL
@@ -249,24 +244,26 @@ $(document).ready(function(){
     });
 
     $('.acceptRequestBtn').on('click',function(){
+        $(this).attr('disabled', true);
         // $('.closedReason').html($('.getReasoncurOwn').val());
         $('.decision-infavour').text('Accepted');
 
         var data = {
             // 'reason': $('.getReasoncurOwn').val(),
-            'status': 'decline',
+            'status': 'accept',
         };
         manualUpdate(data);
         reloadAgentManualData();
     });
 
     $('.rejectRequestBtn').on('click',function(){
+        $(this).attr('disabled', true);
         // $('.closedReason').html($('.getReasonmanuale').val());
         $('.decision-infavour').text('Rejected');
 
         var data = {
             // 'reason': $('.getReasonmanuale').val(),
-            'status': 'accept',
+            'status': 'decline',
         };
         manualUpdate(data);
         reloadAgentManualData();
@@ -286,6 +283,21 @@ $(document).ready(function(){
 
     $('.closedProfileManualInfo-backIcon').on( 'click', function () {
         backCloseProfile();
+    });
+
+    $(document).on('click', '.delete-agent', function(){
+        var res = confirm("Are you sure to delete? this cannot be undo!");
+        if (res == true) {
+            $(this).attr('disabled', true);
+            $('.decision-infavour').text('Deleted');
+            $('.delete-agent').hide();
+            
+            var data = {
+                'status': 'delete',
+            };
+            manualUpdate(data);
+            reloadAgentManualData();
+        } 
     });
     // END: PROFILE MANUAL
 });
