@@ -324,7 +324,7 @@ function initTransactionEditPending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=agentstat&record_status=pending', {
+            $.get(API_URL+'agent-list/?record_type=agentstat&record_status_not_eq=mark', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
@@ -337,7 +337,7 @@ function initTransactionEditPending() {
         },
         "columns": [
             { 
-                data: "created_at", title: "Dispute Date", sWidth: '20%',
+                data: "created_at", title: "Created Date", sWidth: '20%',
                 render: function(data, type, row, meta){
                     return niceDate(data);
                 }
@@ -355,15 +355,21 @@ function initTransactionEditPending() {
                 }
             },
             {   
-                data: null, title: "Proof Provided By", sWidth: '20%',
-                render: function() {
-                    return 'New';
+                data: "record_status", title: "Type", sWidth: '20%',
+                render: function(data) {
+                    return data;
                 }
             },
             {   
-                data: "email", title: "Decision Deadline", sWidth: '20%',
+                data: "address_text", title: "Street Address", sWidth: '20%',
+                render: function(data) {
+                    return data;
+                }
+            },
+            {   
+                data: null, sWidth: '20%',
                 render: function(data, type, row, meta){
-                    return decisionDeadline(row.created_at)+' Hours';
+                    return '<button class="btn btn-success transaction-marked" data-id="'+row.id+'">Mark as Read</button>';
                 }
             }
         ],
@@ -383,7 +389,7 @@ function initTransactionEditDecided() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=agentstat&record_status_not_eq=pending', {
+            $.get(API_URL+'agent-list/?record_type=agentstat&record_status=mark', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 callback({
@@ -395,7 +401,7 @@ function initTransactionEditDecided() {
         },
         "columns": [
             { 
-                data: "created_at", title: "Dispute Date", sWidth: '20%',
+                data: "created_at", title: "Created Date", sWidth: '20%',
                 render: function(data, type, row, meta){
                     return niceDate(data);
                 }
@@ -413,17 +419,17 @@ function initTransactionEditDecided() {
                 }
             },
             {   
-                data: null, title: "Proof Provided By", sWidth: '20%',
-                render: function() {
-                    return 'New';
+                data: "address_text", title: "Street Address", sWidth: '20%',
+                render: function(data) {
+                    return data;
                 }
             },
-            {   
-                data: "email", title: "Decision Deadline", sWidth: '20%',
-                render: function(data, type, row, meta){
-                    return decisionDeadline(row.created_at)+' Hours';
-                }
-            }
+            // {   
+            //     data: "email", title: "Decision Deadline", sWidth: '20%',
+            //     render: function(data, type, row, meta){
+            //         return decisionDeadline(row.created_at)+' Hours';
+            //     }
+            // }
         ],
         "createdRow": function (row, data, dataIndex) {
             $(row).attr('data-id', data.id);
@@ -611,13 +617,13 @@ function transactionDetail() {
         $('.trans-list-price').text(currencyFormat(res.list_price_int));
         $('.trans-sold-price').text(currencyFormat(res.sold_price_int));
         
-        $('.transaction-decision').text(transactionDecision(res.record_status));
+        // $('.transaction-decision').text(transactionDecision(res.record_status));
 
-        if (res.record_status == 'pending') {
-            transactionPendingShow();
-        } else {
-            transactionPendingShow(false);
-        }
+        // if (res.record_status == 'pending') {
+        //     transactionPendingShow();
+        // } else {
+        //     transactionPendingShow(false);
+        // }
         
     }).fail(function(err) {
         console.log(err.responseText);
@@ -789,6 +795,17 @@ $(document).ready(function(){
             return false;
         }
 
+        if ($(e.target).attr('class') == 'btn btn-success transaction-marked') {
+            $(this).attr('disabled', true);
+            transactionId = $(this).data('id');
+            var data = {
+                'record_status': 'mark',
+            };
+            transactionUpdate(data);
+            reloadAgentTransactionData();
+            return false;
+        }
+
         $('.transactionEditsInfo').show();
         $("#transactionEditsOpendataTable").parent().hide(); 
         $("#transactionEditsOpendataTable_wrapper").hide();
@@ -824,36 +841,36 @@ $(document).ready(function(){
         $('.closedtransactionEditsInfo').hide();
     }); 
     
-    $('.accept-submit-btn').on('click', function(){
-        $('.transaction-decision-reason').html($('.getAcceptReason').val());
-        $('.transaction-decision').text('Accept');
+    // $('.accept-submit-btn').on('click', function(){
+    //     $('.transaction-decision-reason').html($('.getAcceptReason').val());
+    //     $('.transaction-decision').text('Accept');
 
-        var data = {
-            'record_reason': $('.getAcceptReason').val(),
-            'record_status': 'accept',
-        };
-        transactionUpdate(data);
+    //     var data = {
+    //         'record_reason': $('.getAcceptReason').val(),
+    //         'record_status': 'accept',
+    //     };
+    //     transactionUpdate(data);
 
-        reloadAgentTransactionData();
+    //     reloadAgentTransactionData();
 
-        $('.getAcceptReason').val('');
-    });
+    //     $('.getAcceptReason').val('');
+    // });
 
 
-    $('.decline-submit-btn').on('click', function(){
-        $('.transaction-decision-reason').html($('.getDeclineReason').val());
-        $('.transaction-decision').text('Decline');
+    // $('.decline-submit-btn').on('click', function(){
+    //     $('.transaction-decision-reason').html($('.getDeclineReason').val());
+    //     $('.transaction-decision').text('Decline');
 
-        var data = {
-            'record_reason': $('.getDeclineReason').val(),
-            'record_status': 'decline',
-        };
-        transactionUpdate(data);
+    //     var data = {
+    //         'record_reason': $('.getDeclineReason').val(),
+    //         'record_status': 'decline',
+    //     };
+    //     transactionUpdate(data);
 
-        reloadAgentTransactionData();
+    //     reloadAgentTransactionData();
 
-        $('.getDeclineReason').val('');
-    });
+    //     $('.getDeclineReason').val('');
+    // });
     // END: TRANSACTION EDIT
     
     // START: KEYWORD ALERT
