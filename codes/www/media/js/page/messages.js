@@ -324,7 +324,7 @@ function initTransactionEditPending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=agentstat&record_status_not_eq=mark', {
+            $.get(API_URL+'agent-list/?record_type=unmark', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
@@ -352,6 +352,12 @@ function initTransactionEditPending() {
                         return 'Not Found';
                     }
                     
+                }
+            },
+            {   
+                data: "record_type", title: "Source", sWidth: '20%',
+                render: function(data) {
+                    return data;
                 }
             },
             {   
@@ -389,7 +395,7 @@ function initTransactionEditDecided() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=agentstat&record_status=mark', {
+            $.get(API_URL+'agent-list/?record_type=mark', {
                 page: offsetToPageno(data.start),
             }, function(res) {
                 callback({
@@ -419,17 +425,17 @@ function initTransactionEditDecided() {
                 }
             },
             {   
+                data: "record_type", title: "Source", sWidth: '20%',
+                render: function(data) {
+                    return data;
+                }
+            },
+            {   
                 data: "address_text", title: "Street Address", sWidth: '20%',
                 render: function(data) {
                     return data;
                 }
             },
-            // {   
-            //     data: "email", title: "Decision Deadline", sWidth: '20%',
-            //     render: function(data, type, row, meta){
-            //         return decisionDeadline(row.created_at)+' Hours';
-            //     }
-            // }
         ],
         "createdRow": function (row, data, dataIndex) {
             $(row).attr('data-id', data.id);
@@ -605,6 +611,7 @@ function transactionDetail() {
         
         $('.agent-name').text(res.agent_name);
         $('.dis-date').text(niceDate(res.created_at));
+        $('.trans-source').text(res.record_type);
 
         $('.trans-address').text(res.address_text);
         $('.trans-city').text(res.city);
@@ -612,10 +619,36 @@ function transactionDetail() {
         $('.trans-zipcode').text(res.zipcode);
         $('.trans-type').text(res.home_type);
         $('.trans-represented').text(res.represented);
+        $('.trans-bedroom').text(res.beds);
+        $('.trans-bathroom').text(res.baths);
         $('.trans-list-date').text(niceDate(res.list_date));
         $('.trans-sold-date').text(niceDate(res.sold_date));
         $('.trans-list-price').text(currencyFormat(res.list_price_int));
         $('.trans-sold-price').text(currencyFormat(res.sold_price_int));
+
+        if (res.old_list_data) {
+            $(".current_transaction_div").attr('class', 'current_transaction_div col-xl-6 col-sm-6 mb-6 border-solid');
+            $('.old_transaction_div').show();
+
+            var old_data = JSON.parse(res.old_list_data);
+            
+            $('.old-trans-address').text(old_data.address_text);
+            $('.old-trans-city').text(old_data.city);
+            $('.old-trans-state').text(old_data.state);
+            $('.old-trans-zipcode').text(old_data.zipcode);
+            $('.old-trans-type').text(old_data.home_type);
+            $('.old-trans-represented').text(old_data.represented);
+            $('.old-trans-bedroom').text(old_data.beds);
+            $('.old-trans-bathroom').text(old_data.baths);
+            $('.old-trans-list-date').text(niceDate(old_data.list_date));
+            $('.old-trans-sold-date').text(niceDate(old_data.sold_date));
+            $('.old-trans-list-price').text(currencyFormat(old_data.list_price_int));
+            $('.old-trans-sold-price').text(currencyFormat(old_data.sold_price_int));
+
+        } else {
+            $(".current_transaction_div").attr('class', 'current_transaction_div col-xl-12 col-sm-12 mb-12 border-solid');
+            $('.old_transaction_div').hide();
+        }
         
         // $('.transaction-decision').text(transactionDecision(res.record_status));
 
