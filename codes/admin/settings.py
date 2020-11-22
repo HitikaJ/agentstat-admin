@@ -15,7 +15,7 @@ SECRET_KEY = '@!=d87m!u))00sp5w*s06$b&a5tkvfie#&#^@n^rt4f(a=b+j$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['admin.agentstat.com', 'localhost']
+ALLOWED_HOSTS = ['admin.agentstat.com', 'localhost', '*']
 
 
 # Application definition
