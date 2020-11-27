@@ -1,7 +1,6 @@
 function addKeywordApi(val) {
     var data = {'keyword':val};
     settings = get_settings('keyword-alert/', 'POST', JSON.stringify(data));
-    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         var response = JSON.parse(response);
         keywordHtml(response);
@@ -10,7 +9,6 @@ function addKeywordApi(val) {
 
 function allKeywordApi() {
     settings = get_settings('keyword-alert/', 'GET');
-    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         var response = JSON.parse(response);
         $.each(response, function(k,v){
@@ -21,7 +19,6 @@ function allKeywordApi() {
 
 function delKeywordApi(id) {
     settings = get_settings('keyword-alert/'+id+'/', 'DELETE');
-    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
 
     });

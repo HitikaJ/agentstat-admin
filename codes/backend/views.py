@@ -102,5 +102,9 @@ def messages(request):
     return render(request, 'messages.html')
 
 
+def login(request):
+    return render(request, 'login.html')
+
+
 def admin(request):
     return render(request, 'administration.html')

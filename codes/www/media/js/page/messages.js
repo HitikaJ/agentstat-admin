@@ -100,15 +100,18 @@ function initDisputePending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'reclaim-dispute/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                notificationBadge('profileDispute-tab-classic', 'Profile', res.total);
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'reclaim-dispute/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    notificationBadge('profileDispute-tab-classic', 'Profile', res.total);
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
@@ -162,14 +165,17 @@ function initDisputeDecision() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'reclaim-dispute/decided/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'reclaim-dispute/decided/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
@@ -217,15 +223,18 @@ function initKeywordAlertUnmarked() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'keyword-alert-found/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                notificationBadge('keywordAlerts-tab-classic', 'Keyword Alert', res.total);
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'keyword-alert-found/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    notificationBadge('keywordAlerts-tab-classic', 'Keyword Alert', res.total);
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
@@ -271,14 +280,17 @@ function initKeywordAlertmarked() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'keyword-alert-found/marked/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'keyword-alert-found/marked/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
@@ -324,15 +336,18 @@ function initTransactionEditPending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=unmark', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
-                callback({
-                    recordsTotal: res.count,
-                    recordsFiltered: res.count,
-                    data: res.results
-                });
+            $.ajax({
+                url: API_URL+'agent-list/?record_type=unmark&page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    notificationBadge('transactionEdits-tab-classic', 'Transaction Edit', res.count);
+                    callback({
+                        recordsTotal: res.count,
+                        recordsFiltered: res.count,
+                        data: res.results
+                    });
+                }
             });
         },
         "columns": [
@@ -395,14 +410,17 @@ function initTransactionEditDecided() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-list/?record_type=mark', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                callback({
-                    recordsTotal: res.count,
-                    recordsFiltered: res.count,
-                    data: res.results
-                });
+            $.ajax({
+                url: API_URL+'agent-list/?record_type=mark&page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    callback({
+                        recordsTotal: res.count,
+                        recordsFiltered: res.count,
+                        data: res.results
+                    });
+                }
             });
         },
         "columns": [
@@ -453,15 +471,18 @@ function initNewAgentUnmarked() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'web-agent/?has_seen=no', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                notificationBadge('newAgent-tab-classic', 'New Agent', res.count);
-                callback({
-                    recordsTotal: res.count,
-                    recordsFiltered: res.count,
-                    data: res.results
-                });
+            $.ajax({
+                url: API_URL+'web-agent/?has_seen=no&page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    notificationBadge('newAgent-tab-classic', 'New Agent', res.count);
+                    callback({
+                        recordsTotal: res.count,
+                        recordsFiltered: res.count,
+                        data: res.results
+                    });
+                }
             });
         },
         "columns": [
@@ -512,14 +533,17 @@ function initNewAgentmarked() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'web-agent/?has_seen=yes', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                callback({
-                    recordsTotal: res.count,
-                    recordsFiltered: res.count,
-                    data: res.results
-                });
+            $.ajax({
+                url: API_URL+'web-agent/?has_seen=yes&page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    callback({
+                        recordsTotal: res.count,
+                        recordsFiltered: res.count,
+                        data: res.results
+                    });
+                }
             });
         },
         "columns": [
@@ -673,7 +697,6 @@ function disputeUpdate(data) {
 
 function keywordUpdate(data, keyword_id) {
     settings = get_settings('keyword-alert-match/'+keyword_id+'/', 'PUT', JSON.stringify(data));
-    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         reloadKeywordAlertData();
     });
@@ -689,7 +712,6 @@ function transactionUpdate(data) {
 
 function newAgentUpdate(data, id) {
     settings = get_settings('web-agent/'+id+'/', 'PUT', JSON.stringify(data));
-    settings['headers'] = null;
     $.ajax(settings).done(function (response) {
         reloadNewAgentData();
     });

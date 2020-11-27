@@ -72,4 +72,54 @@ function notificationBadge(id, text, count) {
 
 function currencyFormat(num) {
 	return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  }
+}
+
+function checkAuth() {
+    var pageName = window.location.pathname.split("/")[1];
+    console.log(pageName)
+    var sessionId = localStorage.getItem('session_id');
+    if (pageName != ''  && pageName != 'login') {
+        if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
+            //do nothing
+        } else {
+            window.location = '/';
+        }
+    } else {
+        if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
+            settings = get_settings('is-valid-token/', 'GET');
+            $.ajax(settings).done(function (response) {
+                window.location = '/dashboard/';
+            }).fail(function(err) {
+                localStorage.clear();
+            });
+        }
+    }
+}
+
+function getUserDataStorage(key) {
+    var data = JSON.parse(localStorage.getItem('user_data'));
+    if (data && key in data) {
+        return data[key];
+    } else {
+        return false;
+    }
+}
+
+function setUserDataStorage(key, val) {
+    var data = JSON.parse(localStorage.getItem('user_data'));
+    data[key] = val;
+    localStorage.user_data = JSON.stringify(data);
+}
+
+function logout_session() {
+	localStorage.clear();
+    window.location = '/';
+}
+
+$(document).ready(function() {
+    checkAuth();
+
+    $("body").delegate(".logout-btn", "click", function(e) {
+        logout_session();
+    });
+});

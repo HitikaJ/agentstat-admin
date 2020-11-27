@@ -7,7 +7,9 @@ from backend import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', views.dashboard),
+    path('', views.login),
+    path('login/', views.login),
+    path('dashboard/', views.dashboard),
     path('search-log/', views.search_log),
     path('manual-agents/', views.manual_agents),
     path('referrals/', views.referrals),

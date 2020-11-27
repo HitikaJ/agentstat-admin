@@ -45,15 +45,18 @@ function initManualPending() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-request-list/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                notificationBadge('profileManual-tab-classic', 'Profile', res.total);
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'agent-request-list/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    notificationBadge('profileManual-tab-classic', 'Profile', res.total);
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
@@ -104,14 +107,17 @@ function initManualDecision() {
         "bSort":false,
         "bAutoWidth": false, 
         "ajax": function(data, callback, settings) {
-            $.get(API_URL+'agent-request-list/decided/', {
-                page: offsetToPageno(data.start),
-            }, function(res) {
-                callback({
-                    recordsTotal: res.total,
-                    recordsFiltered: res.total,
-                    data: res.data
-                });
+            $.ajax({
+                url: API_URL+'agent-request-list/decided/?page='+offsetToPageno(data.start),
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
+                success: function(res) { 
+                    callback({
+                        recordsTotal: res.total,
+                        recordsFiltered: res.total,
+                        data: res.data
+                    });
+                }
             });
         },
         "columns": [
