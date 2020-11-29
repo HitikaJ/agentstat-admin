@@ -743,10 +743,15 @@ $(document).ready(function(){
     });
 
     $('.completegetReasoncurOwn').on('click',function(){
+        if ($('.getReasoncurOwn').val() == '') {
+            alert('Reason is must required');
+            return false;
+        }
         $('.closedReason').html($('.getReasoncurOwn').val());
         $('.decision-infavour').text('Current Owner');
 
         var data = {
+            'decided_by_user': getUserDataStorage('user_id'),
             'reason': $('.getReasoncurOwn').val(),
             'status': 'decline',
         };
@@ -755,10 +760,15 @@ $(document).ready(function(){
     });
 
     $('.completgetReasondisputee').on('click',function(){
+        if ($('.getReasondisputee').val() == '') {
+            alert('Reason is must required');
+            return false;
+        }
         $('.closedReason').html($('.getReasondisputee').val());
         $('.decision-infavour').text('Disputee');
 
         var data = {
+            'decided_by_user': getUserDataStorage('user_id'),
             'reason': $('.getReasondisputee').val(),
             'status': 'accept',
         };
