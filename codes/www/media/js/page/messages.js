@@ -124,13 +124,7 @@ function initDisputePending() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent_profile_connector !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.connector.id;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
-                    } else {
-                        return 'Not Found';
-                    }
-                    
+                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name);
                 }
             },
             {   
@@ -188,13 +182,7 @@ function initDisputeDecision() {
             {   
                 data: null, title: "Agent Profile", sWidth: '25%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent_profile_connector !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.connector.id;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.connector.agent_name+"</a>";
-                    } else {
-                        return 'Not Found';
-                    }
-                    
+                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name); 
                 }
             },
             {   
@@ -247,8 +235,7 @@ function initKeywordAlertUnmarked() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    var url = WEBSITE_URL+'page-three.html?agent_id='+row.zillow_agent_id;
-                    return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";   
+                    return agentProfileLink(row.agent_screen_name, row.agent_name);
                 }
             },
             {   
@@ -303,8 +290,7 @@ function initKeywordAlertmarked() {
             {   
                 data: null, title: "Agent Profile", sWidth: '15%' ,
                 render: function(data, type, row, meta){
-                    var url = WEBSITE_URL+'page-three.html?agent_id='+row.zillow_agent_id;
-                    return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";   
+                    return agentProfileLink(row.agent_screen_name, row.agent_name);
                 }
             },
             {   
@@ -360,13 +346,7 @@ function initTransactionEditPending() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";
-                    } else {
-                        return 'Not Found';
-                    }
-                    
+                    return agentProfileLink(row.agent_screen_name, row.agent_name);
                 }
             },
             {   
@@ -433,13 +413,7 @@ function initTransactionEditDecided() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.agent_name+"</a>";
-                    } else {
-                        return 'Not Found';
-                    }
-                    
+                    return agentProfileLink(row.agent_screen_name, row.agent_name);
                 }
             },
             {   
@@ -498,13 +472,7 @@ function initNewAgentUnmarked() {
             {   
                 data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent_profile_connector !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent_profile_connector;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.zillow_agent_name+"</a>";
-                    } else {
-                        return 'Not Attached';
-                    }
-                    
+                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name);
                 }
             },
             {   
@@ -559,13 +527,7 @@ function initNewAgentmarked() {
             {   
                 data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    if (row.agent_profile_connector !== null) {
-                        var url = WEBSITE_URL+'page-three.html?agent_id='+row.agent_profile_connector;
-                        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+row.zillow_agent_name+"</a>";
-                    } else {
-                        return 'Not Attached';
-                    }
-                    
+                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name);
                 }
             },
             {   

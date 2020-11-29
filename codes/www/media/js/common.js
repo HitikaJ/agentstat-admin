@@ -116,6 +116,19 @@ function logout_session() {
     window.location = '/';
 }
 
+function agentProfileUrl(slug) {
+    return WEBSITE_URL+'profile/'+slug;
+}
+
+function agentProfileLink(slug, linkText) {
+    if (slug != null && slug != 'null' && slug != '') {
+        var url = agentProfileUrl(slug)
+        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+linkText+"</a>";
+    } else {
+        return 'Un-attached';
+    }
+}
+
 $(document).ready(function() {
     checkAuth();
 
