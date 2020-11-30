@@ -76,7 +76,6 @@ function currencyFormat(num) {
 
 function checkAuth() {
     var pageName = window.location.pathname.split("/")[1];
-    console.log(pageName)
     var sessionId = localStorage.getItem('session_id');
     if (pageName != ''  && pageName != 'login') {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
@@ -120,9 +119,12 @@ function agentProfileUrl(slug) {
     return WEBSITE_URL+'profile/'+slug;
 }
 
-function agentProfileLink(slug, linkText) {
+function agentProfileLink(slug, linkText, id=null) {
     if (slug != null && slug != 'null' && slug != '') {
         var url = agentProfileUrl(slug)
+        return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+linkText+"</a>";
+    } if (id != null && id != 'null' && id != '') {
+        var url = agentProfileUrl(id)
         return "<a class='agent-profile-link' href='"+url+"' target='_blank'>"+linkText+"</a>";
     } else {
         return 'Un-attached';

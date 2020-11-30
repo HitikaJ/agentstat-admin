@@ -105,7 +105,7 @@ function initDisputePending() {
                 type: "GET",
                 beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('session_id'));},
                 success: function(res) { 
-                    notificationBadge('profileDispute-tab-classic', 'Profile', res.total);
+                    notificationBadge('profileDispute-tab-classic', 'Profile Disputes', res.total);
                     callback({
                         recordsTotal: res.total,
                         recordsFiltered: res.total,
@@ -124,7 +124,7 @@ function initDisputePending() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name);
+                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name, row.connector.id);
                 }
             },
             {   
@@ -182,7 +182,7 @@ function initDisputeDecision() {
             {   
                 data: null, title: "Agent Profile", sWidth: '25%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name); 
+                    return agentProfileLink(row.connector.screen_name, row.connector.agent_name, row.connector.id);
                 }
             },
             {   
@@ -235,7 +235,7 @@ function initKeywordAlertUnmarked() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.agent_screen_name, row.agent_name);
+                    return agentProfileLink(row.agent_screen_name, row.agent_name, row.zillow_agent_id);
                 }
             },
             {   
@@ -290,7 +290,7 @@ function initKeywordAlertmarked() {
             {   
                 data: null, title: "Agent Profile", sWidth: '15%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.agent_screen_name, row.agent_name);
+                    return agentProfileLink(row.agent_screen_name, row.agent_name, row.zillow_agent_id);
                 }
             },
             {   
@@ -300,7 +300,7 @@ function initKeywordAlertmarked() {
                 data: "keyword", title: "Keyword", sWidth: '13%'
             },
             {   
-                data: "closed_by", title: "Closed By", sWidth: '12%'
+                data: "closed_by_user_name", title: "Closed By", sWidth: '15%'
             },
             {   
                 data: "notes", title: "Notes", sWidth: '25%'
@@ -346,7 +346,7 @@ function initTransactionEditPending() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.agent_screen_name, row.agent_name);
+                    return agentProfileLink(row.agent_screen_name, row.agent_name, row.agent);
                 }
             },
             {   
@@ -413,7 +413,7 @@ function initTransactionEditDecided() {
             {   
                 data: null, title: "Agent Profile", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.agent_screen_name, row.agent_name);
+                    return agentProfileLink(row.agent_screen_name, row.agent_name, row.agent);
                 }
             },
             {   
@@ -424,6 +424,12 @@ function initTransactionEditDecided() {
             },
             {   
                 data: "address_text", title: "Street Address", sWidth: '20%',
+                render: function(data) {
+                    return data;
+                }
+            },
+            {   
+                data: "read_by_user_name", title: "Marked By", sWidth: '20%',
                 render: function(data) {
                     return data;
                 }
@@ -472,7 +478,7 @@ function initNewAgentUnmarked() {
             {   
                 data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name);
+                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name, row.agent_profile_connector);
                 }
             },
             {   
@@ -527,16 +533,16 @@ function initNewAgentmarked() {
             {   
                 data: "agent_profile_connector", title: "Profile Link", sWidth: '20%' ,
                 render: function(data, type, row, meta){
-                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name);
+                    return agentProfileLink(row.zillow_screen_name, row.zillow_agent_name, row.agent_profile_connector);
                 }
             },
             {   
                 data: "social_provider", title: "Source", sWidth: '20%',
             },
             {   
-                data: null, title:"Marked By",sWidth: '20%',
+                data: "read_by_user_name", title:"Marked By",sWidth: '20%',
                 render: function(data, type, row, meta){
-                    return 'Anna';
+                    return data;
                 }
             }
         ],
@@ -553,8 +559,11 @@ function disputeDetail() {
         var response = JSON.parse(response);
         
         if (response.agent_profile_connector !== null) {
-            $('.agent-name').text(response.connector.agent_name);
+            $('.agent-name').html(
+                agentProfileLink(response.connector.screen_name, response.connector.agent_name, response.connector.id)
+            );
         }
+        $('.decided-by-user').text(response.decided_by);
 
         $('.dis-fullname').text(response.full_name);
         $('.dis-email').text(response.email);
@@ -595,7 +604,11 @@ function transactionDetail() {
     $.ajax(settings).done(function (response) {
         var res = JSON.parse(response);
         
-        $('.agent-name').text(res.agent_name);
+        $('.agent-name').html(
+            agentProfileLink(res.agent_screen_name, res.agent_name, res.agent)
+        );
+        $('.marked-by-name').text(res.read_by_user_name);
+        
         $('.dis-date').text(niceDate(res.created_at));
         $('.trans-source').text(res.record_type);
 
@@ -798,8 +811,12 @@ $(document).ready(function(){
     initKeywordAlertmarked();
 
     $('.markCloseBtn').on('click', function() {
+        if ($('.markCloseDescription').val() == '') {
+            alert('Note is must required');
+            return false;
+        }
         var data = {
-            'closed_by': 'Anna',
+            'closed_by_user': getUserDataStorage('user_id'),
             'notes': $('.markCloseDescription').val()
         };
         keywordUpdate(data, keywordAlertId);
@@ -826,6 +843,7 @@ $(document).ready(function(){
             $(this).attr('disabled', true);
             transactionId = $(this).data('id');
             var data = {
+                'read_by_user': getUserDataStorage('user_id'),
                 'record_status': 'mark',
             };
             transactionUpdate(data);
@@ -906,6 +924,7 @@ $(document).ready(function(){
 
     $(document).on('click', '.new-agent-marked',function(){
         var data = {
+            'read_by_user': getUserDataStorage('user_id'),
             'has_seen': 'yes',
         };
         newAgentUpdate(data, $(this).data('id'));
