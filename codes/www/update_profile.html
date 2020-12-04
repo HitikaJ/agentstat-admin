@@ -1,0 +1,702 @@
+{% extends 'index.html' %}
+{% block container %}
+<link href="/media/css/update-profile.css" rel="stylesheet">
+
+<div class="tabs-section">
+    <div class="tabs-section-container">
+        <div class="wrap">
+            <div class="tabset-sidebar">
+                <strong class="title">PROFILE SETTINGS</strong>
+                <ul class="tabset" id="agent-tabs">
+                    <li>
+                        <a id="info-tab" href="#info">
+                            <span class="icon">
+                                <img src="/media/assets/icons/info-icon.png" alt="Basic">
+                            </span>
+                            <span class="text">Basic Information</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="license-tab" href="#license">
+                            <span class="icon">
+                                <img src="/media/assets/icons/license-icon.png" alt="License">
+                            </span>
+                            <span class="text">License Information</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="highlight-tab" href="#highlight">
+                            <span class="icon">
+                                <img src="/media/assets/icons/Highlight-icon.png" alt="Highlights">
+                            </span>
+                            <span class="text">Highlights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="comision-tab" href="#comision">
+                            <span class="icon">
+                                <img src="/media/assets/icons/Commision-icon.png" alt="Commision">
+                            </span>
+                            <span class="text">Commission</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="review-tab" href="#review">
+                            <span class="icon">
+                                <img src="/media/assets/icons/review-icon.png" alt="Reviews">
+                            </span>
+                            <span class="text">Reviews</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="social-tab" href="#social">
+                            <span class="icon">
+                                <img src="/media/assets/icons/social-media-icon.png" alt="Social Media">
+                            </span>
+                            <span class="text">Social Media</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="about-tab" href="#about">
+                            <span class="icon">
+                                <img src="/media/assets/icons/about-me-icon.png" alt="About Me">
+                            </span>
+                            <span class="text">About Me</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="noti-setting-tab" href="#noti-setting">
+                            <span class="icon">
+                                <img src="/media/assets/icons/noti-setting-icon.png" alt="Notification Settings">
+                            </span>
+                            <span class="text">Notification Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content-area">
+                <form accept="#" class="tab-content">
+                    <div id="info" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/info-icon.png" alt="Basic">
+                            </span>
+                            <span class="text">Basic Information</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/info-icon.png" alt="information">
+                                </span>
+                                <span class="text">Basic Information</span>
+                            </strong>
+                            <div class="fields-area">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="first_name" placeholder="First Name">
+                                        </div>
+                                        <div class="field-holder">
+                                            <input type="text" id="last_name" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group number not-info-for-team">
+                                    <label for="number">Phone Number</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder phone-input">
+                                            <input type="text" id="phone_number_1" placeholder="xxx" maxlength="3"
+                                            pattern="\d{3}">
+                                        </div>
+                                        <div class="field-holder phone-input">
+                                            <input  type="text" id="phone_number_2" placeholder="xxx" maxlength="3"
+                                            pattern="\d{3}">
+                                        </div>
+                                        <div class="field-holder phone-input">
+                                            <input  type="text" id="phone_number_3" placeholder="xxxx" maxlength="4"
+                                            pattern="\d{4}">
+                                        </div>
+                                        <i class="fa fa-info-circle" data-toggle="tooltip"
+                                        title="This is how other agents, as well as prospective buyers and sellers will be getting a hold of you."></i>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label for="mail">Email</label>
+                                            <div class="fields-wrap">
+                                                <div class="field-holder">
+                                                    <input type="email" id="email" required placeholder="agentname@brokerage.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group not-info-for-team">
+                                            <label for="screen">Screen Name</label>
+                                            <div class="fields-wrap">
+                                                <div class="field-holder">
+                                                    <input type="text" id="screen_name" placeholder="Enter Screen Name" required>
+                                                </div>
+                                            </div>
+                                            <p>Profile URL :
+                                                https://agentstat.com/profile/<span id="profile_slug"></span>/</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div id="image_upload_div">                                       
+                                            <div id="image_save" style="display:none">
+                                                <button id="image_save_btn" class="btn btn-primary">Save Image
+                                                    <i id="save_image_loading" class="fa fa-spinner fa-spin"
+                                                        style="display:none"></i>
+                                                </button>
+                                            </div>
+                                            <br>
+                                            <span id="remove-profile-image">x</span>
+                                            <img class="my-image" style="height:200px" src="/media/assets/icons/blank-profile-picture-973460_1280.webp" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group not-info-for-team">
+                                    <label>Agent Profile</label>
+                                    <div class="fields-wrap">
+                                        <span class="link-holder">
+                                            <div id="agent-connector">
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Profile Photo</label>
+                                    <div class="fields-wrap">
+                                        <div class="upload-area">
+                                            <label>
+                                                <input type="file" id="upload" accept="image/*" onchange="uploadTrigger(this)">
+                                                <span class="fake-file-label">
+                                                    <!-- <span class="add-text">Add Photo</span> -->
+                                                    <span class="file-text">Drop files or click here to upload</span>
+                                                    <span class="upload-btn">Chose Files</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" data-tab='info-tab' class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="license" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/license-icon.png" alt="License">
+                            </span>
+                            <span class="text">License Information</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/license-icon.png" alt="License">
+                                </span>
+                                <span class="text">License Information</span>
+                            </strong>
+                            <div class="fields-area">
+                                <div class="form-group">
+                                    <label for="license">License Number</label>
+                                    <div class="add-row">
+                                        <div class="fields-wrap">
+                                            <div class="field-holder">
+                                                <input type="text" id="license_no_1" placeholder="License #">
+                                            </div>
+                                            <span class="fake-select">
+                                                <select id="license_no_2">
+                                                    <option selected disabled value="">State</option>
+                                                </select>
+                                            </span>
+                                            <div class="field-holder">
+                                                <input type="text" id="license_no_3"  placeholder="Expiration Date">
+                                            </div>
+                                        </div>
+                                        <a href="javascript:void(0)" id="add-license" class="add-btn">Add</a>
+                                        <div class="new-fields">
+                                            <div class="fields-wrap">
+                                                <div id="added-license">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brokerage">Brokerage Name</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="brokerage_name" placeholder="Brokerage Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group brokerage-address">
+                                    <label for="adress">Brokerage Address</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="brokerage_address" placeholder="Street Address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group three-col">
+                                    <label for="city">City, State, ZIP</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="city" placeholder="City">
+                                        </div>
+                                        <span class="fake-select">
+                                            <select id="state">
+                                                <option selected disabled value="">State</option>
+                                            </select>
+                                        </span>
+                                        <div class="field-holder">
+                                            <input type="text" id="zipcode" placeholder="Zipcode">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="highlight" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/Highlight-icon.png" alt="Highlights">
+                            </span>
+                        <span class="text">Highlights</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/Highlight-icon.png" alt="Highlights">
+                                </span>
+                                <span class="text">Highlights</span>
+                            </strong>
+                            <div class="fields-area">
+                                <div class="form-group">
+                                    <label>In Business Since</label>
+                                    <span class="fake-select">
+                                        <select id="years_in_bussiness">
+                                            <option selected disabled value="">Select Year</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2008">2008</option>
+                                            <option value="2007">2007</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2005">2005</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2003">2003</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2001">2001</option>
+                                            <option value="2000">2000</option>
+                                            <option value="before 2000">Before 2000</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Specialities</label>
+                                    <ul id="specialties" class="checklist">
+                                    </ul>
+                                    <input maxlength="20" style="display:none" id="other-speciality-text"
+                                            placeholder="Other Specialties" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Language Fluency</label>
+                                    <ul id="languages" class="checklist">
+                                    </ul>
+                                    
+                                    <div class="collapse" id="collapseExample">
+                                        <ul id="morelanguages" class="checklist">
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <a class="trigger-more collapsed" role="button" data-toggle="collapse"
+                                        href="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">More</a>
+                                        
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="comision" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/Commision-icon.png" alt="Commision">
+                            </span>
+                            <span class="text">Commission</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/Commision-icon.png" alt="Commision">
+                                </span>
+                                <span class="text">Commission</span>
+                            </strong>
+                            <div class="fields-area">
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="combo-checkboxes" target='listing_fee'
+                        id="listing_fee_checkbox" checked>
+                                        <span class="fake-label">Listing Fee</span>
+                                    </label>
+                                    <span class="fake-select">
+                                        <select id="listing_fee">
+                                            <option selected disabled value="">Select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="combo-checkboxes" target='buyer_rebate'
+                                        id="buyer_rebate_checkbox">
+                                        <span class="fake-label">Buyer Rebate</span>
+                                    </label>
+                                    <span class="fake-select">
+                                        <select id="buyer_rebate">
+                                            <option selected disabled value="">Select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" class="combo-checkboxes" target='type_of_listing_service'
+                                        id="type_of_listing_service_checkbox">
+                                        <span class="fake-label">Type of listing services</span>
+                                    </label>
+                                    <span class="fake-select">
+                                        <select id="type_of_listing_service">
+                                            <option selected disabled value="" style="color: yellow !important;">Select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input id="provide_cma" type="checkbox">
+                                        <span class="fake-label">I Provide CMAs</span>
+                                    </label>
+                                </div>
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="review" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/review-icon.png" alt="Reviews">
+                            </span>
+                            <span class="text">Reviews</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/review-icon.png" alt="Reviews">
+                                </span>
+                                <span class="text">Reviews</span>
+                                <a href="javascript:void(0)" id="import-review" style="display: none;" class="import-review-btn">Import from Zillow</a>
+                            </strong>
+                            <div id="review-div" class="slider">
+                                <div class="container">
+                                    <table id="review-listing">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="review-listing-body">
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="social" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/social-media-icon.png" alt="Social Media">
+                            </span>
+                            <span class="text">Social Media</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/social-media-icon.png" alt="Social Media">
+                                </span>
+                                <span class="text">Social Media (Optional)</span>
+                            </strong>
+                            <div class="fields-area social">
+                                <div class="form-group">
+                                    <label for="webiste">Website</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="website" placeholder="Company Website Url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blog">Blog</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="blog" placeholder="Blog url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook">Facebook</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="facebook" placeholder="Facebook Profile page Url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter">Twitter</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="twitter" placeholder="Twitter Profile Url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">Linkedin</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="linkedin" placeholder="Linkedin profile URL">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="about" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/about-me-icon.png" alt="About Me">
+                            </span>
+                            <span class="text">About Me</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/about-me-icon.png" alt="About Me">
+                                </span>
+                                <span class="text">About Me</span>
+                            </strong>
+                            <div class="fields-area about">
+                                <div class="form-group">
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <textarea id="about_me" placeholder="Type here..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              <!--
+                    <div id="account-information" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/lock-icon.png" alt="Account Information">
+                            </span>
+                            <span class="text">Account Information</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/lock-icon.png" alt="Account Information">
+                                </span>
+                                <span class="text">Account Information</span>
+                            </strong>
+                            <div class="fields-area social">
+                                <div class="form-group">
+                                    <label for="webiste">Username</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="text" id="username" disabled placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blog">Current Password</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="password" id="current-password" placeholder="Current Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook">New Password</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="password" id="new-password" placeholder="New Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter">Repeat Password</label>
+                                    <div class="fields-wrap">
+                                        <div class="field-holder">
+                                            <input type="password" id="repeat-password" placeholder="Repeat Password">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish" id="save_password_btn">Save <i id="change_password_loading" class="fa fa-spinner fa-spin"
+                                        style="display:none"></i></a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger password-msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="noti-setting" class="agent-tab-item">
+                        <a href="#" class="accordion-opener">
+                            <span class="icon">
+                                <img src="/media/assets/icons/noti-setting-icon.png" alt="Notification Settings">
+                            </span>
+                            <span class="text">Notification Settings</span>
+                        </a>
+                        <div class="accordion-slide">
+                            <strong class="tab-heading">
+                                <span class="icon">
+                                    <img src="/media/assets/icons/noti-setting-icon.png" alt="Notification Settings">
+                                </span>
+                                <span class="text">Notification Settings</span>
+                            </strong>
+                            <div class="fields-area">
+                                <h5 class="noti-description">
+                                    When I receive a new lead, please notify me via:
+                                </h5>
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="email-notification">
+                                        <span class="fake-label">Email</span>
+                                    </label>
+                                </div>
+                                <div class="commision-info">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="sms-notification">
+                                        <span class="fake-label">Sms</span>
+                                    </label>
+                                </div>
+                                <div class="btns-area">
+                                    <a href="javascript:void(0)" class="next-btn finish submit_btn">Save</a>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="alert alert-danger msg" role="alert" style="margin-bottom:0px; display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    jQuery('#agent-tabs.tabset > li >a:not(:first)').addClass('inactive');
+        jQuery('#agent-tabs.tabset > li >a:first').addClass('active');
+        jQuery('.agent-tab-item').hide();
+        jQuery('.agent-tab-item:first').show();
+        jQuery('#agent-tabs.tabset > li >a').click(function(e){
+                e.preventDefault();
+                var tab = jQuery(this).attr('href');
+                if(jQuery(this).hasClass('inactive')){
+                        jQuery('#agent-tabs.tabset >li >a').addClass('inactive').removeClass('active');
+                        jQuery(this).removeClass('inactive').addClass('active');
+                        jQuery('.agent-tab-item').hide();
+                        jQuery(tab).fadeIn();
+                }
+                jQuery(tab).find("input:first").focus();
+        });
+
+    jQuery('.accordion-opener').next().css('display', 'block');
+    if(jQuery(window).width() < 1024) {
+        jQuery('.accordion-opener').next().css('display', 'none');
+        jQuery(".accordion-opener").unbind("click");
+        jQuery(".accordion-opener").bind("click", function () {
+            jQuery('.accordion-opener').next().slideUp();
+            jQuery('.accordion-opener').removeClass('active');
+            if (jQuery(this).next().is(':visible') == false) {
+                jQuery(this).addClass('active');
+                jQuery(this).next().slideDown();
+            }
+        });
+    }
+</script>
+{% endblock %}

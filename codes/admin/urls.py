@@ -16,5 +16,6 @@ urlpatterns = [
     path('agent-profiles/', views.profile),
     path('messages/', views.messages),
     path('admin/', views.admin),
+    path('update-profile/', views.update_profile),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

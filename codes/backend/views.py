@@ -108,3 +108,7 @@ def login(request):
 
 def admin(request):
     return render(request, 'administration.html')
+
+
+def update_profile(request):
+    return render(request, 'update_profile.html')
