@@ -168,11 +168,12 @@ function manualDetail() {
         }
         
         if (response.agent !== null) {
-            var link = '<a target="_blank" href="https://agentstat.com/profile/'+response.agent+'/">'+response.connector.agent_name+'</a>';
+            var link = agentProfileLink(response.connector.screen_name, response.connector.agent_name, response.agent);
             $('.agent-name').html(link);
         } else {
             $('.agent-name').text('');
         }
+        $('.decided-by-user').text(response.decided_by_user_name);
         $('.created-date').html(niceDate(response.created_at));
 
         $('.fullname').text(response.name);
@@ -256,6 +257,7 @@ $(document).ready(function(){
 
         var data = {
             // 'reason': $('.getReasoncurOwn').val(),
+            'decided_by_user': getUserDataStorage('user_id'),
             'status': 'accept',
         };
         manualUpdate(data);
@@ -269,6 +271,7 @@ $(document).ready(function(){
 
         var data = {
             // 'reason': $('.getReasonmanuale').val(),
+            'decided_by_user': getUserDataStorage('user_id'),
             'status': 'decline',
         };
         manualUpdate(data);
