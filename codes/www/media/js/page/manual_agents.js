@@ -302,6 +302,7 @@ $(document).ready(function(){
             $('.delete-agent').hide();
             
             var data = {
+                'decided_by_user': getUserDataStorage('user_id'),
                 'status': 'delete',
             };
             manualUpdate(data);
