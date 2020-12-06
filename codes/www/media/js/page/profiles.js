@@ -37,7 +37,7 @@ function initAgentProfiles() {
             { 
                 data: "phone_number", title: "Phone #", sWidth: '20%',
                 render: function(data, type, row, meta){
-                    return data;
+                    return formatPhoneNumber(data);
                 }
             },
             { 
