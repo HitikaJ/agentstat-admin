@@ -12,3 +12,17 @@
     background: red;
     color: white;
 }
+.notification-badge-sidebar {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
+.notification-badge-sidebar .badge {
+    position: absolute;
+    top: 0px !important;
+    margin-left: 2px !important;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}

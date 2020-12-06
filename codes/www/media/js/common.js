@@ -131,8 +131,25 @@ function agentProfileLink(slug, linkText, id=null) {
     }
 }
 
+function loadGeneralData() {
+    settings = get_settings('admin-general-data/', 'GET');
+    $.ajax(settings).done(function (res) {
+        response = JSON.parse(res);
+        notificationBadge('message-alert-sidebar', 'Alerts/Messages', response.message_alert);
+        notificationBadge('manual-account-sidebar', 'Manual Accounts', response.manual_account);
+    });
+}
+
+function sidebarLinkActive() {
+    var pageName = window.location.pathname.split("/")[1];
+    $('ul .nav-item').removeClass('active');
+    $( "a[page~='"+pageName+"']").closest('.nav-item').addClass('active');
+}
+
 $(document).ready(function() {
     checkAuth();
+    loadGeneralData();
+    sidebarLinkActive()
 
     $("body").delegate(".logout-btn", "click", function(e) {
         logout_session();
