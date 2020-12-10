@@ -112,3 +112,7 @@ def admin(request):
 
 def update_profile(request):
     return render(request, 'update_profile.html')
+
+
+def settings(request):
+    return render(request, 'settings.html')

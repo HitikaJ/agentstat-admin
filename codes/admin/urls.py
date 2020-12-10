@@ -17,5 +17,6 @@ urlpatterns = [
     path('messages/', views.messages),
     path('admin/', views.admin),
     path('update-profile/', views.update_profile),
+    path('settings/', views.settings),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
