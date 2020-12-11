@@ -128,9 +128,13 @@ function initManualDecision() {
                 }
             },
             { 
-                data: "name", title: "Name", sWidth: '20%',
+                data: null, title: "Name", sWidth: '20%',
                 render: function(data, type, row, meta){
-                    return data;
+                    if (row.connector == null) {
+                        return row.name
+                    } else {
+                        return agentProfileLink(row.connector.screen_name, row.connector.agent_name, row.agent);
+                    }
                 }
             },
             { 
@@ -144,7 +148,10 @@ function initManualDecision() {
                 render: function(data, type, row, meta){
                     return decisionInfavour(data);
                 }
-            }
+            },
+            {   
+                data: "decided_by_user_name", title: "Decided By", sWidth: '25%'
+            },
         ],
         "createdRow": function (row, data, dataIndex) {
             $(row).attr('data-id', data.id);

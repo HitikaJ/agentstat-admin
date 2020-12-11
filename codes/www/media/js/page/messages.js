@@ -186,7 +186,7 @@ function initDisputeDecision() {
                 }
             },
             {   
-                defaultContent: 'Anna', title: "Decided By", sWidth: '25%'
+                data: "decided_by", title: "Decided By", sWidth: '25%'
             },
             {   
                 data: "status", title: "Decision Favors", sWidth: '25%',
