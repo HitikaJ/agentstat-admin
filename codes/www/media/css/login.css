@@ -1,79 +1,113 @@
-/* LOGIN FORM */
+.card-body {
+    background: #7092be;
+    background-color: #7092be;
+}
 
-.login {
-    background: #f8f8f8;
+.rounded {
+    border: none;
+}
+
+.login-form .signup-holder {
+    border: 1px solid #eee;
+    padding: 40px 30px 30px;
+    background: #eceef1;
+    border-radius: 9px;
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.login-logo {
+    max-width: 200px;
+    margin: 0 unset;
+    margin: 0 auto 15px;
+}
+
+.login-logo a {
+    display: block;
     height: auto;
 }
 
-.login #header {
-    height: auto;
-    padding: 15px 16px;
-    justify-content: center;
+.login-logo img {
+    display: block;
+    width: 100%;
 }
 
-.login #header h1 {
+.login-form .signup-holder h2 {
+    color: #4db3a5;
+    text-align: center;
+    font-size: 36px;
+    line-height: 40px;
+    margin: 0 0 30px;
+}
+
+.login-form .input-holder {
+    margin: 0 0 15px;
+}
+
+.login-form .input-holder input {
+    background: #dde3ec;
+    border: none;
+    height: 45px;
+    padding: 5px 10px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.login-form .input-holder input:focus {
+    background-color: #dde3ec;
+    border-color: #eee;
+    border: 1px solid #b4b7bc;
+}
+
+.login-form .input-holder.remember-check input {
+    height: auto;
+    width: 30px;
+    height: 20px;
+    padding: 10ppx 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.login-form .input-holder.remember-check label {
+    margin: 0;
+    padding-left: 0px;
+    color: #333333;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.input-holder.remember-check {
+    background: #fff;
+    padding: 10px;
+    max-width: 170px;
+}
+
+.login-form .submit-box input[type="submit"] {
+    height: 40px;
+    background: #5cb85c;
+    color: #fff;
+    border: none;
+    width: 90px;
+    border-radius: 3px;
+    text-transform: uppercase;
     font-size: 18px;
 }
 
-.login #header h1 a {
-    color: #fff;
-}
-
-.login #content {
-    padding: 20px 20px 0;
-}
-
-.login #container {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
+.submit-box {
     overflow: hidden;
-    width: 28em;
-    min-width: 300px;
-    margin: 100px auto;
-    height: auto;
 }
 
-.login #content-main {
-    width: 100%;
-}
-
-.login .form-row {
-    padding: 4px 0;
+.login-form .submit-box .submit-btn {
     float: left;
-    width: 100%;
-    border-bottom: none;
-}
-
-.login .form-row label {
-    padding-right: 0.5em;
-    line-height: 2em;
-    font-size: 1em;
-    clear: both;
-    color: #333;
-}
-
-.login .form-row #id_username, .login .form-row #id_password {
-    clear: both;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.login span.help {
-    font-size: 10px;
-    display: block;
-}
-
-.login .submit-row {
-    clear: both;
-    padding: 1em 0 0 9.4em;
     margin: 0;
-    border: none;
-    background: none;
-    text-align: left;
 }
 
-.login .password-reset-link {
-    text-align: center;
+.login-form .submit-box a {
+    float: right;
+    color: #697ab7;
+    margin: 10px 0 0;
+}
+
+.submit-btn input {
+    cursor: pointer;
 }
