@@ -1,5 +1,5 @@
 API_URL = 'https://app.realtorstat.com/api/';
-// API_URL = 'http://localhost:8000/api/';
+ API_URL = 'http://localhost:8000/api/';
 WEBSITE_URL = 'https://agentstat.com/';
 
 function get_settings(url, method, data=null) {
@@ -83,6 +83,16 @@ function checkAuth() {
         } else {
             window.location = '/';
         }
+        alert("ERE")
+            // Move this to better place and populate leads screen
+            var settings = get_settings("leads", "GET")
+             console.log(settings)
+            alert(settings)
+            $.ajax(settings).done(function (response) {
+                console.log("leads")
+                alert(JSON.stringify(response))
+                console.log(response)
+            })
     } else {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
             settings = get_settings('is-valid-token/', 'GET');
