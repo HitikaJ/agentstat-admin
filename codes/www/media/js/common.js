@@ -1,5 +1,5 @@
-API_URL = 'https://app.realtorstat.com/api/';
- API_URL = 'http://localhost:8000/api/';
+ API_URL = 'https://app.realtorstat.com/api/';
+  API_URL = 'http://localhost:8000/api/';
 WEBSITE_URL = 'https://agentstat.com/';
 
 function get_settings(url, method, data=null) {
@@ -74,25 +74,69 @@ function currencyFormat(num) {
 	return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+function populateLeads(data) {
+    console.log("Inside populateLeads function");
+    console.log(data); 
+    var leadList = document.getElementById('leadList');
+    if (leadList) {
+        
+        leadList.innerHTML = '';
+
+        if (Array.isArray(data) && data.length > 0) {
+        
+            data.forEach(function (lead) {
+                var li = document.createElement('li');
+                li.textContent = "Name: " + lead.name + ", Email: " + lead.email;
+                leadList.appendChild(li);
+            });
+        } else {
+            // Handle the case where 'data' is empty or not an array
+            var li = document.createElement('li');
+            li.textContent = "No leads found."; // Display a message when there are no leads
+            leadList.appendChild(li);
+        }
+    }
+}
+
+// Function to check authentication
 function checkAuth() {
     var pageName = window.location.pathname.split("/")[1];
     var sessionId = localStorage.getItem('session_id');
-    if (pageName != ''  && pageName != 'login') {
+    
+    if (pageName != '' && pageName != 'login') {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
-            //do nothing
+            // var settings = get_settings("leads", "GET");
+            var token = localStorage.getItem('session_id'); // Get the token from localStorage
+            var headers = {
+                'Authorization': 'Token ' + token
+            };
+
+            
+            var apiEndpoint = API_URL+url; 
+
+            
+            var settings = {
+                url: apiEndpoint,
+                method: 'GET', 
+                headers: headers
+            };
+
+            console.log("Before AJAX Request");
+            console.log(settings); // Log the settings object
+
+            $.ajax(settings).done(function (response) {
+                console.log("Response from API:");
+                console.log(response);
+                populateLeads(response);
+            }).fail(function (err) {
+                console.error("AJAX Request Failed:");
+                console.error(err);
+            });
+            
+            
         } else {
             window.location = '/';
-        }
-        alert("ERE")
-            // Move this to better place and populate leads screen
-            var settings = get_settings("leads", "GET")
-             console.log(settings)
-            alert(settings)
-            $.ajax(settings).done(function (response) {
-                console.log("leads")
-                alert(JSON.stringify(response))
-                console.log(response)
-            })
+        }   
     } else {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
             settings = get_settings('is-valid-token/', 'GET');

@@ -11,6 +11,7 @@ urlpatterns = [
     path('login/', views.login),
     path('dashboard/', views.dashboard),
     path('search-log/', views.search_log),
+    path('inbox/', views.inbox),
     path('manual-agents/', views.manual_agents),
     path('referrals/', views.referrals),
     path('agent-profiles/', views.profile),

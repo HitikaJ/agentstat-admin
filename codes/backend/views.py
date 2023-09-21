@@ -116,3 +116,6 @@ def update_profile(request):
 
 def settings(request):
     return render(request, 'settings.html')
+
+def inbox(request):
+    return render(request, 'inbox.html')
