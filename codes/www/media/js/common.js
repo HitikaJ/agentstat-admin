@@ -105,22 +105,10 @@ function checkAuth() {
     
     if (pageName != '' && pageName != 'login') {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
-            // var settings = get_settings("leads", "GET");
-            var token = localStorage.getItem('session_id'); 
-            
-
-            
-            var apiEndpoint = "http://localhost:8069/inbox/" ;
-
-            
-            var settings = {
-                url: apiEndpoint,
-                method: 'GET', 
-                headers: {
-                    'Authorization': 'Token ' + token 
-                }
-            };
-
+		//
+		//
+		//
+            var settings = get_settings("leads/?page=1", "GET");
             console.log("Before AJAX Request");
             console.log(settings); // Log the settings object
 
