@@ -1,5 +1,5 @@
  API_URL = 'https://app.realtorstat.com/api/';
-  API_URL = 'http://localhost:8000/api/';
+// API_URL = 'http://localhost:8000/api/';
 WEBSITE_URL = 'https://agentstat.com/';
 
 function get_settings(url, method, data=null) {
@@ -106,19 +106,19 @@ function checkAuth() {
     if (pageName != '' && pageName != 'login') {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
             // var settings = get_settings("leads", "GET");
-            var token = localStorage.getItem('session_id'); // Get the token from localStorage
-            var headers = {
-                'Authorization': 'Token ' + token
-            };
+            var token = localStorage.getItem('session_id'); 
+            
 
             
-            var apiEndpoint = API_URL+url; 
+            var apiEndpoint = "http://localhost:8069/inbox/" ;
 
             
             var settings = {
                 url: apiEndpoint,
                 method: 'GET', 
-                headers: headers
+                headers: {
+                    'Authorization': 'Token ' + token 
+                }
             };
 
             console.log("Before AJAX Request");
