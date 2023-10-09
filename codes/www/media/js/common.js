@@ -1,6 +1,7 @@
- API_URL = 'https://app.realtorstat.com/api/';
+API_URL = 'https://app.realtorstat.com/api/';
 // API_URL = 'http://localhost:8000/api/';
 WEBSITE_URL = 'https://agentstat.com/';
+
 
 function get_settings(url, method, data=null) {
 	return {
@@ -74,29 +75,35 @@ function currencyFormat(num) {
 	return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-function populateLeads(data) {
-    console.log("Inside populateLeads function");
-    console.log(data); 
-    var leadList = document.getElementById('leadList');
-    if (leadList) {
-        
-        leadList.innerHTML = '';
 
-        if (Array.isArray(data) && data.length > 0) {
-        
+function populateLeads(data) {
+    
+
+    var leadList = document.getElementById('leadList');
+    if (typeof data === 'string') {
+        try {
+          var data = JSON.parse(data);
+          if (Array.isArray(data)) {
             data.forEach(function (lead) {
-                var li = document.createElement('li');
-                li.textContent = "Name: " + lead.name + ", Email: " + lead.email;
-                leadList.appendChild(li);
+             
+              var li = document.createElement('li');
+              li.textContent = "Name: " + lead.name + ", Email: " + lead.email;
+              sendEmail(lead);
+              
+              leadList.appendChild(li);
             });
-        } else {
-            // Handle the case where 'data' is empty or not an array
-            var li = document.createElement('li');
-            li.textContent = "No leads found."; // Display a message when there are no leads
-            leadList.appendChild(li);
+          } else {
+            console.error('Parsed data is not an array.');
+          }
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
         }
-    }
+      }
+      else {
+        console.error('Invalid data format.');
+      }
 }
+
 
 // Function to check authentication
 function checkAuth() {
@@ -105,16 +112,9 @@ function checkAuth() {
     
     if (pageName != '' && pageName != 'login') {
         if (sessionId !== null && sessionId !== 'null' && sessionId !== '') {
-		//
-		//
-		//
-            var settings = get_settings("leads/?page=1", "GET");
-            console.log("Before AJAX Request");
-            console.log(settings); // Log the settings object
-
-            $.ajax(settings).done(function (response) {
-                console.log("Response from API:");
-                console.log(response);
+		
+            var settings = get_settings("leads", "GET");
+                $.ajax(settings).done(function (response) {
                 populateLeads(response);
             }).fail(function (err) {
                 console.error("AJAX Request Failed:");
